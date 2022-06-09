@@ -1,20 +1,21 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 let mode = "development"
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
 	mode = "production"
 }
-console.log(mode + " mode")
+console.log(mode + ' mode')
 
 module.exports = {
 	mode: mode,
 	entry: {
-		main: "./src/index.js"
+		main: './src/index.js'
 	},
 	output: {
 		filename: '[name].[contenthash].js',
-		assetModuleFilename: "assets/[hash][ext][query]",
+		assetModuleFilename: 'assets/images/[name][ext]',
 		clean: true,
 	},
 	optimization: {
@@ -25,20 +26,20 @@ module.exports = {
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash].css'
+			filename: '[name].[contenthash].css',
 		}),
 		new HtmlWebpackPlugin({
-			template: "./src/pages/index.pug"
+			template: './src/pages/index.pug',
 		}),
 	],
 
 	module: {
 		rules: [
 			{
-				test: /\.m?js$/,
+				test: /\.?js$/,
 				exclude: /node_modules/,
 				use: {
-					loader: "babel-loader",
+					loader: 'babel-loader',
 					options: {
 						presets: ['@babel/preset-env'],
 					},
@@ -48,22 +49,28 @@ module.exports = {
 				test: /\.(le|c)ss$/,
 				use: [
 					(mode === 'development') ? "style-loader" : MiniCssExtractPlugin.loader,
-					"css-loader",
-					"postcss-loader",
-					"less-loader"
+					'css-loader',
+					'postcss-loader',
+					'less-loader'
 				],
 			},
 			{
-				test: /\.(png|svg|jpg|jpeg|gif)&/i,
-				type: "asset/resourse",
+       			test: /\.(png|svg|jpg|jpeg|gif)$/,
+    		    type: 'asset/resource',
+    		    generator: {filename: 'assets/images/[name][ext]'}
+      		},
+			{
+				test: /\.(woff|woff2|eot|ttf|otf)$/,
+				type: 'asset/resource',
+				generator: {filename: 'assets/fonts/[name][ext]'},
 			},
 			{
-				test: /\.html$/i,
-				loader: "html-loader",
+				test: /\.html$/,
+				use: ['html-loader'],
 			},
 			{
 				test: /\.pug$/,
-				loader: "pug-loader",
+				loader: 'pug-loader',
 				exclude: /(node_modules|bower_components)/,
 			},
 		],

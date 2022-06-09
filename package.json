@@ -39,6 +39,7 @@
     "postcss-preset-env": "^7.5.0",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
+    "simple-pug-loader": "^0.2.1",
     "style-loader": "^3.3.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
