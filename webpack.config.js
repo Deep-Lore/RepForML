@@ -11,10 +11,10 @@ console.log(mode + ' mode')
 module.exports = {
 	mode: mode,
 	entry: {
-		main: './src/index.js'
+		colors_and_types: './src/pages/colors_and_types/colors_and_types.js'
 	},
 	output: {
-		filename: '[name].[contenthash].js',
+		filename: './pages/[name]/[name].[contenthash].js',
 		assetModuleFilename: 'assets/images/[name][ext]',
 		clean: true,
 	},
@@ -26,10 +26,11 @@ module.exports = {
 
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: '[name].[contenthash].css',
+			filename: './pages/[name]/[name].[contenthash].css',
 		}),
 		new HtmlWebpackPlugin({
-			template: './src/pages/index.pug',
+			template: './src/pages/colors_and_types/colors_and_types.pug',
+			filename: './pages/[name]/[name].[contenthash].html'
 		}),
 	],
 
@@ -65,14 +66,19 @@ module.exports = {
 				generator: {filename: 'assets/fonts/[name][ext]'},
 			},
 			{
-				test: /\.html$/,
-				use: ['html-loader'],
-			},
-			{
-				test: /\.pug$/,
-				loader: 'pug-loader',
-				exclude: /(node_modules|bower_components)/,
-			},
+      		  	test: /\.pug$/,
+      		  	use:[
+      		  		'@webdiscus/pug-loader',
+      		  	] 
+      		},
 		],
 	},
+
+	devServer: {
+  	  static: {
+  	    directory: path.join(__dirname, 'public'),
+  	  },
+  	  compress: true,
+  	  port: 9000,
+  	},
 }
