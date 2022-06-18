@@ -9,6 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 console.log(mode + ' mode')
 
 module.exports = {
+
 	mode: mode,
 	entry: {
 		colors_and_types: './src/pages/colors_and_types/colors_and_types.js'
@@ -30,7 +31,7 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin({
 			template: './src/pages/colors_and_types/colors_and_types.pug',
-			filename: './pages/[name]/[name].[contenthash].html'
+			filename: './pages/[name]/[name].html'
 		}),
 	],
 
@@ -66,19 +67,19 @@ module.exports = {
 				generator: {filename: 'assets/fonts/[name][ext]'},
 			},
 			{
-      		  	test: /\.pug$/,
-      		  	use:[
-      		  		'@webdiscus/pug-loader',
-      		  	] 
+      			test: /\.pug$/,
+      			use:[
+      				'@webdiscus/pug-loader',
+      			] 
       		},
 		],
 	},
 
 	devServer: {
-  	  static: {
-  	    directory: path.join(__dirname, 'public'),
-  	  },
-  	  compress: true,
-  	  port: 9000,
+  		static: {
+  	    	directory: path.join(__dirname, 'dist'),
+  	  	},
+  	  	compress: true,
+  	  	port: 8080,
   	},
 }

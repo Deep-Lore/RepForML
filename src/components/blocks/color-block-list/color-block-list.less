@@ -1,0 +1,48 @@
+@import url(../../../less/styles/_variables.less);
+
+.color-block-list{
+	min-width: 50%;
+	padding-left: 10px;
+	&__item{
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	&__text{
+		margin-left: 40px;
+		align-content: center;
+		font-size: @font-size_big;
+		line-height: 27px;
+	}
+	&__title{
+		font-weight: bold;
+	}
+	&__rect{
+		min-width: 70px;
+		height: 70px;
+		border-radius: 6px;
+		&_color{
+			&_green{
+				background-color: @green;
+			}
+			&_purple{
+				background-color: @purple;
+			}
+			&_dark-shade-5{
+				background-color: @dark-shade-5;
+			}
+			&_dark-shade-25{
+				background-color: @dark-shade-25;
+			}
+			&_dark-shade-50{
+				background-color: @dark-shade-50;
+			}
+			&_dark-shade-75{
+				background-color: @dark-shade-75;
+			}
+			&_dark-shade-100{
+				background-color: @dark-shade-100;
+			}
+		}
+	}
+}

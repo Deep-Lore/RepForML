@@ -1,5 +1,48 @@
-extends ../layouts/_main_layout
+extends ../layouts/_ui-kit_layout
 
 block body-content
-	.container
-		
+	+create-color-list([{
+			mode: "dark-shade-100",
+			text: "Dark Shade 100%",
+			colorCode: "#1F2041"
+		},{
+			mode: "dark-shade-75",
+			text: "Dark Shade 75%",
+			colorCode: "#1F2041"
+		},{
+			mode: "dark-shade-50",
+			text: "Dark Shade 50%",
+			colorCode: "#1F2041"
+		},{
+			mode: "dark-shade-25",
+			text: "Dark Shade 25%",
+			colorCode: "#1F2041"
+		},{
+			mode: "dark-shade-5",
+			text: "Dark Shade 5%",
+			colorCode: "#1F2041"
+		},{
+			mode: "purple",
+			text: "Purple",
+			colorCode: "#BC9CFF"
+		},{
+			mode: "green",
+			text: "Green",
+			colorCode: "#6FCF97"
+		}])
+
+	+create-font-list([{
+			header: "H1",
+			text: "This one is the sub-section or widget title",
+		},{
+			header: "H2",
+			text: "Next one is the item title inside widgets",
+		},{
+			header: "H3",
+			text: "THIS IS A LABEL OR CTA TEXT",
+		},{
+			header: "Body", 
+			text: `This is the body text which is used
+			for most of the design, like paragraphs, lists, etc.`,
+			color: "light",
+		}])

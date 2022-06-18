@@ -1,0 +1,18 @@
+mixin create-color-list(colorList=[])
+	.color-block-list
+		each value in colorList
+			.color-block-list__item
+				div(class=`color-block-list__rect color-block-list__rect_color_${value.mode}`)
+				.color-block-list__text #[span.color-block-list__title #{value.text}]#[br] #{value.colorCode}
+
+
+//- create-color-item(mode,text,colorCode)
+
+//- mods: //
+//- dark-shade-100
+//- dark-shade-75
+//- dark-shade-50
+//- dark-shade-25
+//- dark-shade-5
+//- green
+//- purple

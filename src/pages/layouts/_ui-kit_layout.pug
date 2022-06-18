@@ -1,7 +1,12 @@
+include ../../components/blocks/_blocks-list
+
 doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Ui kit
 body
-  block body-content
+  +create-ui-logo()
+  main.container
+    .container__inner 
+      block body-content

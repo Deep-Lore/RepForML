@@ -1,0 +1,10 @@
+mixin create-font-list(colorList=[{header: "H1",text: "H1 text", color: "default"}])
+	ul.font-block-list
+		each value in colorList
+			li(class=`font-block-list__item font-block-list__item_type_${value.header.toLowerCase()}`)
+				div(class='font-block-list__header')=value.header
+				-	
+					var textClasses = "font-block-list__text"
+					if(value.color=="light")
+						textClasses += "_light"
+				div(class=`${textClasses}`)=value.text

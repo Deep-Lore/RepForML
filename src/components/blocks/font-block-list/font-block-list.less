@@ -1,0 +1,49 @@
+@import url(../../../less/styles/_variables.less);
+
+.font-block-list{
+	min-width: 50%;
+	padding-right: 3px;
+	&__item{
+		display: flex;
+		float: right;
+		min-width: 436px;
+		max-width: 436px;
+		font-weight: bold;
+		&_type{
+			&_h1{
+				font-size: 24px;
+				line-height: 29px;
+				margin-bottom: 52px;
+			}
+			&_h2{
+				font-size: 19px;
+				line-height: 24px;
+				margin-bottom: 50px;
+			}
+			&_h3{
+				font-size: 12px;
+				line-height: 15px;
+				margin-bottom: 47px;
+			}
+			&_body{
+				width: 300px;
+				font-size: 14px;
+				line-height: 24px;
+				font-weight: normal;
+			}
+		}
+	}
+	&__header{
+		margin-right: 30px;
+		min-width: 37px;
+		text-align: right;
+		color: @dark-shade-25;
+		font-weight: normal;
+	}
+	&__text{
+		&_light{
+			color: @dark-shade-75;
+			width: 310px;
+		}
+	}
+}
