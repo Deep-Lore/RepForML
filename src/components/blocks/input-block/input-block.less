@@ -1,0 +1,119 @@
+@import url(../../../less/styles/_variables.less);
+
+.input-block{
+	&__heading{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 5px;
+		font-size: 12px;
+		line-height: 14.63px;
+		text-transform: uppercase;
+		position: relative;
+	}
+	&__text-field{
+		font-weight: bold;
+	}
+	&__condition{
+		color: @dark-shade-50;
+	}
+
+	//input-items
+	&__input-items{
+		position: relative;
+	}
+	//input-item
+	&__input-item{
+		height: 44px;
+		color: @dark-shade-25;
+		border: 1px solid @dark-shade-25;
+		border-radius: 4px;
+		width: 100%;
+		padding: 13px 15px;
+
+		&::placeholder{
+			color: @dark-shade-25;
+		}
+
+		//Modifiers input-item
+		&_border-color{
+			&_dark-50{
+				border-color: @dark-shade-50;
+			}
+		}
+		&_placeholder-color{
+			&_dark-75{
+				&::placeholder{
+					color: @dark-shade-75;
+				}
+			}
+		}
+	}
+
+	//input arrow
+	&__arrow{
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 44px;
+		border-radius: 0px 4px 4px 0px;
+		cursor: pointer;
+		//Modifiers arrow
+		&_type{
+			//arrow dropdown
+			&_dropdown{
+				&::after{
+					position: absolute;
+					top: 45%;
+					right: 50%;
+					display: block;
+					width: 8px;
+	        height: 8px;
+	        border-bottom: 2px solid @dark-shade-50;
+	        border-right: 2px solid @dark-shade-50;
+	        transform: rotate(45deg) translateY(-70.7%);
+	        content: '';
+				}
+			}
+			//arrow forward
+			&_forward{
+				//arrow
+				&::after{
+	        position: absolute;
+	        right: 25%;
+	        top: 50%;
+	        width: 11px;
+	        height: 11px;
+	        border-bottom: 2px solid @purple;
+	        border-right: 2px solid @purple;
+	        transform: rotate(-45deg) translateY(-70.1%);
+	        content: "";
+	      }
+	      //line
+				&::before {
+	        position: absolute;
+	        left: 31%;
+	        top: 50%;
+	        content: "";
+	        display: block;
+	        width: 15px;
+	        border-bottom: 2px solid @purple;
+	        transform: translateY(-50%);
+	      }
+			}
+		}
+	}
+
+	//Modifiers input-block
+	&_size{
+		&_big{
+			width: 320px;
+		}
+		&_medium{
+			width: 266px;
+		}
+		&_small{
+			width: 150px;
+		}
+	}
+}

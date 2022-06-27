@@ -1,0 +1,28 @@
+mixin create-input-block(params = {placeholder : 'Enter placeholder',textField : 'Enter textField',condition : 'Enter condition',size : 'big',borderColor : 'dark-25',placeholderColor : 'dark-25',arrow : false})
+	
+	//- default values
+	-
+		//- сlass for input
+		const mainInputClass = 'input-block__input-item'
+		const borderColorClass = params.borderColor=='dark-25' ? `${mainInputClass}_border-color_${params.borderColor}` : ''
+		const placeholderColorClass = params.placeholderColor=='dark-25' ? `${mainInputClass}_placeholder-color_${params.placeholderColor}` : ''
+		const arrowClass = params.arrow ? `input-block__arrow input-block__arrow_type_${params.arrow}` : ''
+
+	div(class=`input-block input-block_size_${params.size}`)
+		.input-block__heading
+			label.input-block__text-field=params.textField
+			if params.condition 
+				label.input-block__condition=params.condition
+		.input-block__input-items
+			input(class=`${mainInputClass} ${borderColorClass} ${placeholderColorClass}`)(placeholder=params.placeholder)
+			if params.arrow
+				div(class=arrowClass)
+
+//- Call mixin
+//- placeholder: Enter placeholder
+//- textField: Enter text field 
+//- condition: Enter condition, false
+//- size: big, meduim, small
+//- borderColor(default - dark-25): dark-50
+//- placeholderColor(default - dark-25): dark-75
+//- dropDown(default - false): dropdown, forward

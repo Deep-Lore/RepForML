@@ -6,7 +6,8 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Ui kit
 body
-  +create-ui-logo()
+  block header
+    +create-ui-logo()
   main.container
     .container__inner 
       block body-content
