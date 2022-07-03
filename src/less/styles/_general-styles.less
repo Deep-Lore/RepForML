@@ -1,10 +1,10 @@
 html{
-	-webkit-box-sizing:border-box;
 	box-sizing:border-box;
 }
 
 *,*::after,*::before{
-	-webkit-box-sizing:inherit;box-sizing:inherit;
+	box-sizing:inherit;
+	outline:none;
 }
 
 body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,figure,figcaption,blockquote,dl,dd{
@@ -23,6 +23,8 @@ img{
 
 input,button,textarea,select{
 	font:inherit;
+	margin: 0;
+	padding: 0;
 }
 
 a{
@@ -51,4 +53,12 @@ html{
 	max-width:1440px;
 	margin:0 auto;
 	padding:0 140px;
+}
+
+@media (max-width:400px) {
+	.container{
+		max-width:1440px;
+		margin:0 auto;
+		padding:0 40px;
+}
 }

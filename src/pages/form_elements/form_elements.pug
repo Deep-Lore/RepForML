@@ -1,24 +1,44 @@
 extends ../layouts/_ui-kit_layout
 
 block body-content
-	.form-items
-		+ create-input-block()
-		+ create-input-block({
-			placeholder: 'Email', 
-			textField: 'Text Field', 
-			condition: 'Default',
-			size: 'big',
-			borderColor: false,
-			placeholderColor: false,
-			arrow: 'forward',
-		})
+	form.form-items
+		//- + create-input-block({
+		//- 	placeholder: 'Email', 
+		//- 	textField: 'Text Field', 
+		//- 	condition: 'Default',
+		//- 	size: 'big',
+		//- 	borderColor: false,
+		//- 	placeholderColor: false,
+		//- 	arrow: 'forward',
+		//- })
 
-//- Create input-block
-//- +create-input-block(
-//- placeholder: Enter placeholder
-//- textField: Enter text field 
-//- condition: Enter condition, false
-//- size: big, meduim, small
-//- borderColor(default - dark-25): dark-50
-//- placeholderColor(default - dark-25): dark-75
-//- dropDown(default - false): dropdown, forward
+		//- + create-checkbox-block({
+		//- 	text: 'Можно курить',
+		//- 	isChecked: true
+		//- })
+
+		//- + create-radio-block-list([{
+		//- 	name: 'male',
+		//- 	text: 'Мужчина',
+		//- 	isChecked : true,
+		//- },{
+		//- 	name: 'male',
+		//- 	text: 'Женщина',
+		//- }])
+
+		//- + create-toggle-block({
+		//- 	text: 'Получать спецпредложения',
+		//- 	isChecked: true
+		//- })
+
+		//- + create-like-block({
+		//- 	text: '2',
+		//- 	isChecked: false
+		//- })
+
+		//- + create-like-block({
+		//- 	text: '12',
+		//- 	isChecked: true
+		//- })
+
+		

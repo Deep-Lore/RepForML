@@ -1,0 +1,24 @@
+mixin create-checkbox-block(params = {})
+
+	//- default values
+	-	
+		const {
+			text = 'Enter text',
+			isChecked = false
+		} = params
+
+	//- сlasses
+	
+	
+	//- block
+	label.checkbox-block
+		input.checkbox-block__item&attributes({
+			type: "checkbox",
+			checked: isChecked,
+		})
+		span.checkbox-block__text=text
+
+//- Call mixin
+
+//- text: Enter text,
+//- isChecked(dafult - false): false, true

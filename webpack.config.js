@@ -17,7 +17,6 @@ const PAGES = fs
   .filter(item => item != 'layouts');
 
 //pages plugin
-
 const sitePages = PAGES
   .map(name => new HtmlWebpackPlugin({
     template: `./src/pages/${name}/${name}.pug`,
@@ -43,11 +42,11 @@ module.exports = {
 		filename: './pages/[name]/[name].js',
 		clean: true,
 	},
-	optimization: {
-		splitChunks: {
-			chunks: 'all',
-		},
-	},
+	// optimization: {
+	// 	splitChunks: {
+	// 		chunks: 'all',
+	// 	},
+	// },
 
 	plugins: [
 		// new BundleAnalyzerPlugin(),
@@ -71,6 +70,7 @@ module.exports = {
 			},
 			{
 				test: /\.(le|c)ss$/,
+				exclude: /node_modules/,
 				use: [
 					mode === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
 					'css-loader',

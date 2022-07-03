@@ -1,0 +1,56 @@
+@import url(../../../less/styles/_variables.less);
+
+.checkbox-block{
+	position: relative;
+	max-width: 320px;
+	display: flex;
+	vertical-align: middle;
+	height: 20px;
+	position: relative;
+	//checkbox items
+	//checkbox text
+	&__text{
+		color: @dark-shade-50;
+	}
+	//checkbox item
+	&__item{
+		opacity: 0;
+		width: 20px;
+		margin-right: 10px;
+	}
+
+	//create custom checkbox
+	//checkbox rect
+	&__item + &__text::before{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 100%;
+		border: 1px solid @dark-shade-25;
+		border-radius: 4px;
+		margin-right: 10px;
+		content: '';
+	}
+	//cheked condition
+	&__item:checked + &__text::before{
+		border-color: @purple;
+	}
+	&__item:hover + &__text::before{
+		border-color: @purple;
+	}
+	//check mark
+	&__item:checked + &__text::after{
+		position: absolute;
+		top: 6px;
+	    left: 6px;
+	    width: 8px;
+	    height: 6px;
+	    border-left: 2px solid;
+	    border-bottom: 2px solid;
+	    border-image-source: linear-gradient(-45deg, #BC9CFF, #8BA4F9);
+	    border-image-slice: 1;
+	    transform: rotate(-45deg);
+	    content: '';
+	}
+}

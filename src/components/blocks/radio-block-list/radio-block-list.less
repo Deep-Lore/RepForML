@@ -1,0 +1,59 @@
+@import url(../../../less/styles/_variables.less);
+
+.radio-block-list{
+	position: relative;
+	display: flex;
+	max-width: 320px;
+	vertical-align: middle;
+	//checkbox items
+	&__radio-block{
+		position: relative;
+		display: flex;
+		margin-right: 20px;
+		height: 20px;
+	}
+	//checkbox text
+	&__text{
+		color: @dark-shade-75;
+	}
+	//checkbox item
+	&__item{
+		width: 20px;
+		opacity: 0;
+		margin-right: 10px;
+	}
+
+	//create custom checkbox
+	//checkbox rect
+	&__item + &__text::before{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 20px;
+		height: 100%;
+		border: 1px solid @dark-shade-25;
+		border-radius: 100%;
+		margin-right: 10px;
+		content: '';
+	}
+
+	//cheked condition
+	&__item:checked + &__text::before{
+		border-color: @purple;
+	}
+	&__item:hover + &__text::before{
+		border-color: @purple;
+	}
+
+	//check mark
+	&__item:checked + &__text::after{
+		position: absolute;
+		top: 4px;
+	    left: 4px;
+	    width: 12px;
+	    height: 12px;
+	    border-radius: 50%;
+	    background-image: linear-gradient(180deg, #BC9CFF, #8BA4F9);
+	    content: '';
+	}
+}

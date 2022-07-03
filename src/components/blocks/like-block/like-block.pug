@@ -1,0 +1,27 @@
+mixin create-like-block(params = {})
+
+	//- default values
+	-	
+		const {
+			text = 'Enter text',
+			isChecked = false
+		} = params
+
+	//- сlasses
+	
+	
+	//- block
+	label.like-block
+		input.like-block__fake-input&attributes({
+			type: "checkbox",
+			checked: isChecked,
+		})
+		div.like-block__button
+			.like-block__heart
+			.like-block__text=text
+
+
+//- Call mixin
+
+//- text: Enter text,
+//- isChecked(dafult - false): false, true

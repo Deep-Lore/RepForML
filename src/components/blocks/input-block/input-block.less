@@ -17,11 +17,11 @@
 		color: @dark-shade-50;
 	}
 
-	//input-items
+	//input items
 	&__input-items{
 		position: relative;
 	}
-	//input-item
+	//input item
 	&__input-item{
 		height: 44px;
 		color: @dark-shade-25;
@@ -29,6 +29,11 @@
 		border-radius: 4px;
 		width: 100%;
 		padding: 13px 15px;
+
+		&:focus, &:hover{
+			border-color: @dark-shade-75;
+			transition: 0.5s;
+		}
 
 		&::placeholder{
 			color: @dark-shade-25;
@@ -68,38 +73,38 @@
 					right: 50%;
 					display: block;
 					width: 8px;
-	        height: 8px;
-	        border-bottom: 2px solid @dark-shade-50;
-	        border-right: 2px solid @dark-shade-50;
-	        transform: rotate(45deg) translateY(-70.7%);
-	        content: '';
+					height: 8px;
+					border-bottom: 2px solid @dark-shade-50;
+					border-right: 2px solid @dark-shade-50;
+					transform: rotate(45deg) translateY(-70.7%);
+					content: '';
 				}
 			}
 			//arrow forward
 			&_forward{
 				//arrow
 				&::after{
-	        position: absolute;
-	        right: 25%;
-	        top: 50%;
-	        width: 11px;
-	        height: 11px;
-	        border-bottom: 2px solid @purple;
-	        border-right: 2px solid @purple;
-	        transform: rotate(-45deg) translateY(-70.1%);
-	        content: "";
+					position: absolute;
+					right: 25%;					
+					top: 50%;
+					width: 11px;
+					height: 11px;
+					border-bottom: 2px solid @purple;
+					border-right: 2px solid @purple;
+					transform: rotate(-45deg) translateY(-70.1%);
+					content: "";
 	      }
 	      //line
 				&::before {
-	        position: absolute;
-	        left: 31%;
-	        top: 50%;
-	        content: "";
-	        display: block;
-	        width: 15px;
-	        border-bottom: 2px solid @purple;
-	        transform: translateY(-50%);
-	      }
+					position: absolute;
+					left: 31%;
+					top: 50%;
+					content: "";
+					display: block;
+					width: 15px;
+					border-bottom: 2px solid @purple;
+					transform: translateY(-50%);
+				}
 			}
 		}
 	}

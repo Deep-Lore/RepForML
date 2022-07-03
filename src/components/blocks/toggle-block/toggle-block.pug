@@ -1,0 +1,24 @@
+mixin create-toggle-block(params = {})
+
+	//- default values
+	-	
+		const {
+			text = 'Enter text',
+			isChecked = false
+		} = params
+
+	//- сlasses
+	
+	
+	//- block
+	label.toggle-block
+		input.toggle-block__item&attributes({
+			type: "checkbox",
+			checked: isChecked,
+		})
+		span.toggle-block__text=text
+
+//- Call mixin
+
+//- text: Enter text,
+//- isChecked(dafult - false): false, true

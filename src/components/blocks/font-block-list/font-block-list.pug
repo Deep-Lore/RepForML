@@ -1,10 +1,23 @@
-mixin create-font-list(colorList=[{header: "H1",text: "H1 text", color: "default"}])
+mixin create-font-list(fontList=[])
 	ul.font-block-list
-		each value in colorList
-			li(class=`font-block-list__item font-block-list__item_type_${value.header.toLowerCase()}`)
-				div(class='font-block-list__header')=value.header
-				-	
-					var textClasses = "font-block-list__text"
-					if(value.color=="light")
-						textClasses += "_light"
-				div(class=`${textClasses}`)=value.text
+		each params in fontList
+			//- default values
+			-	
+				const {header = "H1",
+					text = "H1 text", 
+					color = false,
+				} = params
+
+			//- classes
+				const fontBlockLisTextClass = color ? `font-block-list__text font-block-list__text_${color}` : 'font-block-list__text'
+
+			//- block
+			li(class=`font-block-list__item font-block-list__item_type_${header.toLowerCase()}`)
+				.font-block-list__header=header
+				div(class=fontBlockLisTextClass)=text
+
+//- Call mixin
+
+//- header(deafult - H1): H1, H2, H3, Body
+//- text(default - text): any text
+//- color(default - false): light

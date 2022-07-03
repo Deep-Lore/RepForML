@@ -1,18 +1,23 @@
 mixin create-color-list(colorList=[])
-	.color-block-list
-		each value in colorList
-			.color-block-list__item
-				div(class=`color-block-list__rect color-block-list__rect_color_${value.mode}`)
-				.color-block-list__text #[span.color-block-list__title #{value.text}]#[br] #{value.colorCode}
+	ul.color-block-list
+		each params in colorList
+			//- default values
+			-	
+				const {
+					mode = "dark-shade-100",
+					text = "Dark Shade 100%",
+					colorCode = "#1F2041",
+				} = params
 
+			//- block
+			li.color-block-list__item
+				div(class=`color-block-list__rect color-block-list__rect_color_${mode}`)
+				.color-block-list__text 
+					.color-block-list__title=text
+					div=colorCode
 
-//- create-color-item(mode,text,colorCode)
+//- Call mixin
 
-//- mods: //
-//- dark-shade-100
-//- dark-shade-75
-//- dark-shade-50
-//- dark-shade-25
-//- dark-shade-5
-//- green
-//- purple
+//- mode(deafult - dark-shade-100) : dark-shade-100, dark-shade-75, dark-shade-50, dark-shade-25, dark-shade-5, purple, green
+//- text(default - Dark Shade 100%): Dark Shade 100%, Dark Shade 75%, Dark Shade 50%, Dark Shade 25%, Dark Shade 5%, Purple, Green
+//- colorCode(default - #1F2041): #1F2041, BC9CFF, #6FCF97

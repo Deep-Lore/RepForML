@@ -1,0 +1,49 @@
+@import url(../../../less/styles/_variables.less);
+
+.like-block{
+	display: flex;
+	width: 40px;
+	height: 20px;
+	//like-block fake-input
+	&__fake-input{
+		width: 0;
+		border: 0;
+	}
+	//like-block button style
+	&__button{
+		display: flex;
+	    align-items: center;
+		border: 1px solid @dark-shade-25;
+		border-radius: 10px;
+		width: 100%;
+		color: @dark-shade-25;
+	}
+	//like-block heart svg
+	&__heart{
+		margin-left: 4px;
+		display: flex;
+		height: 8px;
+		width: 10px;
+		background-image: url('svg/heart.svg');
+		background-repeat: no-repeat;
+	}
+	//like-block text
+	&__text{
+		color: inherit;
+		font-size: 10px;
+		line-height: 12.19px;
+		width: 50%;
+		display: flex;
+		justify-content: center;
+	}
+
+	&__fake-input:checked + &__button{
+		border-color: @purple;
+		color: @purple;
+	}
+
+	
+	&__fake-input:checked + &__button > &__heart{
+		background-image: url('svg/hearh_fill_purple.svg');
+	}
+}
