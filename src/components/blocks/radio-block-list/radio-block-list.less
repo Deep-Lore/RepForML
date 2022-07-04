@@ -8,16 +8,16 @@
 	//checkbox items
 	&__radio-block{
 		position: relative;
-		display: flex;
 		margin-right: 20px;
 		height: 20px;
+		cursor: pointer;
 	}
 	//checkbox text
 	&__text{
 		color: @dark-shade-75;
 	}
 	//checkbox item
-	&__item{
+	&__fake-input{
 		width: 20px;
 		opacity: 0;
 		margin-right: 10px;
@@ -25,7 +25,7 @@
 
 	//create custom checkbox
 	//checkbox rect
-	&__item + &__text::before{
+	&__fake-input + &__text::before{
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -38,15 +38,15 @@
 	}
 
 	//cheked condition
-	&__item:checked + &__text::before{
+	&__fake-input:checked + &__text::before{
 		border-color: @purple;
 	}
-	&__item:hover + &__text::before{
+	&__fake-input:hover + &__text::before{
 		border-color: @purple;
 	}
 
 	//check mark
-	&__item:checked + &__text::after{
+	&__fake-input:checked + &__text::after{
 		position: absolute;
 		top: 4px;
 	    left: 4px;

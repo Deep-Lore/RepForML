@@ -2,16 +2,16 @@
 
 .toggle-block{
 	position: relative;
-	display: flex;
+	display: inline-block;
 	max-width: 320px;
-	vertical-align: middle;
 	height: 20px;
+	cursor: pointer;
 	//toggle text
 	&__text{
 		color: @dark-shade-75;
 	}
 	//toggle item
-	&__item{
+	&__fake-input{
 		width: 40px;
 		opacity: 0;
 		margin-right: 10px;
@@ -19,7 +19,7 @@
 
 	//create toggle
 	//toggle ellipse
-	&__item + &__text::before{
+	&__fake-input + &__text::before{
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -32,27 +32,30 @@
 	}
 
 	//cheked condition
-	&__item:checked + &__text::before{
+	&__fake-input:checked + &__text::before{
 		border-color: @purple;
 	}
-	&__item:hover + &__text::before{
+	&__fake-input:hover + &__text::before{
 		border-color: @purple;
 	}
-
+	&__fake-input:focus + &__text::before{
+		border-color: @purple;
+	}
 	//check mark
-	&__item + &__text::after{
+	&__fake-input + &__text::after{
 		position: absolute;
 		top: 4px;
 	    left: 4px;
 	    width: 12px;
 	    height: 12px;
 	    border-radius: 50%;
-	    background-image: linear-gradient(180deg, #BC9CFF, #8BA4F9);
+	    background-color: @dark-shade-25;
 	    transition: 0.4s;
 	    content: '';
 	}
 	//chek mark condition
-	&__item:checked + &__text::after{
+	&__fake-input:checked + &__text::after{
+		background-image: linear-gradient(180deg, #BC9CFF, #8BA4F9);
 		top: 4px;
 	    left: 24px;
 	    transition: 0.4s;

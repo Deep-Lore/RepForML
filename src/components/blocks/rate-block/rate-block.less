@@ -1,0 +1,22 @@
+@import url(../../../less/styles/_variables.less);
+
+.rate-block{
+	position: relative;
+	display: flex;
+	vertical-align: middle;
+	min-height: 20px;
+	//star
+	&__star-item{
+		width: 20px;
+		margin: 0px 2px;
+		//conditions
+		&_condition{
+			&_fill{
+				background-image: url(svg/star_fill.svg);
+			}
+			&_void{
+				background-image: url(svg/star_void.svg);
+			}
+		}
+	}
+}

@@ -2,18 +2,17 @@
 
 .checkbox-block{
 	position: relative;
-	max-width: 320px;
-	display: flex;
-	vertical-align: middle;
+	display: inline-block;
 	height: 20px;
 	position: relative;
+	cursor: pointer;
 	//checkbox items
 	//checkbox text
 	&__text{
 		color: @dark-shade-50;
 	}
 	//checkbox item
-	&__item{
+	&__fake-input{
 		opacity: 0;
 		width: 20px;
 		margin-right: 10px;
@@ -21,7 +20,7 @@
 
 	//create custom checkbox
 	//checkbox rect
-	&__item + &__text::before{
+	&__fake-input + &__text::before{
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -33,14 +32,17 @@
 		content: '';
 	}
 	//cheked condition
-	&__item:checked + &__text::before{
+	&__fake-input:checked + &__text::before{
 		border-color: @purple;
 	}
-	&__item:hover + &__text::before{
+	&__fake-input:hover + &__text::before{
+		border-color: @purple;
+	}
+	&__fake-input:focus + &__text::before{
 		border-color: @purple;
 	}
 	//check mark
-	&__item:checked + &__text::after{
+	&__fake-input:checked + &__text::after{
 		position: absolute;
 		top: 6px;
 	    left: 6px;

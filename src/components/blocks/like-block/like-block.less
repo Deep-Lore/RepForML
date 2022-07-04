@@ -4,6 +4,7 @@
 	display: flex;
 	width: 40px;
 	height: 20px;
+	cursor: pointer;
 	//like-block fake-input
 	&__fake-input{
 		width: 0;
@@ -37,12 +38,19 @@
 		justify-content: center;
 	}
 
+	//like-block conditions
 	&__fake-input:checked + &__button{
 		border-color: @purple;
 		color: @purple;
 	}
-
+	&__fake-input:hover + &__button{
+		border-color: @purple;
+	}
+	&__fake-input:focus + &__button{
+		border-color: @purple;
+	}
 	
+	//fill svg if checked
 	&__fake-input:checked + &__button > &__heart{
 		background-image: url('svg/hearh_fill_purple.svg');
 	}

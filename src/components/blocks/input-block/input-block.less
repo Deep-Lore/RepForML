@@ -30,11 +30,12 @@
 		width: 100%;
 		padding: 13px 15px;
 
-		&:focus, &:hover{
+		//input conditions
+		&:hover, &:focus{
 			border-color: @dark-shade-75;
-			transition: 0.5s;
 		}
 
+		//placeholder style
 		&::placeholder{
 			color: @dark-shade-25;
 		}
@@ -93,8 +94,8 @@
 					border-right: 2px solid @purple;
 					transform: rotate(-45deg) translateY(-70.1%);
 					content: "";
-	      }
-	      //line
+				}
+	      		//line
 				&::before {
 					position: absolute;
 					left: 31%;

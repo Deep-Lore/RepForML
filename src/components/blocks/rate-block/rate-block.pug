@@ -1,0 +1,14 @@
+mixin create-rate-block(rating = 0)
+
+	//- block
+	ul.rate-block
+		-	for(let i = 0; i < 5; i++)
+			if(i < rating)
+				li.rate-block__star-item.rate-block__star-item_condition_fill
+			if(i >= rating)
+				li.rate-block__star-item.rate-block__star-item_condition_void
+			
+
+//- Call mixin //
+//- text: Enter text,
+//- isChecked(dafult - false): false, true

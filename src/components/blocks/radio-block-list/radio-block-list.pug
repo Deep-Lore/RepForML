@@ -11,7 +11,7 @@ mixin create-radio-block-list(radioList=[])
 
 			//- block
 			label.radio-block-list__radio-block
-				input.radio-block-list__item&attributes({
+				input.radio-block-list__fake-input&attributes({
 					name: name,
 					type: "radio",
 					checked: isChecked,
@@ -20,8 +20,7 @@ mixin create-radio-block-list(radioList=[])
 			
 
 
-//- Call mixin
-
+//- Call mixin //
 //- name: Enter name param for input,
 //- text: Enter text,
 //- isChecked(dafult - false): false, true

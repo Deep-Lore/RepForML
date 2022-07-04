@@ -6,19 +6,15 @@ mixin create-toggle-block(params = {})
 			text = 'Enter text',
 			isChecked = false
 		} = params
-
-	//- сlasses
-	
 	
 	//- block
 	label.toggle-block
-		input.toggle-block__item&attributes({
+		input.toggle-block__fake-input&attributes({
 			type: "checkbox",
 			checked: isChecked,
 		})
 		span.toggle-block__text=text
 
-//- Call mixin
-
+//- Call mixin //
 //- text: Enter text,
 //- isChecked(dafult - false): false, true
