@@ -1,0 +1,64 @@
+@import url(../../../less/styles/_variables.less);
+
+.pagination-block{
+	//list
+	&__list{
+		position: relative;
+		display: flex;
+	}
+	//page-num
+	&__page-num{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+		width: 40px;
+		border-radius: 100px;
+		color: @dark-shade-50;
+		font-size: @font-size_small;
+		line-height: 16px;
+		cursor: pointer;
+		&_selected{
+			background: @main-gradient-100;
+			color: white;
+		}
+	}
+	// arrow
+	&__arrow{
+		position: relative;
+		height: 40px;
+		width: 40px;
+		background: @green-gradient-100;
+		border-radius: 100px;
+		cursor: pointer;
+		&::after{
+			position: absolute;
+			right: 25%;					
+			top: 50%;
+			width: 11px;
+			height: 11px;
+			border-bottom: 2px solid white;
+			border-right: 2px solid white;
+			transform: rotate(-45deg) translateY(-70.1%);
+			content: "";
+		}
+	  //line
+		&::before {
+			position: absolute;
+			left: 31%;
+			top: 50%;
+			content: "";
+			display: block;
+			width: 15px;
+			border-bottom: 2px solid white;
+			transform: translateY(-50%);
+		}
+	}
+	//page info
+	&__page-information{
+		margin-left: 5px;
+		margin-top: 8px;
+		line-height: 24px;
+		color: @dark-shade-75;
+	}
+}

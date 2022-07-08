@@ -27,7 +27,7 @@ mixin create-button-block(params = {})
 		div(class=`${mainButtonClass} ${buttonSizeClass}`)
 			div(class=`button-block__button-item ${buttonItemBackgroundClass} ${buttonItemDisabledClass}`)
 			span(class=`button-block__button-text ${buttonTextColorClass}`)=text
-			if arrow&&background!='void'&&background!='none'
+			if arrow&&background!='void'
 				.button-block__arrow
 	else 
 		div(class=`${mainButtonClass} ${buttonSizeClass}`)
@@ -44,3 +44,6 @@ mixin create-button-block(params = {})
 //- background(default - fill): fill, void
 //- disabled(default - false): false, true
 //- arrow(default - false): false, true
+
+//- regulations //
+//- block needs wrapper with defined height 

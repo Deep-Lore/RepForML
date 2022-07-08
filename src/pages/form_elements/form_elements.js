@@ -12,4 +12,6 @@ import '../../components/blocks/rate-block/rate-block.js'
 import '../../components/blocks/range-slider-block/range-slider-block.js'
 
 import '../../components/blocks/button-block/button-block.js'
+import '../../components/blocks/pagination-block/pagination-block.js'
+
 

@@ -1,0 +1,26 @@
+mixin create-pagination-block(params = {})
+	
+	//- default values
+	-	
+		const {
+			firstVal = 1,
+			lastVal = 15,
+			selectedPage = 1,
+		} = params
+
+		//- pages value arr
+		const pagesValue = [firstVal,firstVal+1,firstVal+2,'...',lastVal]
+
+
+	//- block
+	.pagination-block
+		ul.pagination-block__list
+			each value in pagesValue
+				if value==firstVal+selectedPage-1
+					li(class='pagination-block__page-num pagination-block__page-num_selected')=value
+				else
+					li.pagination-block__page-num=value
+			li(class='pagination-block__arrow')
+		.pagination-block__page-information 1 – 12 из 100+ вариантов аренды
+
+//- Call mixin //
