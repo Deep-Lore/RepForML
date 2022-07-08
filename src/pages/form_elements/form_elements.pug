@@ -2,43 +2,107 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	form.form-items
-		+ create-input-block({
-			placeholder: 'Email', 
-			textField: 'Text Field', 
-			condition: 'Default',
-			size: 'big',
-			borderColor: false,
-			placeholderColor: false,
-			arrow: 'forward',
-		})
-		br
-		+ create-checkbox-block({
-			text: 'Можно курить',
-			isChecked: true
-		})
-		br
-		+ create-radio-block-list([{
-			name: 'male',
-			text: 'Мужчина',
-			isChecked : true,
-		},{
-			name: 'male',
-			text: 'Женщина',
-		}])
-		br
-		+ create-toggle-block({
-			text: 'Получать спецпредложения',
-			isChecked: true
-		})
-		br
-		+ create-like-block({
-			text: '2',
-			isChecked: false
-		})
-		+ create-like-block({
-			text: '12',
-			isChecked: true
-		})
-		br
-		+ create-rate-block(3)
+		//- + create-input-block({
+		//- 	placeholder: 'Email', 
+		//- 	textField: 'Text Field', 
+		//- 	condition: 'Default',
+		//- 	size: 'big',
+		//- 	borderColor: false,
+		//- 	placeholderColor: false,
+		//- 	arrow: 'forward',
+		//- })
+		//- br
+		//- + create-checkbox-block({
+		//- 	text: 'Можно курить',
+		//- 	isChecked: true
+		//- })
+		//- br
+		//- + create-radio-block-list([{
+		//- 	name: 'male',
+		//- 	text: 'Мужчина',
+		//- 	isChecked : true,
+		//- },{
+		//- 	name: 'male',
+		//- 	text: 'Женщина',
+		//- }])
+		//- br
+		//- + create-toggle-block({
+		//- 	text: 'Получать спецпредложения',
+		//- 	isChecked: true
+		//- })
+		//- br
+		//- + create-like-block({
+		//- 	text: '2',
+		//- 	isChecked: false
+		//- })
+		//- + create-like-block({
+		//- 	text: '12',
+		//- 	isChecked: true
+		//- })
+		//- br
+		//- + create-rate-block(3)
+		//- + create-range-slider-block()
+		//- .form-items__inner
+		//- 	+ create-button-block({
+		//- 		size: 'normal',
+		//- 		text: 'click me',
+		//- 		textColor: 'white',
+		//- 		background: 'default',
+		//- 		disabled: false,
+		//- 		arrow: false,
+		//- 	})
+		//- 	br
+		//- 	+ create-button-block({
+		//- 		size: 'normal',
+		//- 		text: 'click me',
+		//- 		textColor: 'white',
+		//- 		background: 'default',
+		//- 		disabled: true,
+		//- 		arrow: false,
+		//- 	})
+		//- 	br
+		//- 	+ create-button-block({
+		//- 		size: 'normal',
+		//- 		text: 'click me',
+		//- 		textColor: 'purple',
+		//- 		background: 'void',
+		//- 		disabled: false,
+		//- 		arrow: false,
+		//- 	})
+		//- 	br
+		//- 	+ create-button-block({
+		//- 		size: 'normal',
+		//- 		text: 'click me',
+		//- 		textColor: 'purple',
+		//- 		background: 'void',
+		//- 		disabled: true,
+		//- 		arrow: false,
+		//- 	})
+		//- 	br
+		//- 	+ create-button-block({
+		//- 		size: 'normal',
+		//- 		text: 'click me',
+		//- 		textColor: 'purple',
+		//- 		background: 'none',
+		//- 		disabled: false,
+		//- 		arrow: false,
+		//- 	})
+		//- 	br
+		//- 	+ create-button-block({
+		//- 		size: 'normal',
+		//- 		text: 'click me',
+		//- 		textColor: 'purple',
+		//- 		background: 'none',
+		//- 		disabled: true,
+		//- 		arrow: false,
+		//- 	})
+		//- 	br
+		//- 	+ create-button-block({
+		//- 		size: 'big',
+		//- 		text: 'перейти к оплате',
+		//- 		textColor: 'white',
+		//- 		background: 'fill',
+		//- 		disabled: false,
+		//- 		arrow: true,
+		//- 	})
 		

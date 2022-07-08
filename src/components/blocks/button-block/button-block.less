@@ -1,0 +1,110 @@
+@import url(../../../less/styles/_variables.less);
+
+.button-block{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  max-height: 44px;
+  height: 100%;
+  cursor: pointer;
+  //button item
+	&__button-item{
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		color: white;
+		background: @main-gradient-100;
+  	border-radius: 100px;
+		//Modifiers background
+		&_background{
+			&_void{
+				&::before{
+					position: absolute;
+					height: calc(100%-4px);
+					width: calc(100%-4px);
+					border-radius: 100px;
+					background-color: white;
+					content: '';
+				}
+			}
+			&_none{
+				background: transparent;;
+			}
+		}
+		//Modifier disabled
+		&_disabled{
+			opacity: 0.5;
+		}
+	}
+	
+	//button-text
+	&__button-text{
+		font-size: @font-size_small;
+		font-weight: 700;
+		text-transform: uppercase;
+		position: absolute;
+		color: @dark-shade-50;
+		//Modifiers text
+		&_color{
+			&_white{
+				color: white;
+			}
+			&_purple{
+				color: @purple;
+			}
+		}
+	}
+	//arrow
+	&__arrow{
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 44px;
+		border-radius: 0px 4px 4px 0px;
+		&::after{
+			position: absolute;
+			right: 25%;					
+			top: 50%;
+			width: 11px;
+			height: 11px;
+			border-bottom: 2px solid white;
+			border-right: 2px solid white;
+			transform: rotate(-45deg) translateY(-70.1%);
+			content: "";
+		}
+	  //line
+		&::before {
+			position: absolute;
+			left: 31%;
+			top: 50%;
+			content: "";
+			display: block;
+			width: 15px;
+			border-bottom: 2px solid white;
+			transform: translateY(-50%);
+		}
+	}
+
+	//Modifiers button-block
+	&_size{
+		&_normal{
+			max-width: 99px;
+		}
+		&_big{
+			max-width: 320px;
+		}
+		&_stretchable{
+			width: 100%;
+		}
+	}
+
+	//Modifiers mix
+}
+
+	
+	
