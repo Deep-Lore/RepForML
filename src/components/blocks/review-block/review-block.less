@@ -1,0 +1,36 @@
+@import url(../../../less/styles/_variables.less);
+
+.review-block{
+  max-width: 712px;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: @dark-shade-75;
+  line-height: 24px;
+  //user
+  &__icon{
+    height: 48px;
+    width: 48px;
+    padding: 2px;
+    margin-right: 10px;
+    border-radius: 100%;
+    object-fit:cover;
+  }
+  &__user{
+    display: flex;
+  }
+  &__discription-name{
+    font-weight: bold;
+  }
+  //comment
+  &__comment{
+    display: flex;
+    margin-top: 10px;
+  }
+  &__comment-like-wrap{
+    min-width: 48px;
+    height: 48px;
+    padding: 2px 4px;
+    margin-right: 10px;
+  }
+}

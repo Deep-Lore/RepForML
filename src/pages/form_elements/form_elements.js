@@ -13,5 +13,5 @@ import '../../components/blocks/range-slider-block/range-slider-block.js'
 
 import '../../components/blocks/button-block/button-block.js'
 import '../../components/blocks/pagination-block/pagination-block.js'
-
-
+import '../../components/blocks/room-information-block/room-information-block.js'
+import '../../components/blocks/review-block/review-block.js'

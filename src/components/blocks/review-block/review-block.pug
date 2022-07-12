@@ -1,0 +1,36 @@
+//- include other blocks
+include ../like-block/like-block.pug
+
+//- mixin
+mixin create-review-block(params = {})
+
+	//- default values
+	- 
+		const{
+			name = 'Enter name', 
+			date = 'Enter date', 
+			text = 'Enter text',
+			like__num = '',
+			like__IsChecked = 'false'
+		} = params
+
+	.review-block
+		.review-block__user
+			img(class='review-block__icon' src=require('./img/user-icon.png'))
+			.review-block__user-discription
+				.review-block__discription-name=name
+				.review-block__discription-date=date
+		.review-block__comment
+			.review-block__comment-like-wrap
+				+ create-like-block({num: like__num, isChecked: like__IsChecked})
+			.review-block__comment-text=text
+
+//- Call mixin //
+//- params for this mixin
+//- name: Ener text
+//- date: Enter comment date
+//- text: Enter comment text
+
+//- params for like block:
+//- like__num: Enter nun for like block
+//- like__IsChecked(default - false): true, false

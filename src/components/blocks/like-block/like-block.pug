@@ -3,7 +3,7 @@ mixin create-like-block(params = {})
 	//- default values
 	-	
 		const {
-			text = 'Enter text',
+			num = 'num',
 			isChecked = false
 		} = params
 	
@@ -15,7 +15,7 @@ mixin create-like-block(params = {})
 		})
 		div.like-block__button
 			.like-block__heart
-			.like-block__text=text
+			.like-block__text=num
 
 
 //- Call mixin //

@@ -1,0 +1,21 @@
+mixin create-room-information-block(params = {})
+	
+	//- default values
+	- 
+		const{
+			imageType = 'comfort',
+			header = 'Enter date', 
+			text = 'Enter text'
+		} = params
+
+	//block
+	.room-information-block
+		img(class='room-information-block__icon' src=require(`./svg/smile_${imageType}.svg`))
+		.room-information-block__description
+			.room-information-block__discription-header=header
+			.room-information-block__discription-text=text
+
+//- Call mixin //
+//- imageType(default - comfort): comfort, convenience
+//- header: Enter header text
+//- text: description text
