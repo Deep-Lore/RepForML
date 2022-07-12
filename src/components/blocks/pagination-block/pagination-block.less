@@ -7,7 +7,8 @@
 		display: flex;
 	}
 	//page-num
-	&__page-num{
+	&__page-item{
+		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -19,10 +20,50 @@
 		line-height: 16px;
 		cursor: pointer;
 		&_selected{
-			background: @main-gradient-100;
 			color: white;
+			background: @main-gradient-100;
+		}
+		//first 3 element from page num without page-item_selected
+		&_clickeble{
+			&:not(.pagination-block__page-item_selected){
+				&::before{
+					position: absolute;
+					background: @main-gradient-100;
+					width: (100%);
+					height: (100%);
+					border-radius: 100%;
+					opacity: 0;
+					content: '';
+				}
+				&::after{
+					position: absolute;
+					background: white;
+					width: calc(100%-2px);
+					height: calc(100%-2px);
+					border-radius: 100%;
+					opacity: 0;
+					content: '';
+				}
+				&:hover{
+					&::before{
+						opacity: 1;
+						content: '';
+						transition: 0.3s;
+					}
+					&::after{
+						opacity: 1;
+						content: '';
+					}
+				}
+			}
 		}
 	}
+	//page num text
+	&__page-num{
+		position: absolute;
+		z-index: 1;
+	}
+		
 	// arrow
 	&__arrow{
 		position: relative;
