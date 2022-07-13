@@ -19,6 +19,7 @@
 		font-size: @font-size_small;
 		line-height: 16px;
 		cursor: pointer;
+		user-select: none;
 		&_selected{
 			color: white;
 			background: @main-gradient-100;
@@ -48,7 +49,7 @@
 					&::before{
 						opacity: 1;
 						content: '';
-						transition: 0.3s;
+						transition: 0.5s;
 					}
 					&::after{
 						opacity: 1;

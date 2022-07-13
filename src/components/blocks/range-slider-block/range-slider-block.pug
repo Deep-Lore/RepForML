@@ -1,6 +1,20 @@
 mixin create-range-slider-block()
+	
+	//- default values
+	-
+
 
 	//- block
-	.range-slider-block aboba	
+	label.range-slider-block
+		input(class='range-slider-block__item' type='range' min='0' max='100' value='50')
+		.range-slider-block__line(style='left: 10px; right: 10px')
+		.range-slider-block__thumb.range-slider-block__thumb-left(style='left: 10px')
+		.range-slider-block__thumb.range-slider-block__thumb-right(style='right: 10px')
+	// .range-slider-block__value-text
 	
-//- Call mixin //
+//- Call mixin
+	
+
+	//- - 
+	//- 	var min = -50, max = 50
+	//- 	var leftPointerPos = -30, rightPointerPos = 20;
