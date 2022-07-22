@@ -30,109 +30,23 @@
 		cursor: pointer;
 	}
 	&__thumb-left{
-		
 	}
 	&__thumb-right{
-		
 	}
-	&__line{
+	&__thumb-line{
 		position: absolute;
 		height: 6px;
 		width: auto;
-		left: 10%;
-		right: 10%;
 		background: @green-gradient-100
 	}
+	&__value-text{
+		user-select: none;
+		display: flex;
+	}
+	&__value-text-min{
+		user-select: none;
+	}
+	&__value-text-max{
+		user-select: none;
+	}
 }
-//not my
-// @w: 20em;
-// @h: 1em;
-
-// * { font: inherit }
-
-// .wrap {
-// 	--dif: calc(var(--max) - var(--min));
-// 	display: grid;
-// 	grid-template: repeat(2, max-content) @h/ 1fr 1fr;
-// 	overflow: hidden;
-// 	position: relative;
-// 	margin: 1em auto;
-// 	width: @w;
-// 	background: linear-gradient(0deg, #ccc @h, transparent 0);
-// 	font-family: ubuntu mono, consolas, monaco, monospace;
-	
-// 	&::before, &::after {
-// 		grid-column: 1/ span 2;
-// 		grid-row: 3;
-// 		height: 100%;
-// 		background: #95a;
-// 		content: ''
-// 	}
-	
-// 	&::before {
-// 		margin-left: calc((var(--a) - var(--min))/var(--dif)*100%);
-// 		width: calc((var(--b) - var(--a))/var(--dif)*100%);
-// 	}
-	
-// 	&::after {
-// 		margin-left: calc((var(--b) - var(--min))/var(--dif)*100%);
-// 		width: calc((var(--a) - var(--b))/var(--dif)*100%);
-// 	}
-// }
-
-// [id='multi-lbl'] { grid-column: 1/ span 2 }
-
-// .sr-only {
-// 	position: absolute;
-// 	clip-path: inset(50%)
-// }
-
-// input[type='range'] {
-// 	&::-webkit-slider-runnable-track, 
-// 	&::-webkit-slider-thumb, & {
-// 		-webkit-appearance: none
-// 	}
-	
-// 	grid-column: 1/ span 2;
-// 	grid-row: 3;
-// 	z-index: 1;
-// 	top: 0; left: 0;
-// 	margin: 0;
-// 	background: none; /* get rid of white Chrome background */
-// 	color: #000;
-// 	pointer-events: none;
-	
-// 	&::-webkit-slider-runnable-track { width: 100%; height: 100%;
-// 	background: none /* get rid of Firefox track background */ }
-// 	&::-moz-range-track { width: 100%; height: 100%;
-// 	background: none /* get rid of Firefox track background */ }
-	
-// 	&::-webkit-slider-thumb { border: none; /* get rid of Firefox thumb border */
-// 	width: @h; height: @h;
-// 	border-radius: 0; /* get rid of Firefox corner rounding */
-// 	background: currentcolor;
-// 	pointer-events: auto }
-// 	&::-moz-range-thumb { border: none; /* get rid of Firefox thumb border */
-// 	width: @h; height: @h;
-// 	border-radius: 0; /* get rid of Firefox corner rounding */
-// 	background: currentcolor;
-// 	pointer-events: auto }
-	
-// 	&:focus {
-// 		z-index: 2;
-// 		outline: dotted 1px currentcolor;
-		
-// 		&, & + output { color: darkorange }
-// 	}
-// }
-
-// output {
-// 	grid-row: 2;
-	
-// 	&:last-child { text-align: right }
-	
-// 	&::after {
-// 		counter-reset: c var(--c);
-// 		content: '--' attr(for) ': ' counter(c) ';'
-// 	}
-// }

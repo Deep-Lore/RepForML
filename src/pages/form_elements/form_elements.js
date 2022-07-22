@@ -15,3 +15,15 @@ import '../../components/blocks/button-block/button-block.js'
 import '../../components/blocks/pagination-block/pagination-block.js'
 import '../../components/blocks/room-information-block/room-information-block.js'
 import '../../components/blocks/review-block/review-block.js'
+
+//import func
+
+import rangeSlider from '../../components/blocks/range-slider-block/range-slider-block.js'
+
+var min = rangeSlider({
+	minRangeValue: 5000, 
+	maxRangeValue: 20000, 
+	thumbLeftValue: 10000, 
+	thumbRightValue: 15000, 
+	unit: '₽'
+})
