@@ -8,15 +8,15 @@ import '../../components/blocks/radio-block-list/radio-block-list.js'
 import '../../components/blocks/toggle-block/toggle-block.js'
 import '../../components/blocks/like-block/like-block.js'
 import '../../components/blocks/rate-block/rate-block.js'
-
 import '../../components/blocks/range-slider-block/range-slider-block.js'
-
 import '../../components/blocks/button-block/button-block.js'
 import '../../components/blocks/pagination-block/pagination-block.js'
 import '../../components/blocks/room-information-block/room-information-block.js'
 import '../../components/blocks/review-block/review-block.js'
+import '../../components/blocks/room-card/room-card.js'
 
-//import func
+
+//import func block
 
 import rangeSlider from '../../components/blocks/range-slider-block/range-slider-block.js'
 

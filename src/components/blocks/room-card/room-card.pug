@@ -1,0 +1,49 @@
+//- include other blocks
+include ../rate-block/rate-block.pug
+
+mixin create-room-card(params = {})
+
+	- 
+		const {
+			roomNumber = 666,
+			level = '',
+			price = '9 900',
+			reviewNum = 145,
+			rate__rating = 5,
+		} = params
+
+	.room-card
+		.room-card__slider
+			img.room-card__image
+			ul.room-card__dots
+				li.room-card__dot
+				li.room-card__dot 
+				li.room-card__dot 
+				li.room-card__dot 
+			.room-card__arrow-prew
+			.room-card__arrow-next
+		.room-card__information
+			.room-card__discription
+				.room-card__room-number
+					span № 
+					span.room-card__number-numeric=roomNumber
+					if level
+						span.room-card__room-level люкс
+				.room-card__room-price
+					span.room-card__price-numeric=price+'₽ ' 
+					span в сутки
+			.room-card__feedback
+				.room-card__rate-buttons
+					+ create-rate-block(rate__rating)
+				.room-card__reviews
+					span.room-card__reviews-numeric=reviewNum
+					span  Отзывов
+
+//- Call mixin //
+//-  params for this mixin
+//- roomNumber(default - 666): Enter room number; (int)
+//- level: 'люкс', ''; (str)
+//- price(default - 9 900): Enter price; (str)
+//- reviewNum(default - 145): Enter review number; (int)
+//-  params for rate-block mixin
+//- rate__rating(default - 0): Enter rating value; (int)
