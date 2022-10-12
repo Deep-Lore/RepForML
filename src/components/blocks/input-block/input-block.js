@@ -14,26 +14,42 @@ inputBlocks.forEach(inputBlock => {
     var btnPlus
     var counter
 
-    //body
-    inputBlockItems.addEventListener('click', () => {
-        inputBlockDropdown.classList.toggle('input-block__dropdown_visible')
+    //body//
+    //open dropdown
+    inputBlockItems.addEventListener('focusin', addDropdown)
+
+    //close dropdown
+    inputBlockItems.addEventListener('mouseover', () => {
+        console.log(1)
+        inputBlockItems.removeEventListener('focusout', removeDropdown)
     })
-    document.addEventListener('mousedown', (e) => {
-        if (!e.composedPath().includes(inputBlockItems)) {
-            inputBlockDropdown.classList.remove('input-block__dropdown_visible')
-        }
+    inputBlockItems.addEventListener('mouseout', () => {
+        console.log(2)
+        inputBlockItems.addEventListener('focusout', removeDropdown)
+
     })
+
     //buttons
     paragraphs.forEach(paragraph => {
+        counter = 0
         btnMinus = paragraph.querySelector('.input-block__dropdown-button_type_minus')
         btnPlus = paragraph.querySelector('.input-block__dropdown-button_type_plus')
-        console.log(btnMinus)
         
-        btnMinus.addEventListener('click', () => {
-
+        btnMinus.addEventListener('click', (e) => {
+            e.target.parentNode.querySelector('.input-block__dropdown-button-text').innerHTML--
         })
-        btnPlus.addEventListener('click', () => {
-            
+        btnPlus.addEventListener('click', (e) => {
+            e.target.parentNode.querySelector('.input-block__dropdown-button-text').innerHTML++
         })
     })
+
+    //functions//
+    function addDropdown() {
+        inputBlockDropdown.classList.add('input-block__dropdown_visible')
+        console.log(3)
+    }
+    function removeDropdown() {
+        inputBlockDropdown.classList.remove('input-block__dropdown_visible')
+        console.log(4)
+    }
 })
