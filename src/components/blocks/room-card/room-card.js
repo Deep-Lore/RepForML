@@ -4,7 +4,7 @@ import './room-card.less'
 //import other blocks
 import '../rate-block/rate-block.js'
 
-//script for this block
+//js for this block
 const imagesSrc = ["https://www.ejin.ru/wp-content/uploads/2019/05/krasivaja-gora.jpg","https://klike.net/uploads/posts/2019-06/1559370644_3.jpg","https://klike.net/uploads/posts/2019-06/1559370578_1.jpg","https://klike.net/uploads/posts/2019-06/medium/1559370665_2.jpg"]
 const roomCards = document.querySelectorAll('.room-card')
 

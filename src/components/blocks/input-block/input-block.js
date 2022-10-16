@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import './input-block.less'
-=======
 import './input-block.less'
 
 var inputBlocks = document.querySelectorAll('.input-block')
@@ -99,4 +96,3 @@ inputBlocks.forEach(inputBlock => {
         button.classList.add('input-block__dropdown-button_disabled')
     }
 })
->>>>>>> 46a7095 (dropdown created)

@@ -21,35 +21,24 @@
 
 	//input items
 	&__input-items{
-		position: relative;
-	}
-	//input item
-	&__input-item{
-		height: 44px;
-		color: @dark-shade-25;
+		display: grid;
+		grid-template-columns: 100%;
 		border: 1px solid @dark-shade-25;
 		border-radius: 4px;
-		width: 100%;
-		padding: 13px 15px;
-
+		cursor: pointer;
 		//input conditions
-		&:hover, &:focus{
+		&:hover{
 			border-color: @dark-shade-75;
 		}
-
-		//placeholder style
-		&::placeholder{
-			color: @dark-shade-25;
+		&:focus-within{
+			border-color: @dark-shade-75;
 		}
-
-		//Modifiers input-item
+		//Modifiers input-ites
 		&_border-color{
 			&_dark-50{
 				border-color: @dark-shade-50;
 			}
 		}
-<<<<<<< HEAD
-=======
 		//dropdown contains
 		&_dropdown-active{
 			border-color: @dark-shade-75;
@@ -73,9 +62,9 @@
 			color: @dark-shade-25;
 		}
 		//Modifiers input-item
->>>>>>> 46a7095 (dropdown created)
 		&_placeholder-color{
 			&_dark-75{
+				color: @dark-shade-75;
 				&::placeholder{
 					color: @dark-shade-75;
 				}
@@ -85,59 +74,51 @@
 
 	//input arrow
 	&__arrow{
-		position: absolute;
-		top: 0;
-		right: 0;
+		grid-row: 1;
+		grid-column: 1;
+		justify-self: end;
+		display: flex;
+    	justify-content: center;
+    	align-items: center;
 		height: 100%;
-		width: 44px;
+		width: 42px;
 		border-radius: 0px 4px 4px 0px;
-		cursor: pointer;
+		pointer-events: none;
 		//Modifiers arrow
 		&_type{
 			//arrow dropdown
 			&_dropdown{
 				&::after{
-					position: absolute;
-					top: 45%;
-					right: 50%;
-					display: block;
-					width: 8px;
 					height: 8px;
-					border-bottom: 2px solid @dark-shade-50;
-					border-right: 2px solid @dark-shade-50;
-					transform: rotate(45deg) translateY(-70.7%);
+					width: 12px;
+					background-image: url(svg/arrow.svg);
 					content: '';
 				}
+			}
+			&_dropdown-active{
+				transform: rotate(180deg);
 			}
 			//arrow forward
 			&_forward{
 				//arrow
 				&::after{
-					position: absolute;
-					right: 25%;					
-					top: 50%;
 					width: 11px;
 					height: 11px;
 					border-bottom: 2px solid @purple;
 					border-right: 2px solid @purple;
 					transform: rotate(-45deg) translateY(-70.1%);
-					content: "";
+					content: '';
 				}
 	      		//line
 				&::before {
-					position: absolute;
-					left: 31%;
-					top: 50%;
-					content: "";
 					display: block;
 					width: 15px;
 					border-bottom: 2px solid @purple;
 					transform: translateY(-50%);
+					content: '';
 				}
 			}
 		}
-<<<<<<< HEAD
-=======
 	}
 	//dropdown
 	&__dropdown{
@@ -191,9 +172,60 @@
 	&__dropdown-button-text{
 		width: 20px;
 		text-align: center;
->>>>>>> 46a7095 (dropdown created)
 	}
-
+	//dropdown
+	&__dropdown{
+		position: absolute;
+		display: none;
+		width: 100%;
+		padding: 7px 7px 7px 15px;
+		background-color: white;
+		border: 1px solid @dark-shade-75;
+		border-top: none;
+		border-radius: 0px 0px 4px 4px;
+		font-weight: 700;
+		z-index: 1;
+		&_dropdown-active{
+			display: block;
+		}
+	}
+	//paragraph item
+	&__dropdown-paragraph{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 7px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__dropdown-paragraph-text{
+		
+	}
+	//paragraph button
+	&__dropdown-buttons{
+		display: flex;
+		align-items: center;
+	}
+	&__dropdown-button{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 30px;
+		width: 30px;
+		border: 1px solid @dark-shade-25;
+		border-radius: 100%;
+		cursor: pointer;
+		&_disabled{
+			cursor: default;
+			border-color: @dark-shade-10;
+			color: @dark-shade-10;
+		}
+	}
+	&__dropdown-button-text{
+		width: 20px;
+		text-align: center;
+	}
 	//Modifiers input-block
 	&_size{
 		&_big{

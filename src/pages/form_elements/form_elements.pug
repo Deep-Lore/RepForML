@@ -2,94 +2,77 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	form.form-items
-		//- + create-input-block({
-		//- 	placeholder: 'Email', 
-		//- 	textField: 'Text Field', 
-		//- 	condition: 'Default',
-		//- 	size: 'big',
-		//- 	borderColor: false,
-		//- 	placeholderColor: false,
-		//- 	arrow: 'forward',
-		//- })
-		//- br
-		//- + create-checkbox-block({
-		//- 	text: 'Можно курить',
-		//- 	isChecked: true
-		//- })
-		//- br
-		//- + create-radio-block-list([{
-		//- 	name: 'male',
-		//- 	text: 'Мужчина',
-		//- 	isChecked : true,
-		//- },{
-		//- 	name: 'male',
-		//- 	text: 'Женщина',
-		//- }])
-		//- br
-		//- + create-toggle-block({
-		//- 	text: 'Получать спецпредложения',
-		//- 	isChecked: true
-		//- })
-		//- br
-		//- + create-like-block({
-		//- 	text: '2',
-		//- 	isChecked: false
-		//- })
-		//- + create-like-block({
-		//- 	text: '12',
-		//- 	isChecked: true
-		//- })
-		//- br
-		//- + create-rate-block(3)
-		//- + create-range-slider-block()
-		//- .form-items__inner
-		//- 	+ create-button-block({
-		//- 		size: 'normal',
-		//- 		text: 'click me',
-		//- 		textColor: 'white',
-		//- 		background: 'default',
-		//- 		disabled: false,
-		//- 		arrow: false,
-		//- 	})
-		//- + create-pagination-block({
-		//- 	firstVal: 1,
-		//- 	lastVal: 15,
-		//- 	selectedPage: 1,
-		//- })
-		//- + create-room-information-block({
-		//- 	imageType: 'comfort',
-		//- 	header: 'Комфорт',
-		//- 	text: 'Шумопоглощающие стены'
-		//- })
-		//- + create-room-information-block({
-		//- 	imageType: 'convenience',
-		//- 	header: 'Удобство',
-		//- 	text: 'Окно в каждой из спален'
-		//- })
-		//- + create-review-block({
-		//- 	name: 'Мурад Сарафанов', 
-		//- 	date: '5 дней назад', 
-		//- 	text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-		//- 	like__num: '12',
-		//- 	like__IsChecked: 'true'
-		//- })
-		//- + create-room-card({
-		//-  	roomNumber: '888',
-		//-  	level: 'люкс',
-		//-   	price: '9 900',
-		//-   	reviewNum: '145',
-		//-   	rate__rating: 5
-		//- })
-		//- + create-room-card({
-		//-  	roomNumber: '888',
-		//-  	level: 'люкс',
-		//-   	price: '9 900',
-		//-   	reviewNum: '145',
-		//-   	rate__rating: 5
-<<<<<<< HEAD
-		//- })
-=======
-		//- })
+		+ create-checkbox-block({
+			text: 'Можно курить',
+			isChecked: true
+		})
+		br
+		+ create-radio-block-list([{
+			name: 'male',
+			text: 'Мужчина',
+			isChecked : true,
+		},{
+			name: 'male',
+			text: 'Женщина',
+		}])
+		br
+		+ create-toggle-block({
+			text: 'Получать спецпредложения',
+			isChecked: true
+		})
+		br
+		+ create-like-block({
+			num: '2',
+			isChecked: true
+		})
+		br
+		+ create-rate-block(3)
+		+ create-range-slider-block()
+		.form-items__inner
+			+ create-button-block({
+				size: 'normal',
+				text: 'click me',
+				textColor: 'white',
+				background: 'default',
+				disabled: false,
+				arrow: false,
+			})
+		+ create-pagination-block({
+			firstVal: 1,
+			lastVal: 15,
+			selectedPage: 1,
+		})
+		+ create-room-information-block({
+			imageType: 'comfort',
+			header: 'Комфорт',
+			text: 'Шумопоглощающие стены'
+		})
+		+ create-room-information-block({
+			imageType: 'convenience',
+			header: 'Удобство',
+			text: 'Окно в каждой из спален'
+		})
+		+ create-review-block({
+			name: 'Мурад Сарафанов', 
+			date: '5 дней назад', 
+			text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+			like__num: '12',
+			like__IsChecked: 'true'
+		})
+		+ create-room-card({
+		 	roomNumber: '888',
+		 	level: 'люкс',
+		  	price: '9 900',
+		  	reviewNum: '145',
+		  	rate__rating: 5
+		})
+		+ create-room-card({
+		 	roomNumber: '888',
+		 	level: 'люкс',
+		  	price: '9 900',
+		  	reviewNum: '145',
+		  	rate__rating: 5
+		})
 		+ create-input-block({
 			placeholder: 'Удобства номера',
 			textField: 'dropdown',
@@ -100,4 +83,3 @@ block body-content
 			arrowType: 'dropdown',
 			dropdownParagraphs: ['спальни', 'кровати', 'ванные комнаты'],
 		})
->>>>>>> 46a7095 (dropdown created)
