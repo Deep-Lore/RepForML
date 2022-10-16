@@ -6,7 +6,7 @@ mixin create-input-block(params = {})
 			placeholder = 'Enter placeholder',
 			textField = 'Enter textField',
 			condition = 'Enter condition',
-			size = 'big',
+			size = '',
 			borderColor = 'dark-25',
 			placeholderColor = 'dark-25',
 			arrowType = false
@@ -15,6 +15,7 @@ mixin create-input-block(params = {})
 
 	//- сlasses
 	-
+<<<<<<< HEAD
 		const mainInputClass = 'input-block__input-item'
 		const borderColorClass = borderColor=='dark-25' ? `${mainInputClass}_border-color_${borderColor}` : ''
 		const placeholderColorClass = placeholderColor=='dark-25' ? `${mainInputClass}_placeholder-color_${placeholderColor}` : ''
@@ -22,6 +23,21 @@ mixin create-input-block(params = {})
 
 	//- block
 	div(class=`input-block input-block_size_${size}`)
+=======
+		const inputBlockSizeClass = size=='' ? '' : `input-block_size_${size}`
+		const inputBlockItemsClass = 'input-block__input-items'
+		const borderColorClass = borderColor!='dark-25' ? `input-block__input-items_border-color_${borderColor}` : ''
+		const placeholderColorClass = placeholderColor!='dark-25' ? `input-block__input-item_placeholder-color_${placeholderColor}` : ''
+		const arrowClass = arrowType ? `input-block__arrow input-block__arrow_type_${arrowType}` : ''
+
+	//-variables
+	-
+		const readonly = arrowType == 'dropdown' ? true : false
+
+	//- block
+	div(class=`input-block ${inputBlockSizeClass}`)
+		//header
+>>>>>>> 46a7095 (dropdown created)
 		.input-block__heading
 			label.input-block__text-field=textField
 			if condition 
@@ -30,12 +46,25 @@ mixin create-input-block(params = {})
 			input(class=`${mainInputClass} ${borderColorClass} ${placeholderColorClass}` placeholder=placeholder)
 			if arrow
 				div(class=arrowClass)
+<<<<<<< HEAD
+=======
+		//dropdown
+		if arrowType == 'dropdown'
+			.input-block__dropdown
+				each paragraph in dropdownParagraphs
+					.input-block__dropdown-paragraph
+						.input-block__dropdown-paragraph-text=paragraph
+						.input-block__dropdown-buttons
+							.input-block__dropdown-button.input-block__dropdown-button_type_minus -
+							span.input-block__dropdown-button-text 0
+							.input-block__dropdown-button.input-block__dropdown-button_type_plus +	
+>>>>>>> 46a7095 (dropdown created)
 
 //- Call mixin //
 //- placeholder: Enter placeholder
 //- textField: Enter text field 
 //- condition: Enter condition, false
-//- size: big, meduim, small
+//- size: big, meduim, small,
 //- borderColor(default - dark-25): dark-50
 //- placeholderColor(default - dark-25): dark-75
 //- arrowType(default - false): dropdown, forward

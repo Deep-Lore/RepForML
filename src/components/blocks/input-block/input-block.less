@@ -1,6 +1,8 @@
 @import url(../../../less/styles/_variables.less);
 
 .input-block{
+	position: relative;
+	user-select: none;
 	&__heading{
 		display: flex;
 		justify-content: space-between;
@@ -46,6 +48,32 @@
 				border-color: @dark-shade-50;
 			}
 		}
+<<<<<<< HEAD
+=======
+		//dropdown contains
+		&_dropdown-active{
+			border-color: @dark-shade-75;
+			border-radius: 4px 4px 0px 0px;
+		}
+	}
+
+	//input item
+	&__input-item{
+    	grid-row: 1;
+    	grid-column: 1;
+		width: 100%;
+		height: 42px;
+		padding: 13px 15px;
+		color: @dark-shade-25;
+		border: transparent;
+		border-radius: 5px;
+		cursor: pointer;
+		//placeholder style
+		&::placeholder{
+			color: @dark-shade-25;
+		}
+		//Modifiers input-item
+>>>>>>> 46a7095 (dropdown created)
 		&_placeholder-color{
 			&_dark-75{
 				&::placeholder{
@@ -108,6 +136,62 @@
 				}
 			}
 		}
+<<<<<<< HEAD
+=======
+	}
+	//dropdown
+	&__dropdown{
+		position: absolute;
+		display: none;
+		width: 100%;
+		padding: 7px 7px 7px 15px;
+		background-color: white;
+		border: 1px solid @dark-shade-75;
+		border-top: none;
+		border-radius: 0px 0px 4px 4px;
+		font-weight: 700;
+		z-index: 1;
+		&_dropdown-active{
+			display: block;
+		}
+	}
+	//paragraph item
+	&__dropdown-paragraph{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 7px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&__dropdown-paragraph-text{
+		
+	}
+	//paragraph button
+	&__dropdown-buttons{
+		display: flex;
+		align-items: center;
+	}
+	&__dropdown-button{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 30px;
+		width: 30px;
+		border: 1px solid @dark-shade-25;
+		border-radius: 100%;
+		cursor: pointer;
+		&_disabled{
+			cursor: default;
+			border-color: @dark-shade-10;
+			color: @dark-shade-10;
+		}
+	}
+	&__dropdown-button-text{
+		width: 20px;
+		text-align: center;
+>>>>>>> 46a7095 (dropdown created)
 	}
 
 	//Modifiers input-block
