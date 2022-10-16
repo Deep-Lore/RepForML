@@ -7,7 +7,7 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 5px;
-		font-size: 12px;
+		font-size: @font-size_small;
 		line-height: 14.63px;
 		text-transform: uppercase;
 		position: relative;
@@ -78,8 +78,8 @@
 		grid-column: 1;
 		justify-self: end;
 		display: flex;
-    	justify-content: center;
-    	align-items: center;
+    justify-content: center;
+    align-items: center;
 		height: 100%;
 		width: 42px;
 		border-radius: 0px 4px 4px 0px;
@@ -178,12 +178,13 @@
 		position: absolute;
 		display: none;
 		width: 100%;
-		padding: 7px 7px 7px 15px;
+		padding: 6px 6px 7px 14px;
 		background-color: white;
 		border: 1px solid @dark-shade-75;
 		border-top: none;
 		border-radius: 0px 0px 4px 4px;
 		font-weight: 700;
+		font-size: @font-size_small;
 		z-index: 1;
 		&_dropdown-active{
 			display: block;
@@ -193,19 +194,19 @@
 	&__dropdown-paragraph{
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
 		margin-bottom: 7px;
 		&:last-child{
 			margin-bottom: 0;
 		}
 	}
 	&__dropdown-paragraph-text{
-		
+		text-transform: uppercase;
 	}
 	//paragraph button
 	&__dropdown-buttons{
 		display: flex;
-		align-items: center;
+		justify-content: space-between;
+		width: 92px;
 	}
 	&__dropdown-button{
 		display: flex;
@@ -226,6 +227,22 @@
 		width: 20px;
 		text-align: center;
 	}
+
+	//managers buttons
+	&__managers-buttons{
+		margin: 20px 0px 5px 0px;
+		display: flex;
+		justify-content: space-between;
+		color: @purple;
+		text-transform: uppercase;
+	}
+	&__button-clear{
+		cursor: pointer;
+	}
+	&__button-apply{
+		cursor: pointer;
+	}
+
 	//Modifiers input-block
 	&_size{
 		&_big{

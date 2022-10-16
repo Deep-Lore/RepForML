@@ -20,10 +20,10 @@ import '../../components/blocks/room-card/room-card.js'
 
 import rangeSlider from '../../components/blocks/range-slider-block/range-slider-block.js'
 
-var min = rangeSlider({
-	minRangeValue: 5000, 
-	maxRangeValue: 20000, 
-	thumbLeftValue: 10000, 
-	thumbRightValue: 15000, 
-	unit: '₽'
-})
+// var min = rangeSlider({
+// 	minRangeValue: 5000, 
+// 	maxRangeValue: 20000, 
+// 	thumbLeftValue: 10000, 
+// 	thumbRightValue: 15000, 
+// 	unit: '₽'
+// })

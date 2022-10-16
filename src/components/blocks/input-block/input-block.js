@@ -4,30 +4,32 @@ var inputBlocks = document.querySelectorAll('.input-block')
 
 inputBlocks.forEach(inputBlock => {
     //block vars
-    var inputBlockItems = inputBlock.querySelector('.input-block__input-items')
-    var inputBlockItem = inputBlock.querySelector('.input-block__input-item')
-    var inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown')
-    var paragraphs = inputBlockDropdown.querySelectorAll('.input-block__dropdown-paragraph')
+    let inputBlockItems = inputBlock.querySelector('.input-block__input-items')
+    let inputBlockItem = inputBlock.querySelector('.input-block__input-item')
+    let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown')
+    let paragraphs = inputBlockDropdown.querySelectorAll('.input-block__dropdown-paragraph')
+    //placeholder
+    let placeHolderDefaultText = inputBlockItem.placeholder
     //arrow
-    var arrow = inputBlockItems.querySelector('.input-block__arrow')
+    let arrow = inputBlockItems.querySelector('.input-block__arrow')
     //button vars
-    var btnMinus
-    var btnPlus
-    var counter
-    var button
+    let btnMinus
+    let btnPlus
+    let counter
 
     //open dropdown
     inputBlockItems.addEventListener('click', toggleDropdown)
 
-    //close dropdown
+    // close dropdown
     document.addEventListener('mousedown', (e) => {
         if (!(e.composedPath().includes(inputBlockItems)||e.composedPath().includes(inputBlockDropdown))) {
             removeDropdown()
         }
     })
 
-    //buttons
+    // buttons //
     paragraphs.forEach(paragraph => {
+        //buttons
         btnMinus = paragraph.querySelector('.input-block__dropdown-button_type_minus')
         btnPlus = paragraph.querySelector('.input-block__dropdown-button_type_plus')
         //counter
@@ -64,7 +66,28 @@ inputBlocks.forEach(inputBlock => {
         })
     })
 
-    //functions//
+    //Clear and apply buttons
+    if (inputBlock.classList.contains('input-block_size_big')) {
+        let buttonClear = inputBlockDropdown.querySelector('.input-block__button-clear')
+        let buttonApply = inputBlockDropdown.querySelector('.input-block__button-apply')
+
+        buttonClear.addEventListener('click', () => {
+            paragraphs.forEach(paragraphName => {
+                paragraphName.querySelector('.input-block__dropdown-button-text').innerHTML=0
+                //take button
+                btnMinus = paragraphName.querySelector('.input-block__dropdown-button_type_minus')
+                btnPlus = paragraphName.querySelector('.input-block__dropdown-button_type_plus')
+                //get default condition
+                btnMinus.classList.add('input-block__dropdown-button_disabled')
+                btnPlus.classList.remove('input-block__dropdown-button_disabled')
+            })
+            createPlaceholder()
+            //get default placeholder
+            inputBlockItem.placeholder = placeHolderDefaultText
+        })
+    }
+
+    // functions //
     function toggleDropdown() {
         inputBlockItems.classList.toggle('input-block__input-items_dropdown-active')
         arrow.classList.toggle('input-block__arrow_type_dropdown-active')
@@ -77,8 +100,8 @@ inputBlocks.forEach(inputBlock => {
     }
     //placeholder
     function createPlaceholder() {
-        inputBlockItem.placeholder = ''
-        paragraphs.forEach((paragraphName, i) => {
+        clearPlaceHolder()
+        paragraphs.forEach((paragraphName, i, parArr) => {
             if(i<2){
                 inputBlockItem.placeholder += `${paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML} ${paragraphs[i].querySelector('.input-block__dropdown-paragraph-text').innerHTML}`
                 if(i<1) inputBlockItem.placeholder += ', '
@@ -86,13 +109,16 @@ inputBlocks.forEach(inputBlock => {
         })
         inputBlockItem.placeholder += '...'
     }
+    function clearPlaceHolder() {
+        inputBlockItem.placeholder = ''
+    }
     //button disabled
     function buttonEnable(e, sign) { //sign = plus or minus
-        button = e.target.parentNode.querySelector(`.input-block__dropdown-button_type_${sign}`)
+        let button = e.target.parentNode.querySelector(`.input-block__dropdown-button_type_${sign}`)
         button.classList.remove('input-block__dropdown-button_disabled')
     }
     function buttonDisable(e, sign) { //sign = plus or minus
-        button = e.target.parentNode.querySelector(`.input-block__dropdown-button_type_${sign}`)
+        let button = e.target.parentNode.querySelector(`.input-block__dropdown-button_type_${sign}`)
         button.classList.add('input-block__dropdown-button_disabled')
     }
 })
