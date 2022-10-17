@@ -11,7 +11,7 @@ mixin create-input-block(params = {})
 			placeholderColor = 'dark-25',
 			arrowType = false,
 			dropdownParagraphs = ['спальни', 'кровати', 'ванные комнаты'],
-			placeHolderMode = 'default', 
+			placeholderMode = 'default', 
 		} = params
 
 	//- block
@@ -35,7 +35,7 @@ mixin create-input-block(params = {})
 				label.input-block__condition=condition
 		label(class=`${inputBlockItemsClass} ${borderColorClass}`)
 			//input
-			input&attributes({
+			input(data-placeholder-mode=placeholderMode)&attributes({
 				placeholder: placeholder,
 				readonly: readonly,
 				class: ['input-block__input-item',
