@@ -78,8 +78,8 @@
 		grid-column: 1;
 		justify-self: end;
 		display: flex;
-    justify-content: center;
-    align-items: center;
+    	justify-content: center;
+    	align-items: center;
 		height: 100%;
 		width: 42px;
 		border-radius: 0px 4px 4px 0px;
@@ -94,9 +94,10 @@
 					background-image: url(svg/arrow.svg);
 					content: '';
 				}
+				transition: .25s;
 			}
 			&_dropdown-active{
-				transform: rotate(180deg);
+				transform: rotateX(180deg);
 			}
 			//arrow forward
 			&_forward{
@@ -120,59 +121,7 @@
 			}
 		}
 	}
-	//dropdown
-	&__dropdown{
-		position: absolute;
-		display: none;
-		width: 100%;
-		padding: 7px 7px 7px 15px;
-		background-color: white;
-		border: 1px solid @dark-shade-75;
-		border-top: none;
-		border-radius: 0px 0px 4px 4px;
-		font-weight: 700;
-		z-index: 1;
-		&_dropdown-active{
-			display: block;
-		}
-	}
-	//paragraph item
-	&__dropdown-paragraph{
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		margin-bottom: 7px;
-		&:last-child{
-			margin-bottom: 0;
-		}
-	}
-	&__dropdown-paragraph-text{
-		
-	}
-	//paragraph button
-	&__dropdown-buttons{
-		display: flex;
-		align-items: center;
-	}
-	&__dropdown-button{
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 30px;
-		width: 30px;
-		border: 1px solid @dark-shade-25;
-		border-radius: 100%;
-		cursor: pointer;
-		&_disabled{
-			cursor: default;
-			border-color: @dark-shade-10;
-			color: @dark-shade-10;
-		}
-	}
-	&__dropdown-button-text{
-		width: 20px;
-		text-align: center;
-	}
+
 	//dropdown
 	&__dropdown{
 		position: absolute;
@@ -185,15 +134,19 @@
 		border-radius: 0px 0px 4px 4px;
 		font-weight: 700;
 		font-size: @font-size_small;
+		opacity: 0;
 		z-index: 1;
 		&_dropdown-active{
 			display: block;
+			opacity: 1;
+			animation: fadeInFromNone .25s;
 		}
 	}
 	//paragraph item
 	&__dropdown-paragraph{
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		margin-bottom: 7px;
 		&:last-child{
 			margin-bottom: 0;
@@ -224,8 +177,7 @@
 		}
 	}
 	&__dropdown-button-text{
-		width: 20px;
-		text-align: center;
+		margin:auto;
 	}
 
 	//managers buttons
@@ -255,4 +207,18 @@
 			width: 150px;
 		}
 	}
+}
+
+//keyFrames
+@keyframes fadeInFromNone {
+    0% {
+    	display: none;
+        opacity: 0;
+    }1% {
+        display: block;
+        opacity: 0;
+    }100% {
+        display: block;
+        opacity: 1;
+    }
 }

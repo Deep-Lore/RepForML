@@ -1,5 +1,7 @@
 import './input-block.less'
 
+const maxInputLength =  15
+
 var inputBlocks = document.querySelectorAll('.input-block')
 
 inputBlocks.forEach(inputBlock => {
@@ -98,18 +100,24 @@ inputBlocks.forEach(inputBlock => {
     }
     //placeholder
     function createPlaceholder() {
-        if (inputBlockItem.dataset.placeholderMode='default') {
-            clearPlaceHolder()
+        clearPlaceHolder()
+        if (inputBlockItem.dataset.placeholderMode=='default') { 
+            let sum = 0 //create counter
             paragraphs.forEach((paragraphName, i, parArr) => {
-                if(i<2){
-                    inputBlockItem.placeholder += `${paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML} ${paragraphs[i].querySelector('.input-block__dropdown-paragraph-text').innerHTML}`
-                    if(i<1) inputBlockItem.placeholder += ', '
+                if (inputBlockItem.placeholder.length<maxInputLength) {
+                    if (paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML!=0) {
+                        if (inputBlockItem.placeholder != 0) {
+                            inputBlockItem.placeholder += ', '
+                        }
+                        inputBlockItem.placeholder += `${paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML} ${paragraphs[i].querySelector('.input-block__dropdown-paragraph-text').innerHTML}`
+                    }
                 }
-            })  
-            inputBlockItem.placeholder += '...'
+                sum += Number(paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML)
+            })
+            if (sum==0) inputBlockItem.placeholder = placeHolderDefaultText
+            else inputBlockItem.placeholder += '...'
         } 
-        if (inputBlockItem.dataset.placeholderMode='count') {
-            clearPlaceHolder()
+        if (inputBlockItem.dataset.placeholderMode=='count') {
             let sum = 0 //create counter
             paragraphs.forEach((paragraphName, i, parArr) => {
                 sum += Number(paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML)
@@ -118,9 +126,9 @@ inputBlocks.forEach(inputBlock => {
             //install placeholder
             inputBlockItem.placeholder = sum
             if (sum==0) inputBlockItem.placeholder = placeHolderDefaultText
-            else if (sum==1) inputBlockItem.placeholder += ' человек'
-            else if (sum>1&&sum<5) inputBlockItem.placeholder += ' человека'
-            else if (sum>=5) inputBlockItem.placeholder += ' людей'
+            else if (sum==1) inputBlockItem.placeholder += ' гость'
+            else if (sum>1&&sum<5) inputBlockItem.placeholder += ' гостя'
+            else if (sum>=5) inputBlockItem.placeholder += ' гостей'
         }
     }
     function clearPlaceHolder() {
