@@ -1,20 +1,31 @@
-mixin create-checkbox-block(params = {})
+mixin create-checkbox-list(checkboxListParams = [])
+	.checkbox-list
+		each params in checkboxListParams
+			//- default values
+			-	
+				const {
+					paragraph = 'Enter text',
+					isChecked = false,
+					mode = 'default',
+					richText = 'Enter text' 
+				} = params
 
-	//- default values
-	-	
-		const {
-			text = 'Enter text',
-			isChecked = false
-		} = params
-	
-	//- block
-	label.checkbox-block
-		input.checkbox-block__fake-input&attributes({
-			type: "checkbox",
-			checked: isChecked,
-		})
-		span.checkbox-block__text=text
+			//- block
+		
+			label.checkbox-list__item
+				input.checkbox-list__fake-input&attributes({
+					type: "checkbox",
+					checked: isChecked,
+				})
+				.checkbox-list__input-text
+					if mode=='rich'
+						.checkbox-list__rich-header=richText
+					span.checkbox-list__main-text=paragraph					
 
 //- Call mixin //
+//- Mixin accepts arrow //
 //- text: Enter text
 //- isChecked(dafult - false): false, true
+//- mode(default - 'default'): 'default', 'rich', 'expandable'
+//- richText: Enter text
+

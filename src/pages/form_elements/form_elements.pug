@@ -2,14 +2,9 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	form.form-items
-		+ create-input-block({
-			placeholder : 'Сколько гостей',
-			textField : 'dropdown',
-			condition : 'Default',
-			size : 'big',
-			borderColor : 'dark-25',
-			placeholderColor : 'dark-25',
-			arrowType : 'dropdown',
-			dropdownParagraphs : ['спальни', 'кровати', 'ванные комнаты'],
-			placeholderMode : 'default', 
-		})
+		+ create-checkbox-list([{
+			paragraph: 'Ширина коридоров в номере не менее 91 см.',
+			isChecked: true,
+			mode: 'rich',
+			richText: 'Широкий коридор'
+		}])
