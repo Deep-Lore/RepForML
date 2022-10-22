@@ -1,4 +1,4 @@
-mixin create-checkbox-list(checkboxListParams = [])
+mixin create-checkbox-list(expandable = false, checkboxListParams=[])
 	.checkbox-list
 		each params in checkboxListParams
 			//- default values
@@ -7,19 +7,27 @@ mixin create-checkbox-list(checkboxListParams = [])
 					paragraph = 'Enter text',
 					isChecked = false,
 					mode = 'default',
-					richText = 'Enter text' 
+					richText = '' 
 				} = params
 
+			//-classes
+			-
+				const itemIsExpandableClass = mode == 'expandable' ? 'checkbox-list__item_hided' : ''
+
 			//- block
-		
-			label.checkbox-list__item
+			
+			.checkbox-list__header
+				h4.checkbox-list__header-text expandable checkbox list
+				if mode == 'expandable'
+					.checkbox-list__expandable-arrow
+			label(class = `checkbox-list__item ${itemIsExpandableClass}`)
 				input.checkbox-list__fake-input&attributes({
 					type: "checkbox",
 					checked: isChecked,
 				})
 				.checkbox-list__input-text
 					if mode=='rich'
-						.checkbox-list__rich-header=richText
+						.checkbox-list__paragraph-header=richText
 					span.checkbox-list__main-text=paragraph					
 
 //- Call mixin //

@@ -2,9 +2,11 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	form.form-items
-		+ create-checkbox-list([{
-			paragraph: 'Ширина коридоров в номере не менее 91 см.',
-			isChecked: true,
-			mode: 'rich',
-			richText: 'Широкий коридор'
-		}])
+		+ create-checkbox-list({
+			expandable: true,
+			params: [{
+				paragraph: 'Ширина коридоров в номере не менее 91 см.',
+				isChecked: true,
+				mode: 'default',
+			}]
+		})

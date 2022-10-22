@@ -2,13 +2,37 @@
 
 .checkbox-list{
 	user-select: none;
-	//checkbox item
+	//header
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		cursor: pointer;
+	}
+	&__header-text{
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	&__expandable-arrow{
+		height: 8px;
+		width: 12px;
+		background-image: url(svg/arrow.svg);
+		content: '';
+		&_open{
+			transform: rotate(180deg);
+		}
+	}
+	//items
 	&__item{
+		margin-top: 18px;
 		display: flex;
 		min-height: 20px;
 		margin-bottom: 10px;
 		cursor: pointer;
 		position: relative;
+		&_hided{
+			display: none;
+		}
 		&:last-child{
 			margin-bottom: 0;
 		}
@@ -17,12 +41,12 @@
 	&__input-text{
 		margin-left: 10px;
 	}
-	//rich geader
-	&__rich-header{
+	//rich header
+	&__paragraph-header{
 		height: 20px;
+		margin-bottom: 5px;
 		color: @dark-shade-75;
 		font-weight: bold;
-		margin-bottom: 5px;
 	}
 	//checkbox text
 	&__main-text{
