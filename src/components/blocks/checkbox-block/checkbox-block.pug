@@ -1,39 +1,45 @@
-mixin create-checkbox-list(expandable = false, checkboxListParams=[])
-	.checkbox-list
-		each params in checkboxListParams
-			//- default values
-			-	
-				const {
-					paragraph = 'Enter text',
-					isChecked = false,
-					mode = 'default',
-					richText = '' 
-				} = params
+mixin create-checkbox-list(params={header: 'Enter header', expandable: false, checkboxListParams: [{paragraph: 'Ширина коридоров в номере не менее 91 см.', isChecked: true,}]})
+	//- classes
+	-
+		const checkboxListIsExpandableClass = params.expandable == true ? 'checkbox-list_expandable' : ''
 
-			//-classes
-			-
-				const itemIsExpandableClass = mode == 'expandable' ? 'checkbox-list__item_hided' : ''
+	//- block
+	div(class = `checkbox-list ${checkboxListIsExpandableClass}`)
+		//header and arrow
+		.checkbox-list__header
+			h4.checkbox-list__header-text=params.header
+			if params.expandable == true
+				.checkbox-list__expandable-arrow
 
-			//- block
-			
-			.checkbox-list__header
-				h4.checkbox-list__header-text expandable checkbox list
-				if mode == 'expandable'
-					.checkbox-list__expandable-arrow
-			label(class = `checkbox-list__item ${itemIsExpandableClass}`)
-				input.checkbox-list__fake-input&attributes({
-					type: "checkbox",
-					checked: isChecked,
-				})
-				.checkbox-list__input-text
-					if mode=='rich'
-						.checkbox-list__paragraph-header=richText
-					span.checkbox-list__main-text=paragraph					
+		//paragraphs block
+		.checkbox-list__items
+			each paramsForParagraph in params.checkboxListParams
+				//- default values
+				-	
+					const {
+						paragraph = 'Enter text',
+						isChecked = false,
+						richText = ''
+					} = paramsForParagraph
+
+				//- classes
+				-
+					const mainTextInRich = richText != '' ? 'checkbox-list__main-text_in-rich' : ''
+
+				//- block
+				label.checkbox-list__item
+					input.checkbox-list__fake-input&attributes({
+						type: "checkbox",
+						checked: isChecked,
+					})
+					.checkbox-list__input-text
+						if richText != ''
+							.checkbox-list__paragraph-header=richText
+						div(class = `checkbox-list__main-text ${mainTextInRich}`)=paragraph
 
 //- Call mixin //
 //- Mixin accepts arrow //
+//- expandable(default - false): true, false
 //- text: Enter text
 //- isChecked(dafult - false): false, true
-//- mode(default - 'default'): 'default', 'rich', 'expandable'
 //- richText: Enter text
-

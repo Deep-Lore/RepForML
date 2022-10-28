@@ -1,12 +1,15 @@
 @import url(../../../less/styles/_variables.less);
+@import url(../../../less/styles/_keyframes.less);
 
 .checkbox-list{
+	max-width: 266px;
 	user-select: none;
 	//header
 	&__header{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		font-size: @font-size_small;
 		cursor: pointer;
 	}
 	&__header-text{
@@ -15,24 +18,29 @@
 	}
 	&__expandable-arrow{
 		height: 8px;
-		width: 12px;
-		background-image: url(svg/arrow.svg);
+		min-width: 44px;
+		background: url(svg/arrow.svg) no-repeat center;
 		content: '';
-		&_open{
-			transform: rotate(180deg);
+		transition: .25s;
+		transform: rotate(180deg);
+		&_closed{
+			transform: rotate(0);
 		}
 	}
 	//items
-	&__item{
+	&__items{
 		margin-top: 18px;
+		animation: fadeInFromNone .25S;
+		&_hided{
+			display: none;
+		}
+	}
+	&__item{
 		display: flex;
 		min-height: 20px;
 		margin-bottom: 10px;
 		cursor: pointer;
-		position: relative;
-		&_hided{
-			display: none;
-		}
+		position: relative;	
 		&:last-child{
 			margin-bottom: 0;
 		}
@@ -43,19 +51,22 @@
 	}
 	//rich header
 	&__paragraph-header{
-		height: 20px;
-		margin-bottom: 5px;
+		min-height: 20px;
+		margin-bottom: 2px;
 		color: @dark-shade-75;
 		font-weight: bold;
 	}
 	//checkbox text
 	&__main-text{
 		color: @dark-shade-50;
+		&_in-rich{
+			font-size: @font-size_small;
+		}
 	}
 	//checkbox item
 	&__fake-input{
 		opacity: 0;
-		width: 20px;
+		min-width: 20px;
 		display: block;
 	}
 
