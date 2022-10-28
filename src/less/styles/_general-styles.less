@@ -1,6 +1,8 @@
 *{
 	box-sizing:border-box;
 	outline:none;
+	margin: 0;
+	padding: 0;
 }
 
 *::after{
@@ -18,29 +20,24 @@
 	outline:none;	
 }
 
-body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,figure,figcaption,blockquote,dl,dd{
-	margin:0;
+html{
+	font-family: Montserrat;
+	font-weight: normal;
+	font-size: 14px;
 }
 
 button{
-	border-width: 0;
+	border: 0;
 	background: transparent;
 }
 
 ul{
 	list-style:none;
-	padding: 0;
 }
 
 img{
 	max-width:100%;
 	display:block;
-}
-
-input,button,textarea,select{
-	font:inherit;
-	margin: 0;
-	padding: 0;
 }
 
 a{
@@ -51,15 +48,11 @@ html,body{
 	height:100%;
 }
 
-html{
-	font-family: Montserrat;
-	font-weight: normal;
-	font-size: 14px;
-}
-
-.main{
+main{
 	flex:1 0 auto;
 }
+
+//classes
 
 .footer{
 	flex:0 0 auto;
@@ -70,6 +63,8 @@ html{
 	margin:0 auto;
 	padding:0 140px;
 }
+
+//media//
 
 @media (max-width:400px) {
 	.container{

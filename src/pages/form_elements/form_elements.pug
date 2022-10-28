@@ -2,11 +2,42 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	form.form-items
-		+ create-bullet-list({
-			header: 'Bullet list',
-			buletListParagraphs: [
-				'Нельзя с питомцами',
-				'Без вечеринок и мероприятий',
-				'Время прибытия — после 13:00, а выезд до 12:00'
-			]
-		})
+		.form-items__inner
+			+ create-input-block({
+				placeholder: 'Email',
+				textField: 'Text Field',
+				condition: 'Default',
+				size: 'big',
+				borderColor: 'dark-25',
+				placeholderColor: 'dark-25',
+			})
+			+ create-input-block({
+				placeholder: 'Email',
+				textField: 'This is pretty awesome',
+				condition: 'Hover / Focus',
+				size: 'big',
+				borderColor: 'dark-50',
+				placeholderColor: 'dark-75',
+			})
+			+ create-input-block({
+				placeholder: 'Сколько гостей',
+				textField: 'Dropdown',
+				condition: '',
+				size: 'big',
+				borderColor: 'dark-25',
+				placeholderColor: 'dark-75',
+				arrowType: 'dropdown',
+				dropdownParagraphs: ['взрослые', 'дети', 'младенцы'],
+				placeholderMode: 'counter',
+			})
+			+ create-input-block({
+				placeholder: 'Email',
+				textField: 'This is pretty awesome',
+				condition: 'Hover / Focus',
+				size: 'big',
+				borderColor: 'dark-50',
+				placeholderColor: 'dark-75',
+			})
+		.form-items__inner
+
+		.form-items__inner
