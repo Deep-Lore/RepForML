@@ -2,16 +2,11 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	form.form-items
-		+ create-checkbox-list({
-			header: 'rich Checkbox Buttons',
-			expandable: false,
-			checkboxListParams: [{
-				paragraph: 'Ширина коридоров в номере не менее 91 см.',
-				isChecked: false,
-				richText: 'Широкий коридор'
-			},{
-				paragraph: 'На 1 этаже вас встретит специалист  и проводит до номера.',
-				isChecked: false,
-				richText: 'Помощник для инвалидов'
-			}]
+		+ create-bullet-list({
+			header: 'Bullet list',
+			buletListParagraphs: [
+				'Нельзя с питомцами',
+				'Без вечеринок и мероприятий',
+				'Время прибытия — после 13:00, а выезд до 12:00'
+			]
 		})

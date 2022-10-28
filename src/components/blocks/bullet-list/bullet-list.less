@@ -1,0 +1,29 @@
+@import url(../../../less/styles/_variables.less);
+
+.bullet-list{
+	max-width: 266px;
+	&__header{
+		font-weight: bold;
+		font-size: @font-size_small;
+		text-transform: uppercase;
+	}
+	&__items{
+		margin-top: 13px;
+	}
+	&__item{
+		margin-bottom: 10px;
+		display: flex;
+		align-items: top;
+	}
+	&__paragraph-dot{
+		height: 10px;
+		min-width: 10px;
+		margin-top: 7px;
+		background-color: @dark-shade-25;
+		border-radius: 100%
+	}
+	&__paragraph-text{
+		margin-left: 11px;
+		line-height: 24px;
+	}
+}

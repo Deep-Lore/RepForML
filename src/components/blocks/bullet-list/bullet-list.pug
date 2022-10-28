@@ -1,0 +1,16 @@
+mixin create-bullet-list(params = {header: 'Enter header', buletListParagraphs: []})
+	
+	//- default values
+
+	//- сlasses
+
+	//- block
+	.bullet-list
+		.bullet-list__header=params.header
+		ul.bullet-list__items
+			each paragraph in params.buletListParagraphs
+				li.bullet-list__item
+					span.bullet-list__paragraph-dot
+					span.bullet-list__paragraph-text=paragraph
+
+//- Call mixin //
