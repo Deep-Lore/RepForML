@@ -1,0 +1,57 @@
+@import url(../../../less/styles/_variables.less);
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	&__inner{
+		display: flex;
+	}
+	//logo
+	&__logo-inner{
+		display: flex;
+	}
+	&__logo-icon{
+		height: 48px;
+		width: 48px;
+	}
+	&__logo-text{
+		margin-left: 12.5px;
+	}
+
+	//navigation
+	&__navigation{
+		width: 396px;
+		margin: auto 0px;
+	}
+	&__navigation-list{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__navigation-link{
+		cursor: pointer;
+		&:last-child{
+			margin-right: 0;
+		}
+		&_active{
+			font-weight: bold;
+		}
+	}
+
+	//user
+	&__user{
+		display: flex;
+		align-items: center;
+	}
+	&__user-buttons{
+		display: flex;
+	}
+	&__user-login-button{
+		height: 34px;
+		width: 87px;
+		margin-right: 20px;
+	}
+	&__user-reg-button{
+		height: 34px;
+		width: 196px;
+	}
+}

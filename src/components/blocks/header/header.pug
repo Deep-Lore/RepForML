@@ -1,0 +1,45 @@
+//- include other blocks
+include ../button-block/button-block.pug
+
+//- mixin
+mixin create-header(params = {})
+	
+	//- default values
+	-
+		const {
+			navItems = ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
+			activePage = 1,
+		} = params
+
+	header.header
+		.header__inner
+			.header__logo
+				a(class='header__logo-inner' href='#')
+					img(class='header__logo-icon' src=require('./svg/main-logo.svg'))
+					img(class='header__logo-text' src=require('./svg/text-logo.svg'))
+		.header__inner
+			nav.header__navigation
+				ul.header__navigation-list
+					each link, index in navItems
+						if index==activePage-1
+							li.header__navigation-link.header__navigation-link_active=link
+						else
+							li.header__navigation-link=link
+			.header__user
+				.header__user-buttons
+					.header__user-login-button
+						+ create-button-block({
+							size: 'stretchable',
+							text: 'войти',
+							textColor: 'purple',
+							background: 'void',
+						})
+					.header__user-reg-button
+						+ create-button-block({
+							size: 'stretchable',
+							text: 'зарегистрироваться',
+						})
+
+//- Call mixin //
+//- text: Enter text,
+//- isChecked(dafult - false): false, true

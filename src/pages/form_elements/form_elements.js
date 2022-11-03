@@ -15,6 +15,7 @@ import '../../components/blocks/room-information-block/room-information-block.js
 import '../../components/blocks/review-block/review-block.js'
 import '../../components/blocks/room-card/room-card.js'
 import '../../components/blocks/bullet-list/bullet-list.js'
+import '../../components/blocks/header/header.js'
 
 //import func block
 
