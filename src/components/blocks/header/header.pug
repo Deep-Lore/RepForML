@@ -9,6 +9,8 @@ mixin create-header(params = {})
 		const {
 			navItems = ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
 			activePage = 1,
+			userAuthorized = false,
+			userName = 'Юлий Цезарь',
 		} = params
 
 	header.header
@@ -26,20 +28,25 @@ mixin create-header(params = {})
 						else
 							li.header__navigation-link=link
 			.header__user
-				.header__user-buttons
-					.header__user-login-button
-						+ create-button-block({
-							size: 'stretchable',
-							text: 'войти',
-							textColor: 'purple',
-							background: 'void',
-						})
-					.header__user-reg-button
-						+ create-button-block({
-							size: 'stretchable',
-							text: 'зарегистрироваться',
-						})
+				if userAuthorized == true
+					.header__user-name=userName
+				if userAuthorized == false
+					.header__user-buttons
+						.header__user-login-button
+							+ create-button-block({
+								size: 'stretchable',
+								text: 'войти',
+								textColor: 'purple',
+								background: 'void',
+							})
+						.header__user-reg-button
+							+ create-button-block({
+								size: 'stretchable',
+								text: 'зарегистрироваться',
+							})
 
 //- Call mixin //
-//- text: Enter text,
-//- isChecked(dafult - false): false, true
+//- navItems(['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения']): Enter pages title,
+//- activePage: Select active page,
+//- userAuthorized(false): false, true
+//- userName: 'Enter username',

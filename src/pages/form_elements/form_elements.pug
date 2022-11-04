@@ -4,4 +4,13 @@ block body-content
 	+ create-header({
 		navItems: ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
 		activePage: 1,
+		userAuthorized: true,
+		userName: 'Юлий Цезарь',
+	})
+	br
+	+ create-header({
+		navItems: ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
+		activePage: 1,
+		userAuthorized: false,
+		userName: 'Юлий Цезарь',
 	})
