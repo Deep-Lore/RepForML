@@ -9,6 +9,7 @@ mixin create-header(params = {})
 		const {
 			navItems = ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
 			activePage = 1,
+			expandablePages = [1,3],
 			userAuthorized = false,
 			userName = 'Юлий Цезарь',
 		} = params
@@ -24,9 +25,18 @@ mixin create-header(params = {})
 				ul.header__navigation-list
 					each link, index in navItems
 						if index==activePage-1
-							li.header__navigation-link.header__navigation-link_active=link
+							li.header__navigation-link.header__navigation-link_active
+								span=link
+								each numExpPage in expandablePages
+									if index==numExpPage-1
+										.header__expandable-arrow
 						else
-							li.header__navigation-link=link
+							li.header__navigation-link
+								span=link
+								each numExpPage in expandablePages
+									if index==numExpPage-1
+										.header__expandable-arrow
+
 			.header__user
 				if userAuthorized == true
 					.header__user-name=userName

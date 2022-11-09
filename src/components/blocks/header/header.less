@@ -29,13 +29,28 @@
 	}
 	&__navigation-link{
 		cursor: pointer;
+		display: flex;
 		margin-right: 12.5px;
 		&:last-child{
 			margin-right: 0;
 		}
+		&:hover{
+			color: @dark-shade-100;
+		}
 		&_active{
 			font-weight: bold;
 			color: @dark-shade-75;
+		}
+	}
+	&__expandable-arrow{
+		height: 100%;
+		width: 24px;
+		background: url(svg/arrow_color_grey.svg) no-repeat center center;
+		content: '';
+		transform: rotate(0);
+		&_open{
+			transform: rotate(180deg);
+			transition: .25s;
 		}
 	}
 
@@ -64,3 +79,5 @@
 		cursor: pointer;
 	}
 }
+
+//media

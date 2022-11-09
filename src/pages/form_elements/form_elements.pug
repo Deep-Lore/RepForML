@@ -2,15 +2,8 @@ extends ../layouts/_ui-kit_layout
 
 block body-content
 	+ create-header({
-		navItems: ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
 		activePage: 1,
+		expandablePages: [1,3],
 		userAuthorized: true,
-		userName: 'Юлий Цезарь',
-	})
-	br
-	+ create-header({
-		navItems: ['О нас', 'Услуги', 'Вакансии', 'Новости', 'Соглашения'],
-		activePage: 1,
-		userAuthorized: false,
 		userName: 'Юлий Цезарь',
 	})
