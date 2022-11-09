@@ -4,6 +4,7 @@
 .input-block{
 	position: relative;
 	user-select: none;
+	cursor: text;
 	&__heading{
 		display: flex;
 		justify-content: space-between;
@@ -26,7 +27,6 @@
 		grid-template-columns: 100%;
 		border: 1px solid @dark-shade-25;
 		border-radius: 4px;
-		cursor: pointer;
 		//input conditions
 		&:hover{
 			border-color: @dark-shade-75;
@@ -57,7 +57,6 @@
 		color: @dark-shade-25;
 		border: transparent;
 		border-radius: 5px;
-		cursor: pointer;
 		//placeholder style
 		&::placeholder{
 			color: @dark-shade-25;
@@ -202,13 +201,13 @@
 	//Modifiers input-block
 	&_size{
 		&_big{
-			width: 320px;
+			max-width: 320px;
 		}
 		&_medium{
-			width: 266px;
+			max-width: 266px;
 		}
 		&_small{
-			width: 150px;
+			max-width: 150px;
 		}
 	}
 }

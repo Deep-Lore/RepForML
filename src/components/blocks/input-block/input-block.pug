@@ -29,10 +29,11 @@ mixin create-input-block(params = {})
 	//- block
 	div(class=`input-block ${inputBlockSizeClass}`)
 		//header
-		.input-block__heading
-			label.input-block__text-field=textField
-			if condition 
-				label.input-block__condition=condition
+		if textField!=0&&condition!=0
+			.input-block__heading
+				label.input-block__text-field=textField
+				if condition 
+					label.input-block__condition=condition
 		label(class=`${inputBlockItemsClass} ${borderColorClass}`)
 			//input
 			input(data-placeholder-mode=placeholderMode)&attributes({

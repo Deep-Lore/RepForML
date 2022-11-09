@@ -1,0 +1,37 @@
+@import url(../../../less/styles/_variables.less);
+
+.login-card{
+	max-width: 380px;
+	height: 358px;
+	padding: 39px 29px;
+	background-color: white;
+	border-radius: 4px;
+	border: @border-card;
+	box-shadow: @shadow-card;
+	//title
+	&__title{
+		font-size: @font-size_bigest;
+		font-weight: 700;
+	}
+	//login elements
+	&__login-inputs{
+		margin-top: 21px;
+	}
+	&__login-input{
+		margin-bottom: 10px;
+	}
+	&__login-button{
+		height: 44px;
+		margin-top: 20px;
+	}
+	//signup elements
+	&__signup-elements{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 30px;
+	}
+	&__signup__button{
+		height: 44px;
+	}
+}
