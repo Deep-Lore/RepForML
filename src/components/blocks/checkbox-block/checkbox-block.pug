@@ -1,4 +1,14 @@
-mixin create-checkbox-list(params={header: 'Enter header', expandable: false, checkboxListParams: [{paragraph: 'Ширина коридоров в номере не менее 91 см.', isChecked: true,}]})
+mixin create-checkbox-list(params={})
+	
+	//- default values
+	-	
+		const {
+			header: 'Enter header', 
+			expandable: false, 
+			checkboxList: 'Ширина коридоров в номере не менее 91 см.',
+			isChecked: true,
+		} = params
+
 	//- classes
 	-
 		const checkboxListIsExpandableClass = params.expandable == true ? 'checkbox-list_expandable' : ''

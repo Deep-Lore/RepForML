@@ -1,0 +1,39 @@
+mixin create-registration-card()
+	.registration-card
+		.registration-card__title Регистрация аккаунта
+		form.registration-card__inner
+			.registration-card__personal-dates
+				.registration-card__personal-date-input
+					+ create-input-block({
+						placeholder: 'Email',
+						textField: '',
+						condition: '',
+						size: 'big',
+						borderColor: 'dark-25',
+						placeholderColor: 'dark-25',
+					})
+				.registration-card__personal-date-input
+					+ create-input-block({
+						placeholder: 'Пароль',
+						textField: '',
+						condition: '',
+						size: 'big',
+						borderColor: 'dark-25',
+						placeholderColor: 'dark-25',
+					})
+				.registration-card__personal-date-radio
+					+ create-radio-block({
+						name: 'gender',
+						radioItems: ['Мужчина', 'Женщина'],
+						checkedElement: 1,
+					})
+
+			.registration-card__login-elements
+				p.registration-card__login-text Уже есть аккаунт на Toxin
+				.registration-card__login-button
+					+ create-button-block({
+							size: 'normal',
+							text: 'войти',
+							textColor: 'purple',
+							background: 'void',
+					})
