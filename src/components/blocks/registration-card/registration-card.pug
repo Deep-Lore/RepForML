@@ -2,6 +2,7 @@ mixin create-registration-card()
 	.registration-card
 		.registration-card__title Регистрация аккаунта
 		form.registration-card__inner
+			//- personal dates
 			.registration-card__personal-dates
 				.registration-card__personal-date-input
 					+ create-input-block({
@@ -21,13 +22,56 @@ mixin create-registration-card()
 						borderColor: 'dark-25',
 						placeholderColor: 'dark-25',
 					})
-				.registration-card__personal-date-radio
+				.registration-card__personal-date-gender-radio
 					+ create-radio-block({
 						name: 'gender',
 						radioItems: ['Мужчина', 'Женщина'],
 						checkedElement: 1,
 					})
+				.registration-card__personal-date-birth-day-input
+					+ create-input-block({
+						placeholder: 'ДД.ММ.ГГГГ',
+						textField: 'дата рождения',
+						condition: '',
+						size: 'big',
+						borderColor: 'dark-25',
+						placeholderColor: 'dark-25',
+					})
+			//- login detals
+			.registration-card__login-details
+				.registration-card__login-details-input
+					+ create-input-block({
+						placeholder: 'Email',
+						textField: 'данные для входа в сервис',
+						condition: '',
+						size: 'big',
+						borderColor: 'dark-25',
+						placeholderColor: 'dark-25',
+					})
+				.registration-card__login-details-input
+					+ create-input-block({
+						placeholder: 'Пароль',
+						textField: '',
+						condition: '',
+						size: 'big',
+						borderColor: 'dark-25',
+						placeholderColor: 'dark-25',
+					})
+				.registration-card__login-details-toggle
+					+ create-toggle-block({
+						text: 'Получать спецпредложения',
+					})
+			//- signup button
+			.registration-card__signup-button
+				+ create-button-block({
+						size: 'big',
+						text: 'перейти к оплате',
+						textColor: 'white',
+						background: 'fill',
+						arrow: true,
+					})
 
+			//- login data
 			.registration-card__login-elements
 				p.registration-card__login-text Уже есть аккаунт на Toxin
 				.registration-card__login-button

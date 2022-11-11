@@ -11,18 +11,18 @@ mixin create-radio-block(params={})
 	//-block
 	ul.radio-block-list
 		each radioItem, index in radioItems
+
+			//- values
+			-	
+				const isChecked = index==checkedElement-1
+
+			//block
 			label.radio-block-list__radio-block
-				if index==checkedElement-1
-					input.radio-block-list__fake-input&attributes({
-						name: name,
-						type: "radio",
-						checked: true,
-					})
-				else
-					input.radio-block-list__fake-input&attributes({
-						name: name,
-						type: "radio",
-					})
+				input.radio-block-list__fake-input&attributes({
+					name: name,
+					type: "radio",
+					checked: isChecked,
+				})
 				span.radio-block-list__text=radioItem
 			
 
