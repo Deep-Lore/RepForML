@@ -1,8 +1,8 @@
 import './input-block.less'
-
-const maxInputLength =  15
-
 const inputBlocks = document.querySelectorAll('.input-block')
+
+// for dropdown //
+const maxInputLength =  15
 
 inputBlocks.forEach(inputBlock => {
     if (inputBlock.contains(inputBlock.querySelector('.input-block__dropdown'))) {
@@ -164,3 +164,5 @@ inputBlocks.forEach(inputBlock => {
         }
     }
 })
+
+// for mask //
