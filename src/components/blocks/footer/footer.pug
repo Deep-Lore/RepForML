@@ -1,0 +1,83 @@
+//- include other blocks
+include ../input-block/input-block.pug
+
+//-mixin
+mixin create-footer-block()
+    //- default value
+
+    //- block
+    footer.footer
+        //desktop version
+        .footer__footer-desktop
+            .footer__top-footer
+                .footer__about
+                    a(class='footer__desktop-about-logo' href='#')
+                        img(class='footer__logo-icon' src=require('./svg/main-logo.svg'))
+                        img(class='footer__logo-text' src=require('./svg/text-logo.svg'))
+                    .footer__about-text Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+              
+                .footer__navigation-wrapper
+                    .footer__navigation-list
+                        .footer__navigation-list-header навигация
+                        ul.footer__navigation-items
+                            li.footer__navigation-item-text 
+                                a(href='#') О нас
+                            li.footer__navigation-item-text 
+                                a(href='#') Новости
+                            li.footer__navigation-item-text 
+                                a(href='#') Служба поддержки
+                            li.footer__navigation-item-text 
+                                a(href='#') Услуги
+
+                    .footer__navigation-list
+                        .footer__navigation-list-header о нас
+                        ul.footer__navigation-items
+                            li.footer__navigation-item-text 
+                                a(href='#') О сервисе
+                            li.footer__navigation-item-text 
+                                a(href='#') Наша команда
+                            li.footer__navigation-item-text
+                                a(href='#') Вакансии
+                            li.footer__navigation-item-text
+                                a(href='#') Инвесторы
+
+                    .footer__navigation-list
+                        .footer__navigation-list-header Служба поддержки
+                        ul.footer__navigation-items
+                            li.footer__navigation-item-text
+                                a(href='#') Соглашения
+                            li.footer__navigation-item-text
+                                a(href='#') Сообщества
+                            li.footer__navigation-item-text
+                                a(href='#') Связь с нами
+
+                .footer__subscribtion
+                    .footer__subscribtion-header Подписка
+                    .footer__subscribtion-text Получайте специальные предложения и новости сервиса
+                    .footer__subscribtion-button
+                        + create-input-block({
+                            placeholder: 'Email',
+                            textField: '',
+                            condition: '',
+                            size: 'srtenchable',
+                            borderColor: 'dark-25',
+                            placeholderColor: 'dark-25',
+                            arrowType: 'forward',
+                        })
+            .footer__horizontal-line
+            .footer__bottom-footer
+                .footer__desktop-copyryght Copyright © 2018 Toxin отель. Все права защищены.
+                .footer__desktop-social-networks
+                    img(class='footer__social-network-link' src=require('./svg/twitter-icon.svg'))
+                    img(class='footer__social-network-link' src=require('./svg/facebook-icon.svg'))
+                    img(class='footer__social-network-link' src=require('./svg/instagram-icon.svg'))
+        //mobile version
+        .footer__footer-mobile
+            a(class='footer__mobile-about-logo' href='#')
+                img(class='footer__logo-icon' src=require('./svg/main-logo.svg'))
+                img(class='footer__logo-text' src=require('./svg/text-logo.svg'))
+            .footer__mobile-copyryght Copyright © 2018 Toxin отель. Все права защищены.
+            .footer__mobile-social-networks
+                img(class='footer__social-network-link' src=require('./svg/twitter-icon.svg'))
+                img(class='footer__social-network-link' src=require('./svg/facebook-icon.svg'))
+                img(class='footer__social-network-link' src=require('./svg/instagram-icon.svg'))

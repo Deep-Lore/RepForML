@@ -1,26 +1,30 @@
 //adaptive mixins
 .r(@size, @rules) {
-    @media screen and (max-width @size1px) {
+    @media screen and (max-width: @size1px) {
         @rules();
     }
 }
+
 .lg(@rules) {
-    @media screen and (max-width 1200px) {
+    @media screen and (max-width: 1200px) {
         @rules();
     }
 }
+
 .md(@rules) {
-    @media screen and (max-width 992px) {
+    @media screen and (max-width: 992px) {
         @rules();
     }
 }
+
 .sm(@rules) {
-    @media screen and (max-width 768px) {
+    @media screen and (max-width: 768px) {
         @rules();
     }
 }
+
 .xs(@rules) {
-    @media screen and (max-width 576px) {
+    @media screen and (max-width: 576px) {
         @rules();
     }
 }

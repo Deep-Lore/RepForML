@@ -24,6 +24,21 @@ html{
 	font-family: Montserrat;
 	font-weight: normal;
 	font-size: 14px;
+	height:100%;
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+footer{
+	flex: 0 0 auto;
+}
+
+header{
+	flex: 2 0 auto;
 }
 
 button{
@@ -44,10 +59,6 @@ a{
 	text-decoration:none;
 }
 
-html,body{
-	height:100%;
-}
-
 main{
 	flex:1 0 auto;
 }
@@ -66,6 +77,7 @@ input{
 	max-width:1440px;
 	margin:0 auto;
 	padding:0 140px;
+	flex: 1 0 auto;
 }
 
 //media//

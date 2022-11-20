@@ -1,9 +1,6 @@
 extends ../layouts/_ui-kit_layout
 
 block body-content
-	+ create-header({
-		activePage: 1,
-		expandablePages: [1,3],
-		userAuthorized: true,
-		userName: 'Юлий Цезарь',
-	})
+
+block footer
+	+ create-footer-block()
