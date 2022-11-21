@@ -6,6 +6,7 @@ mixin create-input-block(params = {})
 			placeholder = 'Enter placeholder',
 			textField = 'Enter textField',
 			condition = 'Enter condition',
+			maskMode = '',
 			size = '',
 			borderColor = 'dark-25',
 			placeholderColor = 'dark-25',
@@ -36,7 +37,9 @@ mixin create-input-block(params = {})
 					label.input-block__condition=condition
 		label(class=`${inputBlockItemsClass} ${borderColorClass}`)
 			//input
-			input(data-placeholder-mode=placeholderMode)&attributes({
+			input()&attributes({
+				'data-placeholder-mode': placeholderMode,
+				'data-mask-mode': maskMode,
 				placeholder: placeholder,
 				readonly: readonly,
 				class: ['input-block__input-item',

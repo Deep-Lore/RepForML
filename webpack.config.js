@@ -43,11 +43,11 @@ module.exports = {
 		filename: './pages/[name]/[name].js',
 		clean: true,
 	},
-	// optimization: {
-	// 	splitChunks: {
-	// 		chunks: 'all',
-	// 	},
-	// },
+	optimization: {
+		splitChunks: {
+			chunks: 'all',
+		},
+	},
 
 	plugins: [
 		// new BundleAnalyzerPlugin(),

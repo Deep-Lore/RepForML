@@ -26,13 +26,10 @@
 		grid-template-columns: 100%;
 		border: 1px solid @dark-shade-25;
 		border-radius: 4px;
-		cursor: pointer;
 		//input conditions
-		&:hover{
+		&:hover, &:focus-within{
 			border-color: @dark-shade-75;
-		}
-		&:focus-within{
-			border-color: @dark-shade-75;
+			transition: .15s;
 		}
 		//Modifiers input-ites
 		&_border-color{
@@ -57,7 +54,7 @@
 		color: @dark-shade-25;
 		border: transparent;
 		border-radius: 5px;
-		cursor: pointer;
+		cursor: text;
 		//placeholder style
 		&::placeholder{
 			color: @dark-shade-25;
@@ -70,6 +67,13 @@
 					color: @dark-shade-75;
 				}
 			}
+		}
+		&:focus, &:hover{
+			&::placeholder{
+				color: @dark-shade-75;
+				transition: .15s;
+			}
+			color: @dark-shade-75;
 		}
 	}
 
@@ -114,6 +118,7 @@
 		border-radius: 0px 0px 4px 4px;
 		font-weight: 700;
 		font-size: @font-size_small;
+		cursor: pointer;
 		opacity: 0;
 		z-index: 1;
 		&_dropdown-active{

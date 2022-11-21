@@ -1,4 +1,7 @@
+//requires and imports
+import IMask from 'imask'
 import './input-block.less'
+
 const inputBlocks = document.querySelectorAll('.input-block')
 
 // for dropdown //
@@ -166,3 +169,15 @@ inputBlocks.forEach(inputBlock => {
 })
 
 // for mask //
+
+inputBlocks.forEach(inputBlock => {
+    let inputBlockItem = inputBlock.querySelector('[data-mask-mode="date"]')
+    if (inputBlockItem) {
+        console.log(inputBlockItem)
+        var dateMask = IMask(inputBlockItem, {
+            mask: Date,  // enable date mask
+            pattern: 'd-`m-`Y',  // Pattern mask with defined blocks, default is 'd{.}`m{.}`Y'
+            max: new Date(),  // defaults to `9999-01-01`
+        })
+    }
+})
