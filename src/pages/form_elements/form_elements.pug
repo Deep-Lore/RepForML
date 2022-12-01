@@ -1,7 +1,81 @@
 extends ../layouts/_ui-kit_layout
 
 block body-content
-	
+	form.form-items
+		.form-items__main-items
+			.form-items__inputs
+				.form-items__default-input
+					+ create-input-block({
+						placeholder: 'Email',
+						textField: 'Text Field',
+						condition: 'Default',
+						size: 'big',
+					})
+				.form-items__default-input
+					+ create-input-block({
+						placeholder: 'This is pretty awesome',
+						textField: 'Text Field',
+						condition: 'Hover / Focus',
+						size: 'big',
+						borderColor: 'dark-50',
+						placeholderColor: 'dark-75',
+					})
+				.form-items__default-input
+					+ create-input-block({
+						placeholder: 'Сколько гостей',
+						textField: 'Dropdown',
+						condition: '',
+						size: 'big',
+						arrowType: 'dropdown',
+						dropdownType: 'counter',
+					})
+				.form-items__default-input
+					+ create-input-block({
+						placeholder: 'ДД.ММ.ГГГГ',
+						textField: 'masked text field',
+						condition: '',
+						size: 'big',
+					})
+				.form-items__date-inputs
+					+ create-input-block({
+						placeholder: 'ДД.ММ.ГГГГ',
+						textField: 'date Dropdown',
+						condition: '',
+						size: 'small',
+						arrowType: 'dropdown',
+						borderColor: 'dark-50',
+						placeholderColor: 'dark-75',
+					})
+					+ create-input-block({
+						placeholder: '19.08.2019',
+						textField: 'date Dropdown',
+						condition: '',
+						size: 'small',
+						arrowType: 'dropdown',
+						borderColor: 'dark-50',
+						placeholderColor: 'dark-75',
+					})
+				.form-items__date-dropdown-input
+					+ create-input-block({
+						placeholder: '19 авг - 23 авг',
+						textField: 'filter date dropdown',
+						condition: '',
+						size: 'medium',
+						arrowType: 'dropdown',
+					})
+				.form-items__subscribtion-input
+					+ create-input-block({
+						placeholder: 'Email',
+						textField: 'subscription text field',
+						condition: '',
+						size: 'medium',
+						arrowType: 'forward',
+					})
+			.form-items__chckboxes
+
+			.form-items__buttons
+				
 
 block footer
+	+ create-footer-block()
 	

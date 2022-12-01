@@ -11,6 +11,7 @@ mixin create-input-block(params = {})
 			borderColor = 'dark-25',
 			placeholderColor = 'dark-25',
 			arrowType = false,
+			dropdownType = 'default',
 			dropdownParagraphs = ['спальни', 'кровати', 'ванные комнаты'],
 			placeholderMode = 'default', 
 		} = params
@@ -21,6 +22,7 @@ mixin create-input-block(params = {})
 		const inputBlockItemsClass = 'input-block__input-items'
 		const borderColorClass = borderColor!='dark-25' ? `input-block__input-items_border-color_${borderColor}` : ''
 		const placeholderColorClass = placeholderColor!='dark-25' ? `input-block__input-item_placeholder-color_${placeholderColor}` : ''
+		const inputBlockItemCursor = arrowType == 'dropdown' ? 'input-block__input_cursor_pointer' : ''
 		const arrowClass = arrowType ? `input-block__arrow input-block__arrow_type_${arrowType}` : ''
 
 	//-variables
@@ -43,7 +45,8 @@ mixin create-input-block(params = {})
 				placeholder: placeholder,
 				readonly: readonly,
 				class: ['input-block__input-item',
-					`${placeholderColorClass}`
+					`${placeholderColorClass}`,
+					`${inputBlockItemCursor}`
 				]
 			})
 			//arrow
@@ -51,7 +54,7 @@ mixin create-input-block(params = {})
 				div(class=arrowClass)
 
 		//dropdown
-		if arrowType == 'dropdown'
+		if dropdownType == 'counter'
 			.input-block__dropdown
 				each paragraph in dropdownParagraphs
 					.input-block__dropdown-paragraph
@@ -69,9 +72,10 @@ mixin create-input-block(params = {})
 //- placeholder: Enter placeholder
 //- textField: Enter text field 
 //- condition: Enter condition, false
-//- size: big, meduim, small,
+//- size: big, medium, small,
 //- borderColor(default - dark-25): dark-50
 //- placeholderColor(default - dark-25): dark-75
 //- arrowType(default - false): dropdown, forward
+//- dropdownType = 'counter'
 //- dropdownParagraphs(default - false): [Enter paragraphs,...]
 //- placeHolderMode(default - 'default'): 'default', 'counter'

@@ -3,6 +3,7 @@
 
 .input-block{
 	position: relative;
+	width: 100%;
 	user-select: none;
 	&__heading{
 		display: flex;
@@ -41,6 +42,9 @@
 		&_dropdown-active{
 			border-color: @dark-shade-75;
 			border-radius: 4px 4px 0px 0px;
+			&::placeholder{
+				color: @dark-shade-75;
+			}
 		}
 	}
 
@@ -62,10 +66,14 @@
 		//Modifiers input-item
 		&_placeholder-color{
 			&_dark-75{
-				color: @dark-shade-75;
 				&::placeholder{
 					color: @dark-shade-75;
 				}
+			}
+		}
+		&_cursor{
+			&_pointer{
+				cursor: pointer;
 			}
 		}
 		&:focus, &:hover{
@@ -88,7 +96,8 @@
 		height: 100%;
 		width: 42px;
 		border-radius: 0px 4px 4px 0px;
-		pointer-events: none;
+		cursor: pointer;
+		z-index: 1;
 		//Modifiers arrow
 		&_type{
 			//arrow dropdown
@@ -118,7 +127,6 @@
 		border-radius: 0px 0px 4px 4px;
 		font-weight: 700;
 		font-size: @font-size_small;
-		cursor: pointer;
 		opacity: 0;
 		z-index: 1;
 		&_dropdown-active{
@@ -186,13 +194,13 @@
 	//Modifiers input-block
 	&_size{
 		&_big{
-			width: 320px;
+			max-width: 320px;
 		}
 		&_medium{
-			width: 266px;
+			max-width: 266px;
 		}
 		&_small{
-			width: 150px;
+			max-width: 150px;
 		}
 	}
 }
