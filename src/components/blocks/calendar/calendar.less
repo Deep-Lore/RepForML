@@ -1,0 +1,163 @@
+@import url(../../../less/styles/_variables.less);
+
+.calendar{
+    box-sizing: border-box;
+    font-size: 12px;
+    margin: 50px auto;
+    width: 320px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    border-radius: 4px;
+    &__heading{
+        position: relative;
+        font-weight: 700;
+        display: flex;
+        font-weight: bold;
+        font-size: 19px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__header-text{
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    &__control-button-prev{
+    	background: url(./svg/arrow-prev.svg) center center no-repeat;
+    }
+    &__control-button-next{
+    	background: url(./svg/arrow-next.svg) center center no-repeat;
+    }
+    &__header-dropdown{
+        flex-wrap: wrap;
+        top: 40px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: none;
+        position: absolute;
+        width: 240px;
+        z-index: 3;
+        border: 1px solid rgba(31, 32, 65, 0.25);
+        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+        border-radius: 1px;
+        background-color: white;
+        &_visible{
+            display: flex;
+        }
+    }
+    &__header-dropdown-item{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        width: calc(100%/4);
+        font-weight: normal;
+        font-size: 14px;
+        color: rgba(31, 32, 65, 0.5);
+        cursor: pointer;
+        &_present-day{
+            background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+            color: white;
+            font-weight: 700;
+        }
+        &_selected{
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            color: white;
+            font-weight: 700;
+        }
+         &:hover{
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            color: white;
+            font-weight: 700;
+        }
+    }
+    
+    &__control-buttons{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__control-button-next, &__control-button-prev{
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+    
+    // body
+    &__body{
+        margin-top: 15px;
+    }
+    &__weeks{
+        display: flex;
+    }
+    &__week-day{
+        width: calc(100%/7);
+        height: 40px;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #BC9CFF;
+    }
+    &__days{
+        display: flex;
+        flex-wrap: wrap;
+        &_range-line{
+            background: linear-gradient(180deg, @purple-20 0%, @blue-20 100%);
+        }
+    }
+    &__day{
+        width: calc(100%/7);
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &_selected-range{
+            &_start{
+                background: linear-gradient(90deg, rgba(0,0,0,0), @purple-20);
+            }
+            &_middle{
+                background-color: @purple-20;
+            }
+            &_end{
+                background: linear-gradient(270deg, rgba(0,0,0,0), @purple-20);
+            }
+        }
+    }
+    &__day-item{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 100%;
+        color: rgba(31, 32, 65, 0.5);
+        cursor: pointer;
+        &:hover{
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            color: white;
+            font-weight: 700;
+        }
+        &_inactive{
+            color: rgba(31, 32, 65, 0.25);
+        }
+        &_present-day{
+            background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+            color: white;
+            font-weight: 700;
+        }
+        &_selected{
+            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            color: white;
+            font-weight: 700;
+        }
+    }
+}
