@@ -17,6 +17,7 @@ import '../../components/blocks/room-card/room-card.js'
 import '../../components/blocks/bullet-list/bullet-list.js'
 import '../../components/blocks/header/header.js'
 import '../../components/blocks/footer/footer.js'
+import '../../components/blocks/calendar/calendar.js'
 
 //import func block
 

@@ -7,8 +7,8 @@
     width: 320px;
     padding: 20px;
     background-color: white;
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+    border: 1px solid @dark-shade-25;
+    box-shadow: 0px 10px 20px @dark-shade-5;
     border-radius: 4px;
     &__heading{
         position: relative;
@@ -39,8 +39,8 @@
         position: absolute;
         width: 240px;
         z-index: 3;
-        border: 1px solid rgba(31, 32, 65, 0.25);
-        box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+        border: 1px solid @dark-shade-25;
+        box-shadow: 0px 10px 20px @dark-shade-5;
         border-radius: 1px;
         background-color: white;
         &_visible{
@@ -58,17 +58,17 @@
         color: rgba(31, 32, 65, 0.5);
         cursor: pointer;
         &_present-day{
-            background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+            background: linear-gradient(180deg, @green 0%, @acuamarine 100%);
             color: white;
             font-weight: 700;
         }
         &_selected{
-            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            background: linear-gradient(180deg, @purple 0%, @blue 100%);
             color: white;
             font-weight: 700;
         }
          &:hover{
-            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            background: linear-gradient(180deg, @purple 0%, @blue 100%);
             color: white;
             font-weight: 700;
         }
@@ -122,13 +122,13 @@
         align-items: center;
         &_selected-range{
             &_start{
-                background: linear-gradient(90deg, rgba(0,0,0,0), @purple-20);
+                background: linear-gradient(90deg, transparent, @purple-20);
             }
             &_middle{
                 background-color: @purple-20;
             }
             &_end{
-                background: linear-gradient(270deg, rgba(0,0,0,0), @purple-20);
+                background: linear-gradient(270deg, transparent, @purple-20);
             }
         }
     }
@@ -139,10 +139,10 @@
         justify-content: center;
         align-items: center;
         border-radius: 100%;
-        color: rgba(31, 32, 65, 0.5);
+        color: @dark-shade-50;
         cursor: pointer;
         &:hover{
-            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            background: linear-gradient(180deg, @purple 0%, @blue 100%);
             color: white;
             font-weight: 700;
         }
@@ -150,12 +150,12 @@
             color: rgba(31, 32, 65, 0.25);
         }
         &_present-day{
-            background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+            background: linear-gradient(180deg, @green 0%, @acuamarine 100%);
             color: white;
             font-weight: 700;
         }
         &_selected{
-            background: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+            background: linear-gradient(180deg, @purple 0%, @blue 100%);
             color: white;
             font-weight: 700;
         }
