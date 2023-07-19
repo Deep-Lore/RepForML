@@ -18,6 +18,7 @@ import '../../components/blocks/bullet-list/bullet-list.js'
 import '../../components/blocks/header/header.js'
 import '../../components/blocks/footer/footer.js'
 import '../../components/blocks/calendar/calendar.js'
+import '../../components/blocks/room-search-card/room-search-card.js'
 
 //import func block
 

@@ -1,6 +1,18 @@
 //import components of this block
 import './calendar.less'
 
+export default start
+
+function start() {
+    return {firstSelectElemYear : firstSelectElemYear,
+            lastSelectElemYear : lastSelectElemYear,
+            firstSelectElemMonth : firstSelectElemMonth,
+            lastSelectElemMonth : lastSelectElemMonth,
+            firstSelectElem : firstSelectElem,
+            lastSelectElem : lastSelectElem,
+            }
+}
+
 const months=['Январь','Февраль','Март','Апрель','Май','Июнь',
             'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь']
 

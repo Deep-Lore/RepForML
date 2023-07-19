@@ -1,5 +1,6 @@
 //requires and imports
 import IMask from 'imask'
+import calendar from '../calendar/calendar'
 import './input-block.less'
 
 const inputBlocks = document.querySelectorAll('.input-block')
@@ -8,12 +9,12 @@ const inputBlocks = document.querySelectorAll('.input-block')
 const maxInputLength =  15
 
 inputBlocks.forEach(inputBlock => {
-    if (inputBlock.contains(inputBlock.querySelector('.input-block__dropdown'))) {
+    if (inputBlock.contains(inputBlock.querySelector('.input-block__dropdown-counter'))) {
         //block vars
         let inputBlockItems = inputBlock.querySelector('.input-block__input-items')
         let inputBlockItem = inputBlock.querySelector('.input-block__input-item')
-        let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown')
-        let paragraphs = inputBlockDropdown.querySelectorAll('.input-block__dropdown-paragraph')
+        let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown-counter')
+        let paragraphs = inputBlockDropdown.querySelectorAll('.input-block__dropdown-counter-paragraph')
         //placeholder
         let placeHolderDefaultText = inputBlockItem.placeholder
         //arrow
@@ -35,17 +36,17 @@ inputBlocks.forEach(inputBlock => {
         // buttons //
         paragraphs.forEach(paragraph => {
             //buttons
-            btnMinus = paragraph.querySelector('.input-block__dropdown-button_type_minus')
-            btnPlus = paragraph.querySelector('.input-block__dropdown-button_type_plus')
+            btnMinus = paragraph.querySelector('.input-block__dropdown-counter-button_type_minus')
+            btnPlus = paragraph.querySelector('.input-block__dropdown-counter-button_type_plus')
             //counter
             counter = 0
 
             //place 0 to paragraph
-            btnMinus.classList.add('input-block__dropdown-button_disabled')
+            btnMinus.classList.add('input-block__dropdown-counter-button_disabled')
 
             //btn minus
             btnMinus.addEventListener('click', (e) => {
-                counter = e.target.parentNode.querySelector('.input-block__dropdown-button-text')
+                counter = e.target.parentNode.querySelector('.input-block__dropdown-counter-button-text')
                 if (counter.innerHTML>0&&counter.innerHTML<=4) {
                     counter.innerHTML--
                     //change placeholder
@@ -61,7 +62,7 @@ inputBlocks.forEach(inputBlock => {
             })
             //btn plus
             btnPlus.addEventListener('click', (e) => {
-                counter = e.target.parentNode.querySelector('.input-block__dropdown-button-text')
+                counter = e.target.parentNode.querySelector('.input-block__dropdown-counter-button-text')
                 if (counter.innerHTML>=0&&counter.innerHTML<4) {
                     counter.innerHTML++
                     //change placeholder
@@ -83,13 +84,13 @@ inputBlocks.forEach(inputBlock => {
         //button clear
         buttonClear.addEventListener('click', () => {
             paragraphs.forEach(paragraphName => {
-                paragraphName.querySelector('.input-block__dropdown-button-text').innerHTML=0
+                paragraphName.querySelector('.input-block__dropdown-counter-button-text').innerHTML=0
                 //take button
-                btnMinus = paragraphName.querySelector('.input-block__dropdown-button_type_minus')
-                btnPlus = paragraphName.querySelector('.input-block__dropdown-button_type_plus')
+                btnMinus = paragraphName.querySelector('.input-block__dropdown-counter-button_type_minus')
+                btnPlus = paragraphName.querySelector('.input-block__dropdown-counter-button_type_plus')
                 //get default condition
-                btnMinus.classList.add('input-block__dropdown-button_disabled')
-                btnPlus.classList.remove('input-block__dropdown-button_disabled')
+                btnMinus.classList.add('input-block__dropdown-counter-button_disabled')
+                btnPlus.classList.remove('input-block__dropdown-counter-button_disabled')
             })
             createPlaceholder()
             inputBlockItem.placeholder = placeHolderDefaultText //get default placeholder
@@ -100,13 +101,13 @@ inputBlocks.forEach(inputBlock => {
         function toggleDropdown() {
             inputBlockItems.classList.toggle('input-block__input-items_dropdown-active')
             arrow.classList.toggle('input-block__arrow_type_dropdown-active')
-            inputBlockDropdown.classList.toggle('input-block__dropdown_dropdown-active')
+            inputBlockDropdown.classList.toggle('input-block__dropdown-counter_dropdown-active')
             inputBlockItem.classList.toggle('input-block__input-item_placeholder-color_dark-75')
         }
         function removeDropdown() {
             inputBlockItems.classList.remove('input-block__input-items_dropdown-active')
             arrow.classList.remove('input-block__arrow_type_dropdown-active')
-            inputBlockDropdown.classList.remove('input-block__dropdown_dropdown-active')
+            inputBlockDropdown.classList.remove('input-block__dropdown-counter_dropdown-active')
             inputBlockItem.classList.remove('input-block__input-item_placeholder-color_dark-75')
         }
         //placeholder
@@ -116,14 +117,14 @@ inputBlocks.forEach(inputBlock => {
                 let sum = 0 //create counter
                 paragraphs.forEach((paragraphName, i, parArr) => {
                     if (inputBlockItem.placeholder.length<maxInputLength) {
-                        if (paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML!=0) {
+                        if (paragraphs[i].querySelector('.input-block__dropdown-counter-button-text').innerHTML!=0) {
                             if (inputBlockItem.placeholder != 0) {
                                 inputBlockItem.placeholder += ', '
                             }
-                            inputBlockItem.placeholder += `${paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML} ${paragraphs[i].querySelector('.input-block__dropdown-paragraph-text').innerHTML}`
+                            inputBlockItem.placeholder += `${paragraphs[i].querySelector('.input-block__dropdown-counter-button-text').innerHTML} ${paragraphs[i].querySelector('.input-block__dropdown-counter-paragraph-text').innerHTML}`
                         }
                     }
-                    sum += Number(paragraphs[i].querySelector('.input-block__dropdown-button-text').innerHTML)
+                    sum += Number(paragraphs[i].querySelector('.input-block__dropdown-counter-button-text').innerHTML)
                 })
                 if (sum==0) inputBlockItem.placeholder = placeHolderDefaultText
                 else inputBlockItem.placeholder += '...'
@@ -143,18 +144,18 @@ inputBlocks.forEach(inputBlock => {
         }
         //button disabled
         function buttonEnable(e, sign) { //sign = plus or minus
-            let button = e.target.parentNode.querySelector(`.input-block__dropdown-button_type_${sign}`)
-            button.classList.remove('input-block__dropdown-button_disabled')
+            let button = e.target.parentNode.querySelector(`.input-block__dropdown-counter-button_type_${sign}`)
+            button.classList.remove('input-block__dropdown-counter-button_disabled')
         }
         function buttonDisable(e, sign) { //sign = plus or minus
-            let button = e.target.parentNode.querySelector(`.input-block__dropdown-button_type_${sign}`)
-            button.classList.add('input-block__dropdown-button_disabled')
+            let button = e.target.parentNode.querySelector(`.input-block__dropdown-counter-button_type_${sign}`)
+            button.classList.add('input-block__dropdown-counter-button_disabled')
         }
         //number of non-zero paragraphs
         function numberNonZeroParagraphs() {
             let counter = 0
             paragraphs.forEach(paragraph => {
-                counter += Number(paragraph.querySelector('.input-block__dropdown-button-text').innerHTML)
+                counter += Number(paragraph.querySelector('.input-block__dropdown-counter-button-text').innerHTML)
             })
             return counter
         }
@@ -170,16 +171,78 @@ inputBlocks.forEach(inputBlock => {
     }
 })
 
+// for dropdonw calendar
+inputBlocks.forEach(inputBlock => {
+    if (inputBlock.contains(inputBlock.querySelector('.input-block__dropdown-calendar'))) {
+        let inputBlockItems = inputBlock.querySelectorAll('.input-block__input-items')
+        let inputBlockItem = inputBlock.querySelectorAll('.input-block__input-item')
+        let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown-calendar')
+        //arrow & placeholder
+        let arrow = []
+        let placeHolderDefaultText = 'ДД.ММ.ГГГГ'
+        for(let i = 0; i < inputBlockItems.length; i++){
+            arrow[i] = inputBlockItems[i].querySelector('.input-block__arrow')
+        }
+
+        // toggle dropdown
+        for(let i = 0; i < inputBlockItems.length; i++){
+            inputBlockItems[i].addEventListener('click', toggleDropdown)
+        }
+
+        // close dropdown
+        document.addEventListener('click', (e) => {
+            if (!(e.composedPath().includes(inputBlockItems[0]) || e.composedPath().includes(inputBlockItems[1]) || e.composedPath().includes(inputBlockDropdown) )) {
+                removeDropdown()
+            }
+        })
+
+        // set placeholder date
+        inputBlockDropdown.addEventListener('click', () => {
+            let calendarData = calendar()
+            inputBlockItem[0].placeholder = createDateForCalendarDropdown(calendarData.firstSelectElem,calendarData.firstSelectElemMonth,calendarData.firstSelectElemYear)
+            inputBlockItem[1].placeholder = createDateForCalendarDropdown(calendarData.lastSelectElem,calendarData.lastSelectElemMonth,calendarData.lastSelectElemYear)
+            // swap date placeholder
+            if(calendarData.firstSelectElemYear >= calendarData.lastSelectElemYear && calendarData.lastSelectElemYear != 0){
+                if (calendarData.firstSelectElemMonth >= calendarData.lastSelectElemMonth) {
+                    if(calendarData.firstSelectElem >= calendarData.firstSelectElem){
+                        let tmp = inputBlockItem[0].placeholder
+                        inputBlockItem[0].placeholder = inputBlockItem[1].placeholder
+                        inputBlockItem[1].placeholder = tmp
+                    }
+                }
+            }
+        })
+
+        // functions //
+        function toggleDropdown() {
+            inputBlockDropdown.classList.toggle('input-block__dropdown-calendar_dropdown-active')
+            arrow.forEach(arrowElement => {
+                arrowElement.classList.toggle('input-block__arrow_type_dropdown-active')
+            })
+        }
+        function removeDropdown() {
+            inputBlockDropdown.classList.remove('input-block__dropdown-calendar_dropdown-active')
+            arrow.forEach(arrowElement => {
+                arrowElement.classList.remove('input-block__arrow_type_dropdown-active')
+            })
+        }
+        function createDateForCalendarDropdown(day,month,year){
+            day = day < 10 ? '0' + day : day
+            month = day < 10 ? '0' + month : month
+            if (day==0) return 'ДД.ММ.ГГГГ'
+            return `${day}.${month}.${year}`
+        }
+    }
+})
+
 // for mask //
 
 inputBlocks.forEach(inputBlock => {
     let inputBlockItem = inputBlock.querySelector('[data-mask-mode="date"]')
     if (inputBlockItem) {
-        console.log(inputBlockItem)
         var dateMask = IMask(inputBlockItem, {
-            mask: Date,  // enable date mask
-            pattern: 'd-`m-`Y',  // Pattern mask with defined blocks, default is 'd{.}`m{.}`Y'
-            max: new Date(),  // defaults to `9999-01-01`
+            mask: Date,
+            pattern: 'd.`m.`Y',
         })
     }
 })

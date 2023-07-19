@@ -1,0 +1,34 @@
+mixin create-room-search-card()
+	.room-search-card
+		.room-search-card__title Найдём номера под ваши пожелания
+		form.room-search-card__inner
+			//- personal dates
+			.room-search-card__data-input
+				+ create-input-block({
+					placeholder: 'ДД.ММ.ГГГГ',
+					textField: 'дата рождения',
+					condition: '',
+					maskMode: 'date',
+					size: 'big',
+					borderColor: 'dark-25',
+					placeholderColor: 'dark-25',
+				})
+			.room-search-card__guests-input
+				+ create-input-block({
+					placeholder: 'Сколько гостей',
+					textField: 'Гости',
+					condition: '',
+					size: 'big',
+					borderColor: 'dark-25',
+					placeholderColor: 'dark-25',
+					arrowType: 'dropdown',
+					dropdownType: 'counter'
+				})
+			.room-search-card__selection-button
+				+ create-button-block({
+					size: 'stranchable',
+					text: 'подобать номер',
+					textColor: 'white',
+					background: 'fill',
+					arrow: true,
+				})

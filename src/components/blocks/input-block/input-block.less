@@ -71,8 +71,8 @@
 				}
 			}
 		}
-		&_cursor{
-			&_pointer{
+		&_cursor-type{
+			&_dropdown{
 				cursor: pointer;
 			}
 		}
@@ -96,7 +96,7 @@
 		height: 100%;
 		width: 42px;
 		border-radius: 0px 4px 4px 0px;
-		cursor: pointer;
+		pointer-events: none;
 		z-index: 1;
 		//Modifiers arrow
 		&_type{
@@ -116,7 +116,7 @@
 	}
 
 	//dropdown
-	&__dropdown{
+	&__dropdown-counter{
 		position: absolute;
 		display: none;
 		width: 100%;
@@ -136,7 +136,7 @@
 		}
 	}
 	//paragraph item
-	&__dropdown-paragraph{
+	&__dropdown-counter-paragraph{
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -145,16 +145,16 @@
 			margin-bottom: 0;
 		}
 	}
-	&__dropdown-paragraph-text{
+	&__dropdown-counter-paragraph-text{
 		text-transform: uppercase;
 	}
 	//paragraph button
-	&__dropdown-buttons{
+	&__dropdown-counter-buttons{
 		display: flex;
 		justify-content: space-between;
 		width: 92px;
 	}
-	&__dropdown-button{
+	&__dropdown-counter-button{
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -169,7 +169,7 @@
 			color: @dark-shade-10;
 		}
 	}
-	&__dropdown-button-text{
+	&__dropdown-counter-button-text{
 		margin:auto;
 	}
 
@@ -189,6 +189,28 @@
 	}
 	&__button-apply{
 		cursor: pointer;
+	}
+
+	//calendar
+	&__inputs-wrapper{
+		display: flex;
+		justify-content: space-between;
+	}
+	&__input-wrapper{
+		&:first-child{
+			margin-right: 10px;
+		}
+		&:last-child{
+			margin-left: 10px;
+		}
+	}
+	&__dropdown-calendar{
+		display: none;
+		position: absolute;
+		z-index: 2;
+		&_dropdown-active{
+			display: block;
+		}
 	}
 
 	//Modifiers input-block

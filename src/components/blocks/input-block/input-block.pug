@@ -22,7 +22,7 @@ mixin create-input-block(params = {})
 		const inputBlockItemsClass = 'input-block__input-items'
 		const borderColorClass = borderColor!='dark-25' ? `input-block__input-items_border-color_${borderColor}` : ''
 		const placeholderColorClass = placeholderColor!='dark-25' ? `input-block__input-item_placeholder-color_${placeholderColor}` : ''
-		const inputBlockItemCursor = arrowType == 'dropdown' ? 'input-block__input_cursor_pointer' : ''
+		const inputBlockItemCursor = arrowType == 'dropdown' ? 'input-block__input-item_cursor-type_dropdown' : ''
 		const arrowClass = arrowType ? `input-block__arrow input-block__arrow_type_${arrowType}` : ''
 
 	//-variables
@@ -30,52 +30,110 @@ mixin create-input-block(params = {})
 		const readonly = arrowType == 'dropdown' ? true : false
 
 	//- block
-	div(class=`input-block ${inputBlockSizeClass}`)
-		//header
-		if textField!=0||condition!=0
-			.input-block__heading
-				label.input-block__text-field=textField
-				if condition 
-					label.input-block__condition=condition
-		label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+	if dropdownType != 'calendar'
+		div(class=`input-block ${inputBlockSizeClass}`)
+			//header
+			if textField!=0||condition!=0
+				.input-block__heading
+					label.input-block__text-field=textField
+					if condition 
+						label.input-block__condition=condition
+
 			//input
-			input()&attributes({
-				'data-placeholder-mode': placeholderMode,
-				'data-mask-mode': maskMode,
-				placeholder: placeholder,
-				readonly: readonly,
-				class: ['input-block__input-item',
-					`${placeholderColorClass}`,
-					`${inputBlockItemCursor}`
-				]
-			})
-			//arrow
-			if arrowType
-				div(class=arrowClass)
+			label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+				//input
+				input()&attributes({
+					'data-placeholder-mode': placeholderMode,
+					'data-mask-mode': maskMode,
+					placeholder: placeholder,
+					readonly: readonly,
+					class: ['input-block__input-item',
+						`${placeholderColorClass}`,
+						`${inputBlockItemCursor}`
+					]
+				})
+				//arrow
+				if arrowType
+					div(class=arrowClass)
 
-		//dropdown
-		if dropdownType == 'counter'
-			.input-block__dropdown
-				each paragraph in dropdownParagraphs
-					.input-block__dropdown-paragraph
-						.input-block__dropdown-paragraph-text=paragraph
-						.input-block__dropdown-buttons
-							.input-block__dropdown-button.input-block__dropdown-button_type_minus -
-							span.input-block__dropdown-button-text 0
-							.input-block__dropdown-button.input-block__dropdown-button_type_plus +	
-				if size == 'big'
-					.input-block__managers-buttons
-						.input-block__button-clear.input-block__button-clear_hided Очистить
-						.input-block__button-apply Применить
+			//dropdown counter
+			if dropdownType == 'counter'
+				.input-block__dropdown-counter
+					each paragraph in dropdownParagraphs
+						.input-block__dropdown-counter-paragraph
+							.input-block__dropdown-counter-paragraph-text=paragraph
+							.input-block__dropdown-counter-buttons
+								span.input-block__dropdown-counter-button.input-block__dropdown-counter-button_type_minus -
+								span.input-block__dropdown-counter-button-text 0
+								span.input-block__dropdown-counter-button.input-block__dropdown-counter-button_type_plus +	
+					if size == 'big'
+						.input-block__managers-buttons
+							.input-block__button-clear.input-block__button-clear_hided Очистить
+							.input-block__button-apply Применить
 
+	if dropdownType == 'calendar'
+		div(class=`input-block ${inputBlockSizeClass}`)
+			.input-block__inputs-wrapper
+				.input-block__input-wrapper
+					//header
+					if textField!=0||condition!=0
+						.input-block__heading
+							label.input-block__text-field=textField
+							if condition 
+								label.input-block__condition=condition
+
+					//input
+					label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+						//input
+						input()&attributes({
+							'data-placeholder-mode': placeholderMode,
+							'data-mask-mode': maskMode,
+							'data-dropdown-type': dropdownType,
+							placeholder: placeholder,
+							readonly: readonly,
+							class: ['input-block__input-item',
+								`${placeholderColorClass}`,
+								`${inputBlockItemCursor}`
+							]
+						})
+						//arrow
+						div(class=arrowClass)
+
+				.input-block__input-wrapper
+					//header
+					if textField!=0||condition!=0
+						.input-block__heading
+							label.input-block__text-field=textField
+							if condition 
+								label.input-block__condition=condition
+
+					//input
+					label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+						//input
+						input()&attributes({
+							'data-placeholder-mode': placeholderMode,
+							'data-mask-mode': maskMode,
+							'data-dropdown-type': dropdownType,
+							placeholder: placeholder,
+							readonly: readonly,
+							class: ['input-block__input-item',
+								`${placeholderColorClass}`,
+								`${inputBlockItemCursor}`
+							]
+						})
+						//arrow
+						div(class=arrowClass)
+			.input-block__dropdown-calendar
+				+ create-calendar()
 //- Call mixin //
 //- placeholder: Enter placeholder
+//- placeHolderMode(default - 'default'): 'default', 'counter'
 //- textField: Enter text field 
 //- condition: Enter condition, false
+//- maskMode: 'default', 'date'
 //- size: big, medium, small,
 //- borderColor(default - dark-25): dark-50
 //- placeholderColor(default - dark-25): dark-75
 //- arrowType(default - false): dropdown, forward
-//- dropdownType = 'counter'
+//- dropdownType: 'default', 'counter', 'calendar'
 //- dropdownParagraphs(default - false): [Enter paragraphs,...]
-//- placeHolderMode(default - 'default'): 'default', 'counter'
