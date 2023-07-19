@@ -78,7 +78,7 @@ mixin create-input-block(params = {})
 					//header
 					if textField!=0||condition!=0
 						.input-block__heading
-							label.input-block__text-field=textField
+							label.input-block__text-field=textField[0]
 							if condition 
 								label.input-block__condition=condition
 
@@ -103,7 +103,7 @@ mixin create-input-block(params = {})
 					//header
 					if textField!=0||condition!=0
 						.input-block__heading
-							label.input-block__text-field=textField
+							label.input-block__text-field=textField[1]
 							if condition 
 								label.input-block__condition=condition
 

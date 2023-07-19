@@ -6,12 +6,12 @@ mixin create-room-search-card()
 			.room-search-card__data-input
 				+ create-input-block({
 					placeholder: 'ДД.ММ.ГГГГ',
-					textField: 'дата рождения',
+					textField: ['Прибытие', 'Выезд'],
 					condition: '',
-					maskMode: 'date',
-					size: 'big',
-					borderColor: 'dark-25',
-					placeholderColor: 'dark-25',
+					arrowType: 'dropdown',
+					dropdownType: 'calendar',
+					borderColor: 'dark-50',
+					placeholderColor: 'dark-75',
 				})
 			.room-search-card__guests-input
 				+ create-input-block({
