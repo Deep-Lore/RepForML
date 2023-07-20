@@ -1,0 +1,63 @@
+mixin create-room-booking-card(params = {})
+
+	//- default values
+	- 
+		const {
+			roomNumber = 888,
+			level = '',
+			price = '9 900',
+			reviewNum = 145,
+			rate__rating = 5,
+		} = params
+
+	.room-booking-card
+		.room-booking-card__discription
+			.room-booking-card__room-number
+				span № 
+				span.room-booking-card__number-numeric=roomNumber
+				if level
+					span.room-booking-card__room-level люкс
+			.room-booking-card__day-price
+				span.room-booking-card__price-numeric=price+'₽ ' 
+				span в сутки
+		.room-booking-card__calendar-input
+			+ create-input-block({
+				placeholder: 'ДД.ММ.ГГГГ',
+				textField: ['Прибытие', 'Выезд'],
+				condition: '',
+				arrowType: 'dropdown',
+				dropdownType: 'calendar',
+				borderColor: 'dark-25',
+				placeholderColor: 'dark-75',
+			})
+		.room-booking-card__guests-input
+			+ create-input-block({
+				placeholder: 'Сколько гостей',
+				textField: 'Гости',
+				condition: '',
+				size: 'big',
+				arrowType: 'dropdown',
+				dropdownType: 'counter',
+				placeholderColor: 'dark-75',
+			})
+		.room-booking-card__price
+			.room-booking-card__room-price
+				span 9 990₽ х 4 суток
+				span 39 960₽
+			.room-booking-card__services-price
+				span Сбор за услуги: скидка 2 179₽
+				span 0₽
+			.room-booking-card__additional-services-price
+				span Сбор за дополнительные<br/>услуги
+				span 300₽
+		.room-booking-card__total-price
+			span Итого
+			span.room-booking-card__bottom-line 
+			span 38 081₽
+		.room-booking-card__booking-button
+			+ create-button-block({
+				size: 'stretchable',
+				text: 'забронировать',
+				textColor: 'white',
+				arrow: true,
+			})

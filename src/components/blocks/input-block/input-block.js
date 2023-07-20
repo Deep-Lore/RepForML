@@ -1,7 +1,8 @@
+import './input-block.less'
+
 //requires and imports
 import IMask from 'imask'
 import calendar from '../calendar/calendar'
-import './input-block.less'
 
 const inputBlocks = document.querySelectorAll('.input-block')
 
@@ -102,13 +103,11 @@ inputBlocks.forEach(inputBlock => {
             inputBlockItems.classList.toggle('input-block__input-items_dropdown-active')
             arrow.classList.toggle('input-block__arrow_type_dropdown-active')
             inputBlockDropdown.classList.toggle('input-block__dropdown-counter_dropdown-active')
-            inputBlockItem.classList.toggle('input-block__input-item_placeholder-color_dark-75')
         }
         function removeDropdown() {
             inputBlockItems.classList.remove('input-block__input-items_dropdown-active')
             arrow.classList.remove('input-block__arrow_type_dropdown-active')
             inputBlockDropdown.classList.remove('input-block__dropdown-counter_dropdown-active')
-            inputBlockItem.classList.remove('input-block__input-item_placeholder-color_dark-75')
         }
         //placeholder
         function createPlaceholder() {

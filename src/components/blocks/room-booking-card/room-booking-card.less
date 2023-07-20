@@ -1,0 +1,85 @@
+@import url(../../../less/styles/_variables.less);
+
+.room-booking-card{
+	max-width: 380px;
+	height: 512px;
+	border: 1px solid @dark-12;
+	border-radius: 4px;
+	background: white;
+	box-shadow: 0px 0px 25px 0px @dark-12;
+	padding: 40px 30px 30px 30px;
+	font-size: 24px;
+  	//discription
+ 	&__discription{
+	    display: flex;
+	    justify-content: space-between;
+	    align-items: flex-end;
+  	}
+  	//room number
+  	&__room-number{
+	    font-weight: 700;
+	    font-size: 14px;
+  	}
+  	&__number-numeric{
+  		font-size: 24px;
+  	}
+  	//room price
+  	&__day-price{
+	    color: @dark-shade-50;
+	    font-size: 12px;
+  	}
+  	&__price-numeric{
+	    font-weight: 700;
+	    font-size: 14px;
+  	}
+  	// calendar
+  	&__calendar-input{
+  		margin-top: 22px;
+  	}
+  	// guests
+  	&__guests-input{
+  		margin-top: 20px;
+  	}
+  	// price
+  	&__price{
+  		margin-top: 20px;
+  		color: @dark-shade-75;
+  		font-size: @font-size_main;
+  		line-height: 24px
+  	}
+  	&__room-price{
+  		display: flex;
+  		justify-content: space-between;
+  	}
+  	&__services-price{
+  		margin-top: 10px;
+  		display: flex;
+  		justify-content: space-between;
+  	}
+  	&__price-explanation{
+  		display: inline-block;
+  	}
+  	&__additional-services-price{
+  		margin-top: 10px;
+  		display: flex;
+  		justify-content: space-between;
+  		line-height: 18px
+  	}
+  	&__total-price{
+  		display: flex;
+  		justify-content: space-between;
+  		margin-top: 36px;
+  		font-weight: 700;
+  		font-size: @font-size_big;
+  		line-height: 14px;
+  	}
+  	&__bottom-line {
+  		width: 50px;
+  		flex-grow: 1;
+  		border-bottom: 1px dashed @dark-shade-25;
+  	}
+  	&__booking-button{
+  		margin-top: 25px;
+  		height: 44px;
+  	}
+}

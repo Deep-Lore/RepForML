@@ -14,15 +14,16 @@ block body-content
 				.form-items__default-input
 					+ create-input-block({
 						placeholder: 'This is pretty awesome',
+						placeholderColor: 'dark-75',
 						textField: 'Text Field',
 						condition: 'Hover / Focus',
 						size: 'big',
 						borderColor: 'dark-50',
-						placeholderColor: 'dark-75',
 					})
 				.form-items__default-input
 					+ create-input-block({
 						placeholder: 'Сколько гостей',
+						placeholderColor: 'dark-75',
 						textField: 'Dropdown',
 						condition: '',
 						size: 'big',
@@ -36,6 +37,7 @@ block body-content
 						condition: '',
 						maskMode: 'date',
 						size: 'big',
+						borderColor: 'dark-25',
 					})
 				.form-items__date-dropdown-input
 					+ create-input-block({
@@ -53,7 +55,7 @@ block body-content
 						size: 'medium',
 						arrowType: 'forward',
 					})
-		+ create-room-search-card()
+		+ create-room-booking-card()
 block footer
 	+ create-footer-block()
 	

@@ -20,7 +20,7 @@ mixin create-input-block(params = {})
 	-
 		const inputBlockSizeClass = size=='' ? '' : `input-block_size_${size}`
 		const inputBlockItemsClass = 'input-block__input-items'
-		const borderColorClass = borderColor!='dark-25' ? `input-block__input-items_border-color_${borderColor}` : ''
+		const borderColorClass = `input-block__input-items_border-color_${borderColor}`
 		const placeholderColorClass = placeholderColor!='dark-25' ? `input-block__input-item_placeholder-color_${placeholderColor}` : ''
 		const inputBlockItemCursor = arrowType == 'dropdown' ? 'input-block__input-item_cursor-type_dropdown' : ''
 		const arrowClass = arrowType ? `input-block__arrow input-block__arrow_type_${arrowType}` : ''
@@ -49,7 +49,7 @@ mixin create-input-block(params = {})
 					readonly: readonly,
 					class: ['input-block__input-item',
 						`${placeholderColorClass}`,
-						`${inputBlockItemCursor}`
+						`${inputBlockItemCursor}`,
 					]
 				})
 				//arrow

@@ -19,6 +19,7 @@ import '../../components/blocks/header/header.js'
 import '../../components/blocks/footer/footer.js'
 import '../../components/blocks/calendar/calendar.js'
 import '../../components/blocks/room-search-card/room-search-card.js'
+import '../../components/blocks/room-booking-card/room-booking-card.js'
 
 //import func block
 
