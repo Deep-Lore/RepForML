@@ -1,7 +1,7 @@
 @import url(../../../less/styles/_variables.less);
 @import url(../../../less/styles/_keyframes.less);
 
-.checkbox-list{
+.checkbox-block{
 	max-width: 266px;
 	user-select: none;
 	//header
@@ -10,6 +10,7 @@
 		justify-content: space-between;
 		align-items: center;
 		font-size: @font-size_small;
+		color: @dark-shade-100;
 		cursor: pointer;
 	}
 	&__header-text{
@@ -29,7 +30,7 @@
 	}
 	//items
 	&__items{
-		margin-top: 18px;
+		margin-top: 17px;
 		animation: fadeInFromNone .25S;
 		&_hided{
 			display: none;
@@ -48,6 +49,7 @@
 	//input text
 	&__input-text{
 		margin-left: 10px;
+		color: @dark-shade-50;
 	}
 	//rich header
 	&__paragraph-header{
@@ -58,7 +60,6 @@
 	}
 	//checkbox text
 	&__main-text{
-		color: @dark-shade-50;
 		&_in-rich{
 			font-size: @font-size_small;
 		}

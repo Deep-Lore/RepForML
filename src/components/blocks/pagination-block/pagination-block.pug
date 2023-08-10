@@ -16,16 +16,19 @@ mixin create-pagination-block(params = {})
 	.pagination-block
 		ul.pagination-block__list
 			each value in pagesValue
-				if value!=pagesValue[pagesValue.length-1]&&value!=pagesValue[pagesValue.length-2]
+				if value!='...'
 					if value == firstVal+selectedPage-1
-						li(class='pagination-block__page-item pagination-block__page-item_clickeble pagination-block__page-item_selected')
-							p.pagination-block__page-num=value
+						li.pagination-block__page-item-wrapper
+							p(class='pagination-block__page-item pagination-block__page-item_clickeble pagination-block__page-item_selected')
+								span.pagination-block__page-num=value
 					else
-						li(class='pagination-block__page-item pagination-block__page-item_clickeble')
-							p.pagination-block__page-num=value
+						li.pagination-block__page-item-wrapper
+							p(class='pagination-block__page-item pagination-block__page-item_clickeble')
+								span.pagination-block__page-num=value
 				else
-					li(class='pagination-block__page-item')
-						p.pagination-block__page-num=value
+					li.pagination-block__page-item-wrapper
+						p(class='pagination-block__page-item')
+							span.pagination-block__page-num=value
 			li(class='pagination-block__arrow')
 		.pagination-block__page-information 1 – 12 из 100+ вариантов аренды
 

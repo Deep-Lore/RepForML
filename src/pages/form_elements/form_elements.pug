@@ -3,59 +3,194 @@ extends ../layouts/_ui-kit_layout
 block body-content
 	form.form-items
 		.form-items__main-items
-			.form-items__inputs
-				.form-items__default-input
-					+ create-input-block({
-						placeholder: 'Email',
-						textField: 'Text Field',
-						condition: 'Default',
+			.form-items__default-input
+				+ create-input-block({
+					placeholder: 'Email',
+					textField: 'Text Field',
+					condition: 'Default',
+					size: 'big',
+				})
+			.form-items__default-input
+				+ create-input-block({
+					placeholder: 'This is pretty awesome',
+					placeholderColor: 'dark-50',
+					textField: 'Text Field',
+					condition: 'Hover / Focus',
+					size: 'big',
+					borderColor: 'dark-50',
+				})
+			.form-items__default-input
+				+ create-input-block({
+					placeholder: 'Сколько гостей',
+					placeholderColor: 'dark-50',
+					placeHolderMode: 'counter',
+					textField: 'Dropdown',
+					condition: '',
+					size: 'big',
+					borderColor: 'dark-50',
+					dropdownType: 'counter',
+					dropdownParagraphs: ['спальни', 'кровати', 'ванные комнаты'],
+					arrowType: 'dropdown',
+				})
+			.form-items__default-input
+				+ create-input-block({
+					placeholder: 'ДД.ММ.ГГГГ',
+					placeholderColor: 'dark-50',
+					textField: 'masked text field',
+					condition: '',
+					maskMode: 'date',
+					size: 'big',
+					borderColor: 'dark-50',
+				})
+			.form-items__date-input
+				+ create-input-block({
+					placeholder: ['ДД.ММ.ГГГГ', '19.08.2019'],
+					textField: ['date Dropdown', 'date Dropdown'],
+					condition: '',
+					size: 'big',
+					arrowType: 'dropdown',
+					dropdownType: 'calendar',
+					borderColor: 'dark-25',
+					placeholderColor: 'dark-75',
+				})
+			.form-items__date-input
+				+ create-input-block({
+					placeholder: '19 авг - 23 авг',
+					textField: 'filter date dropdown',
+					condition: '',
+					size: 'medium',
+					arrowType: 'dropdown',
+					dropdownType: 'calendar',
+					borderColor: 'dark-25',
+					placeholderColor: 'dark-75',
+				})
+			.form-items__date-input
+				+ create-input-block({
+					placeholder: 'Email',
+					textField: 'subscription text field',
+					condition: '',
+					size: 'medium',
+					arrowType: 'forward',
+					borderColor: 'dark-25',
+					placeholderColor: 'dark-75',
+				})
+		.form-items__main-items
+			.form-items__checkbox-input
+				+ create-checkbox-block({
+					header : 'Checkbox Buttons', 
+					checkboxList : [{
+						paragraph: 'Можно курить', 
+						isChecked: false, 
+					},{
+						paragraph: 'Можно с питомцами', 
+						isChecked: true, 
+					},{
+						paragraph: 'Можно пригласить гостей (до 10 человек)', 
+						isChecked: true, 
+					}],
+					isExpandable : false, 
+					isRich : true,
+				})
+			.form-items__checkbox-input
+				+ create-radio-block({
+					header: 'Radio Buttons',
+					name: 'name',
+					radioItems: ['Мужчина', 'Женщина'],
+					checkedElement: 1,
+				})
+			.form-items__checkbox-input
+				+ create-toggle-block({
+					header: 'Toggle',
+					text: 'Получать спецпредложения',
+					isChecked: true
+				})
+				+ create-toggle-block({
+					text: 'Получать спецпредложения',
+				})
+			.form-items__checkbox-input
+				.form-items__header like button
+				.form-items__like-buttons-item
+					+ create-like-block({
+						num: '2',
+					})
+					+ create-like-block({
+						num: '12',
+						isChecked: true
+					})
+			.form-items__checkbox-input
+				.form-items__header rate button
+				.form-items__rate-block-item
+					+ create-rate-block(4)
+					+ create-rate-block(5)
+		.form-items__main-items
+			+ create-range-slider-block({
+				header: 'Range Slider'
+			})
+			.form-items__button-input
+				.form-items__header buttons
+				.form-items__button-input-row
+					+ create-button-block({
+						text: 'CLICK ME',
+					})
+					+ create-button-block({
+						text: 'CLICK ME',
+						disabled: true,
+					})
+				.form-items__button-input-row
+					+ create-button-block({
+						text: 'CLICK ME',
+						size: 'normal',
+						textColor: 'purple',
+						background: 'void',
+						arrow: false,
+					})
+					+ create-button-block({
+						text: 'CLICK ME',
+						size: 'normal',
+						textColor: 'purple',
+						background: 'void',
+						arrow: false,
+						disabled: true,
+					})
+				.form-items__button-input-row
+					+ create-button-block({
+						text: 'CLICK ME',
+						size: 'minimal',
+						textColor: 'purple',
+						background: 'none',
+					})
+					+ create-button-block({
+						text: 'CLICK ME',
+						size: 'minimal',
+						textColor: 'purple',
+						background: 'none',
+						disabled: true,
+					})
+				.form-items__button-input-row_big-button
+					+ create-button-block({
+						text: 'перейти к оплате',
 						size: 'big',
+						background: 'fill',
+						arrow: true,
 					})
-				.form-items__default-input
-					+ create-input-block({
-						placeholder: 'This is pretty awesome',
-						placeholderColor: 'dark-75',
-						textField: 'Text Field',
-						condition: 'Hover / Focus',
-						size: 'big',
-						borderColor: 'dark-50',
+				.form-items__header pagination
+				.form-items__button-input-row_pagination
+					+ create-pagination-block({
+						firstVal: 1,
+						lastVal: 15,
+						selectedPage: 1,
 					})
-				.form-items__default-input
-					+ create-input-block({
-						placeholder: 'Сколько гостей',
-						placeholderColor: 'dark-75',
-						textField: 'Dropdown',
-						condition: '',
-						size: 'big',
-						arrowType: 'dropdown',
-						dropdownType: 'counter',
-					})
-				.form-items__default-input
-					+ create-input-block({
-						placeholder: 'ДД.ММ.ГГГГ',
-						textField: 'masked text field',
-						condition: '',
-						maskMode: 'date',
-						size: 'big',
-						borderColor: 'dark-25',
-					})
-				.form-items__date-dropdown-input
-					+ create-input-block({
-						placeholder: '19 авг - 23 авг',
-						textField: 'filter date dropdown',
-						condition: '',
-						size: 'medium',
-						arrowType: 'dropdown',
-					})
-				.form-items__subscribtion-input
-					+ create-input-block({
-						placeholder: 'Email',
-						textField: 'subscription text field',
-						condition: '',
-						size: 'medium',
-						arrowType: 'forward',
-					})
-		+ create-room-booking-card()
-block footer
-	+ create-footer-block()
-	
+	form.form-items
+		.form-items__main-items
+			+ create-input-block({
+				placeholder: '2 спальни, 2 кровати...',
+				placeHolderMode: 'counter',
+				textField: 'dropdown',
+				condition: 'Default',
+				size: 'medium',
+				borderColor: 'dark-25',
+				placeholderColor: 'dark-75',
+				arrowType: 'dropdown',
+				dropdownType: 'counter',
+				dropdownParagraphs: ['спальни','кровати','ванные комнаты'],
+			})

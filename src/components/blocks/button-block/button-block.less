@@ -11,7 +11,6 @@
 	transition: .2s;
   //button item
 	&__button-item{
-		position: absolute;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -33,12 +32,19 @@
 				}
 			}
 			&_none{
-				background: transparent;;
+				background: transparent;
 			}
+		}
+		// condition
+		&:hover{
+			filter: drop-shadow(0 0 6px @purple);
 		}
 		//Modifier disabled
 		&_disabled{
 			opacity: 0.5;
+			&:hover{
+				filter: none;
+			}
 		}
 	}
 	
@@ -91,11 +97,6 @@
 		}
 	}
 
-	// conditions
-	&:hover{
-		filter: drop-shadow(0 0 6px @purple);
-	}
-
 	//Modifiers button-block
 	&_size{
 		&_normal{
@@ -106,6 +107,15 @@
 		}
 		&_stretchable{
 			width: 100%;
+		}
+		&_minimal{
+			height: max-content;
+			&>.button-block__button-item{
+				height: auto;
+			}
+			& .button-block__button-text{
+				position: relative;
+			}
 		}
 	}
 

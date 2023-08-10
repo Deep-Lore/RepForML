@@ -37,7 +37,6 @@ module.exports = {
 	entry: {
 		colors_and_types: './src/pages/colors_and_types/colors_and_types.js',
 		form_elements: './src/pages/form_elements/form_elements.js',
-		cards: './src/pages/cards/cards.js',
 	},
 	output: {
 		filename: './pages/[name]/[name].js',

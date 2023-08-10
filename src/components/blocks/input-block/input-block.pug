@@ -73,56 +73,83 @@ mixin create-input-block(params = {})
 
 	if dropdownType == 'calendar'
 		div(class=`input-block ${inputBlockSizeClass}`)
-			.input-block__inputs-wrapper
-				.input-block__input-wrapper
-					//header
-					if textField!=0||condition!=0
-						.input-block__heading
-							label.input-block__text-field=textField[0]
-							if condition 
-								label.input-block__condition=condition
+			if size == 'big'
+				.input-block__inputs-wrapper
+					.input-block__input-wrapper
+						//header
+						if textField!=0||condition!=0
+							.input-block__heading
+								label.input-block__text-field=textField[0]
+								if condition 
+									label.input-block__condition=condition
 
-					//input
-					label(class=`${inputBlockItemsClass} ${borderColorClass}`)
 						//input
-						input()&attributes({
-							'data-placeholder-mode': placeholderMode,
-							'data-mask-mode': maskMode,
-							'data-dropdown-type': dropdownType,
-							placeholder: placeholder,
-							readonly: readonly,
-							class: ['input-block__input-item',
-								`${placeholderColorClass}`,
-								`${inputBlockItemCursor}`
-							]
-						})
-						//arrow
-						div(class=arrowClass)
+						label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+							//input
+							input()&attributes({
+								'data-placeholder-mode': placeholderMode,
+								'data-mask-mode': maskMode,
+								'data-dropdown-type': dropdownType,
+								placeholder: placeholder[0],
+								readonly: readonly,
+								class: ['input-block__input-item',
+									`${placeholderColorClass}`,
+									`${inputBlockItemCursor}`
+								]
+							})
+							//arrow
+							div(class=arrowClass)
 
-				.input-block__input-wrapper
-					//header
-					if textField!=0||condition!=0
-						.input-block__heading
-							label.input-block__text-field=textField[1]
-							if condition 
-								label.input-block__condition=condition
+					.input-block__input-wrapper
+						//header
+						if textField!=0||condition!=0
+							.input-block__heading
+								label.input-block__text-field=textField[1]
+								if condition 
+									label.input-block__condition=condition
 
-					//input
-					label(class=`${inputBlockItemsClass} ${borderColorClass}`)
 						//input
-						input()&attributes({
-							'data-placeholder-mode': placeholderMode,
-							'data-mask-mode': maskMode,
-							'data-dropdown-type': dropdownType,
-							placeholder: placeholder,
-							readonly: readonly,
-							class: ['input-block__input-item',
-								`${placeholderColorClass}`,
-								`${inputBlockItemCursor}`
-							]
-						})
-						//arrow
-						div(class=arrowClass)
+						label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+							//input
+							input()&attributes({
+								'data-placeholder-mode': placeholderMode,
+								'data-mask-mode': maskMode,
+								'data-dropdown-type': dropdownType,
+								placeholder: placeholder[1],
+								readonly: readonly,
+								class: ['input-block__input-item',
+									`${placeholderColorClass}`,
+									`${inputBlockItemCursor}`
+								]
+							})
+							//arrow
+							div(class=arrowClass)
+			if size == 'medium'
+				//header
+				if textField!=0||condition!=0
+					.input-block__heading
+						label.input-block__text-field=textField
+						if condition 
+							label.input-block__condition=condition
+
+				//input
+				label(class=`${inputBlockItemsClass} ${borderColorClass}`)
+					//input
+					input()&attributes({
+						'data-placeholder-mode': placeholderMode,
+						'data-mask-mode': maskMode,
+						'data-dropdown-type': dropdownType,
+						placeholder: placeholder,
+						readonly: readonly,
+						class: ['input-block__input-item',
+							`${placeholderColorClass}`,
+							`${inputBlockItemCursor}`
+						]
+					})
+					//arrow
+					div(class=arrowClass)
+				
+
 			.input-block__dropdown-calendar
 				+ create-calendar()
 //- Call mixin //

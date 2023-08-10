@@ -3,29 +3,32 @@ mixin create-radio-block(params={})
 	//-default values
 	-	
 		const {
+			header = 'Radio Buttons',
 			name = 'name',
 			radioItems = ['Мужчина', 'Женщина'],
 			checkedElement = 1,
 		} = params
 
 	//-block
-	ul.radio-block-list
-		each radioItem, index in radioItems
+	
+	.radio-block
+		//header
+		.radio-block__header=header
+		ul.radio-block__items
+			each radioItem, index in radioItems
 
-			//- values
-			-	
-				const isChecked = index==checkedElement-1
+				//- values
+				-	
+					const isChecked = index==checkedElement-1
 
-			//block
-			label.radio-block-list__radio-block
-				input.radio-block-list__fake-input&attributes({
-					name: name,
-					type: "radio",
-					checked: isChecked,
-				})
-				span.radio-block-list__text=radioItem
-			
-
+				//block
+				label.radio-block__item
+					input.radio-block__fake-input&attributes({
+						name: name,
+						type: "radio",
+						checked: isChecked,
+					})
+					span.radio-block__text=radioItem
 
 //- Call mixin //
 //- name: Enter name param for input,

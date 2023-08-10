@@ -1,18 +1,39 @@
 @import url(../../../less/styles/_variables.less);
 
 .range-slider-block{
-	position: relative;
-	display: flex;
-	align-items: center;
 	max-width: 266px;
-	height: 14px;
-	&::before{
-		position: absolute;
-		border: 1px solid @dark-shade-25;
-		border-radius: 100px;
+	&__header{
+		display: flex;
+		justify-content: space-between;
+		font-size: @font-size_small;
+	}
+	&__header-text{
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+	&__value-text{
+		color: @dark-shade-50;
+		user-select: none;
+		display: flex;
+	}
+	&__value-text-min, &__value-text-max{
+		user-select: none;
+	}
+	&__slider{
+		margin-top: 20px;
+		position: relative;
+		display: flex;
+		align-items: center;
 		width: 100%;
-		height: 6px;
-		content: '';
+		height: 14px;
+		&::before{
+			position: absolute;
+			border: 1px solid @dark-shade-25;
+			border-radius: 100px;
+			width: 100%;
+			height: 6px;
+			content: '';
+		}
 	}
 	&__item{
 		appearance: none;
@@ -22,12 +43,15 @@
 	}
 	&__thumb{
 		position: absolute;
-		width: 14px;
-		height: 14px;
+		width: 16px;
+		height: 16px;
 		background: @green-gradient-100;
 		border: 2px solid white;
 		border-radius: 100%;
 		cursor: pointer;
+		&:hover{
+			filter: drop-shadow(0 0 6px @green);
+		}
 	}
 	&__thumb-left{
 	}
@@ -38,15 +62,5 @@
 		height: 6px;
 		width: auto;
 		background: @green-gradient-100
-	}
-	&__value-text{
-		user-select: none;
-		display: flex;
-	}
-	&__value-text-min{
-		user-select: none;
-	}
-	&__value-text-max{
-		user-select: none;
 	}
 }

@@ -1,12 +1,20 @@
 @import url(../../../less/styles/_variables.less);
 
-.radio-block-list{
-	position: relative;
-	display: flex;
-	max-width: 320px;
-	vertical-align: middle;
+.radio-block{
+	&__header{
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: @font-size_small;
+	}
+	&__items{
+		position: relative;
+		display: flex;
+		max-width: 320px;
+		margin-top: 16px;
+		vertical-align: middle;
+	}
 	//checkbox items
-	&__radio-block{
+	&__item{
 		position: relative;
 		margin-right: 20px;
 		height: 20px;

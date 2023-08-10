@@ -2,9 +2,12 @@ import './input-block.less'
 
 //requires and imports
 import IMask from 'imask'
-import calendar from '../calendar/calendar'
+import {initCalendar, getValue} from '../calendar/calendar.js';
 
 const inputBlocks = document.querySelectorAll('.input-block')
+
+const months=['Январь','Февраль','Март','Апрель','Май','Июнь',
+            'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь']
 
 // for dropdown //
 const maxInputLength =  15
@@ -170,67 +173,108 @@ inputBlocks.forEach(inputBlock => {
     }
 })
 
-// for dropdonw calendar
+// for dropdown calendar
 inputBlocks.forEach(inputBlock => {
     if (inputBlock.contains(inputBlock.querySelector('.input-block__dropdown-calendar'))) {
+        
         let inputBlockItems = inputBlock.querySelectorAll('.input-block__input-items')
-        let inputBlockItem = inputBlock.querySelectorAll('.input-block__input-item')
-        let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown-calendar')
-        //arrow & placeholder
-        let arrow = []
-        let placeHolderDefaultText = 'ДД.ММ.ГГГГ'
-        for(let i = 0; i < inputBlockItems.length; i++){
-            arrow[i] = inputBlockItems[i].querySelector('.input-block__arrow')
-        }
-
-        // toggle dropdown
-        for(let i = 0; i < inputBlockItems.length; i++){
-            inputBlockItems[i].addEventListener('click', toggleDropdown)
-        }
-
-        // close dropdown
-        document.addEventListener('click', (e) => {
-            if (!(e.composedPath().includes(inputBlockItems[0]) || e.composedPath().includes(inputBlockItems[1]) || e.composedPath().includes(inputBlockDropdown) )) {
-                removeDropdown()
+        // for double input in input-dropdown
+        if (inputBlockItems.length == 2){   
+            let inputBlockItem = inputBlock.querySelectorAll('.input-block__input-item')
+            let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown-calendar')
+            let inputCalendar = inputBlockDropdown.querySelector('.calendar')
+            initCalendar(inputCalendar)
+            //arrow & placeholder
+            let arrow = []
+            let placeHolderDefaultText = 'ДД.ММ.ГГГГ'
+            for(let i = 0; i < inputBlockItems.length; i++){
+                arrow[i] = inputBlockItems[i].querySelector('.input-block__arrow')
             }
-        })
 
-        // set placeholder date
-        inputBlockDropdown.addEventListener('click', () => {
-            let calendarData = calendar()
-            inputBlockItem[0].placeholder = createDateForCalendarDropdown(calendarData.firstSelectElem,calendarData.firstSelectElemMonth,calendarData.firstSelectElemYear)
-            inputBlockItem[1].placeholder = createDateForCalendarDropdown(calendarData.lastSelectElem,calendarData.lastSelectElemMonth,calendarData.lastSelectElemYear)
-            // swap date placeholder
-            if(calendarData.firstSelectElemYear >= calendarData.lastSelectElemYear && calendarData.lastSelectElemYear != 0){
-                if (calendarData.firstSelectElemMonth >= calendarData.lastSelectElemMonth) {
-                    if(calendarData.firstSelectElem >= calendarData.firstSelectElem){
-                        let tmp = inputBlockItem[0].placeholder
-                        inputBlockItem[0].placeholder = inputBlockItem[1].placeholder
-                        inputBlockItem[1].placeholder = tmp
-                    }
+            // toggle dropdown
+            for(let i = 0; i < inputBlockItems.length; i++){
+                inputBlockItems[i].addEventListener('click', toggleDropdown)
+            }
+
+            // close dropdown
+            document.addEventListener('click', (e) => {
+                if (!(e.composedPath().includes(inputBlockItems[0]) || e.composedPath().includes(inputBlockItems[1]) || e.composedPath().includes(inputBlockDropdown) )) {
+                    removeDropdown()
                 }
-            }
-        })
+            })
 
-        // functions //
-        function toggleDropdown() {
-            inputBlockDropdown.classList.toggle('input-block__dropdown-calendar_dropdown-active')
-            arrow.forEach(arrowElement => {
-                arrowElement.classList.toggle('input-block__arrow_type_dropdown-active')
+            // set placeholder date
+            inputBlockDropdown.addEventListener('click', () => {
+                let calendarData = getValue()
+                console.log(getValue())
+                inputBlockItem[0].placeholder = createDateForCalendarDropdown(calendarData.firstSelectElem,calendarData.firstSelectElemMonth,calendarData.firstSelectElemYear)
+                inputBlockItem[1].placeholder = createDateForCalendarDropdown(calendarData.lastSelectElem,calendarData.lastSelectElemMonth,calendarData.lastSelectElemYear)
+                if(calendarData.firstSelectElem > calendarData.lastSelectElem && calendarData.firstSelectElemMonth >= calendarData.lastSelectElemMonth && 
+                   calendarData.firstSelectElemYear >= calendarData.lastSelectElemYear && calendarData.lastSelectElem != ''){
+
+                    let tmp = inputBlockItem[0].placeholder
+                    inputBlockItem[0].placeholder = inputBlockItem[1].placeholder
+                    inputBlockItem[1].placeholder = tmp
+                }
             })
+
+            // functions //
+            function toggleDropdown() {
+                inputBlockDropdown.classList.toggle('input-block__dropdown-calendar_dropdown-active')
+                arrow.forEach(arrowElement => {
+                    arrowElement.classList.toggle('input-block__arrow_type_dropdown-active')
+                })
+            }
+            function removeDropdown() {
+                inputBlockDropdown.classList.remove('input-block__dropdown-calendar_dropdown-active')
+                arrow.forEach(arrowElement => {
+                    arrowElement.classList.remove('input-block__arrow_type_dropdown-active')
+                })
+            }
+            function createDateForCalendarDropdown(day,month,year){
+                day = day < 10 ? '0' + day : day
+                month = day < 10 ? '0' + month : month
+                if (day==0) return 'ДД.ММ.ГГГГ'
+                return `${day}.${month}.${year}`
+            }
         }
-        function removeDropdown() {
-            inputBlockDropdown.classList.remove('input-block__dropdown-calendar_dropdown-active')
-            arrow.forEach(arrowElement => {
-                arrowElement.classList.remove('input-block__arrow_type_dropdown-active')
-            })
-        }
-        function createDateForCalendarDropdown(day,month,year){
-            day = day < 10 ? '0' + day : day
-            month = day < 10 ? '0' + month : month
-            if (day==0) return 'ДД.ММ.ГГГГ'
-            return `${day}.${month}.${year}`
-        }
+
+        // for single input in input-dropdown
+        // if (inputBlockItems.length == 1){
+        //     let inputBlockItem = inputBlock.querySelector('.input-block__input-item')
+        //     let inputBlockDropdown = inputBlock.querySelector('.input-block__dropdown-calendar')
+        //     let inputCalendar = inputBlockDropdown.querySelector('.calendar')
+        //     initCalendar(inputCalendar)
+        //     //arrow & placeholder
+        //     let placeHolderDefaultText = 'ДД.ММ.ГГГГ'
+        //     let arrow = inputBlockItems[0].querySelector('.input-block__arrow')
+
+        //     // toggle dropdown
+        //     inputBlockItems[0].addEventListener('click', toggleDropdown)
+
+        //     // close dropdown
+        //     document.addEventListener('click', (e) => {
+        //         if (!(e.composedPath().includes(inputBlockItems[0]))) {
+        //             removeDropdown()
+        //         }
+        //     })
+
+        //     // functions //
+        //     function toggleDropdown() {
+        //         inputBlockDropdown.classList.toggle('input-block__dropdown-calendar_dropdown-active')
+        //         arrow.classList.toggle('input-block__arrow_type_dropdown-active')
+        //     }
+        //     function removeDropdown() {
+        //         inputBlockDropdown.classList.remove('input-block__dropdown-calendar_dropdown-active')
+        //         arrow.classList.remove('input-block__arrow_type_dropdown-active')
+        //     }
+        //     function createDateForCalendarDropdown(day,month,year){
+        //         day = day < 10 ? '0' + day : day
+        //         month = day < 10 ? '0' + month : month
+        //         if (day==0) return 'ДД.ММ.ГГГГ'
+        //         return `${day}.${month}.${year}`
+        //     }
+        // }
     }
 })
 

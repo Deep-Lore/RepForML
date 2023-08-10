@@ -16,32 +16,31 @@ mixin create-button-block(params = {})
 		//- button styles
 		const mainButtonClass = 'button-block'
 		const buttonSizeClass = `${mainButtonClass}_size_${size}`
-
 		const buttonTextColorClass = `${mainButtonClass}__button-text_color_${textColor}`
 
 		const buttonItemBackgroundClass = background!='default' ? `${mainButtonClass}__button-item_background_${background}` : ''
 		const buttonItemDisabledClass = disabled ? `${mainButtonClass}__button-item_disabled` : ''
-
+		
 	//- block
 	if	background!='none'
 		div(class=`${mainButtonClass} ${buttonSizeClass}`)
 			div(class=`button-block__button-item ${buttonItemBackgroundClass} ${buttonItemDisabledClass}`)
-			span(class=`button-block__button-text ${buttonTextColorClass}`)=text
+				span(class=`button-block__button-text ${buttonTextColorClass}`)=text
 			if arrow&&background!='void'
 				.button-block__arrow
 	else 
 		div(class=`${mainButtonClass} ${buttonSizeClass}`)
 			div(class=`button-block__button-item ${buttonItemBackgroundClass} ${buttonItemDisabledClass}`)
-			if disabled
-				span(class=`button-block__button-text`)=text
-			else
-				span(class=`button-block__button-text ${buttonTextColorClass}`)=text
+				if disabled
+					span(class=`button-block__button-text`)=text
+				else
+					span(class=`button-block__button-text ${buttonTextColorClass}`)=text
 
 //- Call mixin //
 //- size(default - normal): normal, big, stretchable
 //- text: Enter text
 //- textColor(default - white): white, purple
-//- background(default - fill): fill, void
+//- background(default - fill): fill, void, none
 //- disabled(default - false): false, true
 //- arrow(default - false): false, true
 

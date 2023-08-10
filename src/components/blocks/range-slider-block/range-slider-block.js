@@ -12,6 +12,7 @@ function rangeSlider(params = {}) {
 		maxRangeValue = 20000, 
 		thumbLeftValue = 10000, 
 		thumbRightValue = 15000, 
+		discharge = 10,
 		unit = '₽'
 	} = params
 
@@ -21,7 +22,7 @@ function rangeSlider(params = {}) {
 	var thumbEl = document.querySelector('.range-slider-block__thumb')
 	var thumbLeftEl = document.querySelector('.range-slider-block__thumb-left')
 	var thumbRightEl = document.querySelector('.range-slider-block__thumb-right')
-	var valueTex = document.querySelector('.range-slider-block__value-text')
+	var valueText = document.querySelector('.range-slider-block__value-text')
 	var valueTextMin = thumbLeftValue
 	var valueTextMax = thumbRightValue
 
@@ -36,7 +37,7 @@ function rangeSlider(params = {}) {
 	thumbLine.style.left = thumbLeftEl.style.left
 	thumbLine.style.right = thumbRightEl.style.right
 
-	valueTex.innerHTML = `${valueTextMin} - ${valueTextMax}`
+	valueText.innerHTML = `${valueTextMin}${unit} - ${valueTextMax}${unit}`
 
 		//functions//
 
@@ -59,11 +60,11 @@ function rangeSlider(params = {}) {
 	}
 
 	function dellScroll(){
-		document.querySelector('body').style.overflow = 'hidden'
+		document.querySelector('body').style.overflowY = 'hidden'
 	}
 
 	function addScroll(){
-		document.querySelector('body').style.overflow = 'scroll'
+		document.querySelector('body').style.overflowY = 'scroll'
 	}
 
 	function extIntFromSrt(x) {
@@ -74,9 +75,16 @@ function rangeSlider(params = {}) {
 		}
 	}
 
-		//events//
+	function getScrollbarWidth() {
+		var documentWidth = parseInt(document.documentElement.clientWidth);
+		var windowsWidth = parseInt(window.innerWidth);
+		var scrollbarWidth = windowsWidth - documentWidth;
+		return Math.abs(parseInt(document.documentElement.clientWidth) - parseInt(window.innerWidth));
+	}
 
+		//events//
 	//desktop
+	block.addEventListener("mousedown", (e) => e.preventDefault ())
 	//left thumb
 	thumbLeftEl.addEventListener('mousedown', (e) => {
 		var thumbRightElPosRight = extIntFromSrt(thumbRightEl.style.right)
@@ -91,8 +99,8 @@ function rangeSlider(params = {}) {
 				//line
 				thumbLine.style.left = thumbLeftPos(e) + 'px'
 				//value
-				valueTextMin = Math.round(minRangeValue+thumbLeftPos(e)/(blockWidth)*rangeValues)+unit
-				valueTex.innerHTML = `${valueTextMin} - ${valueTextMax}`
+				valueTextMin = Math.round( (minRangeValue+thumbLeftPos(e)/blockWidth*rangeValues) / discharge) * discharge + unit
+				valueText.innerHTML = `${valueTextMin} - ${valueTextMax}`
 			}
 		}
 		document.onmouseup = () => {
@@ -115,8 +123,8 @@ function rangeSlider(params = {}) {
 				//line
 				thumbLine.style.right = thumbRightPos(e) + 'px'
 				//value
-				valueTextMax = Math.round(minRangeValue+(blockWidth-thumbRightPos(e))/(blockWidth)*rangeValues)+unit
-				valueTex.innerHTML = `${valueTextMin} - ${valueTextMax}`
+				valueTextMax = Math.round((minRangeValue+(blockWidth-thumbRightPos(e))/blockWidth*rangeValues) / discharge) * discharge +unit
+				valueText.innerHTML = `${valueTextMin} - ${valueTextMax}`
 			}
 		}
 		document.onmouseup = () => {

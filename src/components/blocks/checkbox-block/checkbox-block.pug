@@ -1,50 +1,46 @@
-mixin create-checkbox-list(params={})
-	
+mixin create-checkbox-block(params={})
+
 	//- default values
 	-	
 		const {
-			header: 'Enter header', 
-			expandable: false, 
-			checkboxList: 'Ширина коридоров в номере не менее 91 см.',
-			isChecked: true,
+			header = 'Enter header', 
+			checkboxList = [{paragraph: 'aba', isChecked: false, richText: 'rich'}],
+			isExpandable = false, 
+			isRich = true,
 		} = params
 
 	//- classes
 	-
-		const checkboxListIsExpandableClass = params.expandable == true ? 'checkbox-list_expandable' : ''
+		const checkboxListIsExpandableClass = isExpandable == true ? 'checkbox-list_expandable' : ''
 
 	//- block
-	div(class = `checkbox-list ${checkboxListIsExpandableClass}`)
+	div(class = `checkbox-block ${checkboxListIsExpandableClass}`)
 		//header and arrow
-		.checkbox-list__header
-			h4.checkbox-list__header-text=params.header
-			if params.expandable == true
-				.checkbox-list__expandable-arrow
+		.checkbox-block__header
+			h4.checkbox-block__header-text=header
+			if isExpandable == true
+				.checkbox-block__expandable-arrow
 
 		//paragraphs block
-		.checkbox-list__items
-			each paramsForParagraph in params.checkboxListParams
+		.checkbox-block__items
+			each checkboxListParagraph in checkboxList
 				//- default values
-				-	
-					const {
-						paragraph = 'Enter text',
-						isChecked = false,
-						richText = ''
-					} = paramsForParagraph
-
-				//- classes
 				-
-					const mainTextInRich = richText != '' ? 'checkbox-list__main-text_in-rich' : ''
+					const {
+						paragraph = 'aba', 
+						isChecked = false, 
+						richText = '',
+					} = checkboxListParagraph
 
 				//- block
-				label.checkbox-list__item
-					input.checkbox-list__fake-input&attributes({
+				label.checkbox-block__item
+					input.checkbox-block__fake-input&attributes({
 						type: "checkbox",
 						checked: isChecked,
 					})
-					.checkbox-list__input-text
+					.checkbox-block__input-text
 						if richText != ''
-							.checkbox-list__paragraph-header=richText
+							.checkbox-block__paragraph-header=richText
 						div(class = `checkbox-list__main-text ${mainTextInRich}`)=paragraph
 
 //- Call mixin //

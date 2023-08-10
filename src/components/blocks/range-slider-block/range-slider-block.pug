@@ -1,17 +1,24 @@
-mixin create-range-slider-block()
+mixin create-range-slider-block(params={})
 	
 	//- default values
-	
+	-
+		const {
+			header = 'Range Slider'
+		} = params
 
 	//- block
-	label.range-slider-block
-		input(class='range-slider-block__item' type='range' min='0' max='100' value='50')
-		.range-slider-block__thumb-line
-		.range-slider-block__thumb.range-slider-block__thumb-left
-		.range-slider-block__thumb.range-slider-block__thumb-right
-	.range-slider-block__value-text
-		.range-slider-block__value-text-min
-		span=' - '
-		.range-slider-block__value-text-max
+	.range-slider-block
+		.range-slider-block__header
+			.range-slider-block__header-text=header
+			.range-slider-block__value-text
+				.range-slider-block__value-text-min 
+				span=' - '
+				.range-slider-block__value-text-max
+		label.range-slider-block__slider
+			input(class='range-slider-block__item' type='range' min='0' max='100' value='50')
+			.range-slider-block__thumb-line
+			.range-slider-block__thumb.range-slider-block__thumb-left
+			.range-slider-block__thumb.range-slider-block__thumb-right
+	
 	
 //- Call mixin

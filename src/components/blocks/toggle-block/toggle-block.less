@@ -1,12 +1,19 @@
 @import url(../../../less/styles/_variables.less);
 
 .toggle-block{
-	position: relative;
-	display: inline-block;
-	max-width: 320px;
-	height: 20px;
-	cursor: pointer;
-	//toggle text
+	&__items{
+		margin-top: 15px;
+		position: relative;
+		display: inline-block;
+		max-width: 320px;
+		height: 20px;
+		cursor: pointer;
+	}
+	&__header{
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
 	&__text{
 		color: @dark-shade-75;
 	}
